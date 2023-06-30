@@ -1,9 +1,9 @@
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
 
 import UiButton from "../../UI/UiButton/UiButton";
+import UiInput from "../../UI/UiInput/UiInput";
 
 import styles from "./FormLogin.module.scss";
-import UiInput from "../../UI/UiInput/UiInput";
 
 interface FormValues {
   email: string;
@@ -15,17 +15,12 @@ interface OtherProps {
 }
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const {  isSubmitting, message } = props;
+  const { isSubmitting, message } = props;
 
   return (
     <Form className={styles.form}>
       <h1 className={styles.form__title}>{message}</h1>
-      <Field 
-        component={UiInput} 
-        type="email" 
-        name="email" 
-        title="Логин" 
-      />
+      <Field component={UiInput} type="email" name="email" title="Логин" />
       <Field
         component={UiInput}
         type="password"
@@ -38,14 +33,13 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 };
 
 interface MyFormProps {
-  initialEmail?: string;
   message: string;
 }
 
 const MyForm = withFormik<MyFormProps, FormValues>({
   mapPropsToValues: (props) => {
     return {
-      email: props.initialEmail || "",
+      email: "",
       password: "",
     };
   },
