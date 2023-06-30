@@ -1,9 +1,13 @@
-import React from 'react'
+import { FC } from "react";
 
-const Main = () => {
+import styles from "./Main.module.scss";
+
+const Main: FC = () => {
   return (
-    <div>Main</div>
-  )
-}
+    <div className={styles.wrapper}>
+      
+    </div>
+  );
+};
 
-export default Main
+export default Main;
