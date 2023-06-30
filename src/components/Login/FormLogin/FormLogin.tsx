@@ -1,9 +1,9 @@
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
-import cn from "classnames";
 
 import UiButton from "../../UI/UiButton/UiButton";
 
 import styles from "./FormLogin.module.scss";
+import UiInput from "../../UI/UiInput/UiInput";
 
 interface FormValues {
   email: string;
@@ -15,59 +15,23 @@ interface OtherProps {
 }
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const { touched, errors, isSubmitting, message } = props;
+  const {  isSubmitting, message } = props;
 
   return (
     <Form className={styles.form}>
       <h1 className={styles.form__title}>{message}</h1>
-      <div className={styles.form__container}>
-        <label
-          className={cn(
-            styles.form__label,
-            touched.email && errors.email && styles.form__errors
-          )}
-          htmlFor="email"
-        >
-          Логин
-        </label>
-        <Field
-          id="email"
-          type="email"
-          name="email"
-          className={cn(
-            styles.form__input,
-            touched.email && errors.email && styles.form__errors
-          )}
-        />
-        {touched.email && errors.email && (
-          <div className={styles.form__error}>{errors.email}</div>
-        )}
-      </div>
-
-      <div className={styles.form__container}>
-        <label
-          className={cn(
-            styles.form__label,
-            touched.password && errors.password && styles.form__errors
-          )}
-          htmlFor="password"
-        >
-          Пароль
-        </label>
-        <Field
-          id="password"
-          type="password"
-          name="password"
-          className={cn(
-            styles.form__input,
-            touched.password && errors.password && styles.form__errors
-          )}
-        />
-        {touched.password && errors.password && (
-          <div className={styles.form__error}>{errors.password}</div>
-        )}
-      </div>
-
+      <Field 
+        component={UiInput} 
+        type="email" 
+        name="email" 
+        title="Логин" 
+      />
+      <Field
+        component={UiInput}
+        type="password"
+        name="password"
+        title="Пороль"
+      />
       <UiButton type="submit" disabled={isSubmitting} />
     </Form>
   );
