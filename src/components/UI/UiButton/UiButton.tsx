@@ -1,14 +1,15 @@
 import { FC } from "react";
 
-import styles from './UiButton.module.scss';
+import styles from "./UiButton.module.scss";
 
 interface Props {
-  props : any;
+  type: any;
+  disabled: any;
 }
 
-const UiButton: FC<Props> = (props) => {
+const UiButton: FC<Props> = ({ type,disabled }) => {
   return (
-    <button className={styles.button}>
+    <button type={type} disabled={disabled} className={styles.button}>
       Войти
     </button>
   );

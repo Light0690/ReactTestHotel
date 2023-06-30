@@ -7,10 +7,9 @@ import styles from "./Login.module.scss";
 const Login: FC = () => {
   return (
     <div className={styles.wrapper}>
+      <div className={styles.blur}>
         <FormLogin />
-      {/* <div className={styles.blur}>
-        <Form />
-      </div> */}
+      </div>
     </div>
   );
 };

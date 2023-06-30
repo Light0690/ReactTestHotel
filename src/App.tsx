@@ -1,16 +1,21 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { FC } from "react";
 
-import UiButton from "./components/UI/UiButton/UiButton";
-import UiHeart from "./components/UI/UiHeart/UiHeart";
+import Login from "./pages/Login/Login";
+import Main from "./pages/Main/Main";
 
 import "./App.scss";
 
-function App() {
+
+const App: FC = () => {
   return (
-  <div className="App">
-    <UiButton props />
-    <UiHeart/>
-  </div>);
-}
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/main" element={<Main/>} />
+      </Routes>
+    </div>
+  );
+};
 
 export default App;
