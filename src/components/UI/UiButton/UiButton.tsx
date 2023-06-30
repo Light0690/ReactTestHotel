@@ -3,14 +3,15 @@ import { FC } from "react";
 import styles from "./UiButton.module.scss";
 
 interface Props {
-  type: 'button' | 'submit' | undefined;
-  disabled: boolean;
+  type     : 'submit';
+  disabled : boolean;
+  title    : string;
 }
 
-const UiButton: FC<Props> = ({ type,disabled }) => {
+const UiButton: FC<Props> = ({ type,disabled,title }) => {
   return (
     <button type={type} disabled={disabled} className={styles.button}>
-      Войти
+      {title}
     </button>
   );
 };

@@ -27,7 +27,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         name="password"
         title="Пороль"
       />
-      <UiButton type="submit" disabled={isSubmitting} />
+      <UiButton type="submit" disabled={isSubmitting} title={'Войти'}/>
     </Form>
   );
 };

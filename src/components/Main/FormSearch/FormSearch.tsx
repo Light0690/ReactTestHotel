@@ -24,7 +24,7 @@ const InnerForm = (props: FormikProps<FormValues>) => {
         title="Дата заселения"
       />
       <Field component={UiInput} name="countDays" title="Колличество дней" />
-      <UiButton type="submit" disabled={isSubmitting} />
+      <UiButton type="submit" disabled={isSubmitting} title={'Найти'}/>
     </Form>
   );
 };
@@ -47,9 +47,9 @@ const MyForm = withFormik<MyFormProps, FormValues>({
   validate: (values: FormValues) => {
     let errors: FormikErrors<FormValues> = {};
 
-    if(!values.location) errors.location = '*Поле обязательно'
-    if(!values.Date) errors.Date = '*Поле обязательно'
-    if(!values.countDays) errors.countDays = '*Поле обязательно'
+    if (!values.location) errors.location = "*Поле обязательно";
+    if (!values.Date) errors.Date = "*Поле обязательно";
+    if (!values.countDays) errors.countDays = "*Поле обязательно";
 
     return errors;
   },
@@ -62,7 +62,7 @@ const MyForm = withFormik<MyFormProps, FormValues>({
 const FormSearch = () => {
   return (
     <div>
-      <MyForm  />
+      <MyForm />
     </div>
   );
 };
