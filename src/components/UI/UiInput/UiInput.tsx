@@ -4,7 +4,7 @@ import cn from "classnames";
 import styles from "./UiInput.module.scss";
 
 type Field = {
-  name: string ;
+  name: string;
 };
 
 type Form = {
@@ -13,7 +13,7 @@ type Form = {
 };
 
 interface InputProps {
-  field: Field ;
+  field: Field;
   form: Form;
   title: string;
 }
@@ -24,9 +24,6 @@ const UiInput: FC<InputProps> = ({
   title,
   ...props
 }) => {
-
-  console.log('ошибка -',errors)
-  console.log(touched)
   return (
     <div className={styles.container}>
       <label
@@ -44,7 +41,6 @@ const UiInput: FC<InputProps> = ({
         {...field}
         {...props}
       />
-
       {touched[field.name] && errors[field.name] && (
         <div className={styles.container__error}>{errors[field.name]}</div>
       )}
