@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  width: 345px;
+  width: 360px;
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
@@ -14,10 +14,9 @@
   }
 
   &__input {
-    display: flex;
     height: 50px;
     padding: 15px;
-    align-items: flex-start;
+    // align-items: flex-start;
     gap: 10px;
     align-self: stretch;
     border-radius: 4px;
