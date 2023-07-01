@@ -11,6 +11,7 @@ const SignupSchema = Yup.object().shape({
     .email("*некорректный email")
     .required("*поле обязательно"),
   password: Yup.string()
+    .matches(/^[^А-яёЁ]+$/, "*поле не может содержать кириллицу")
     .min(8, "*слишком короткий пороль")
     .required("*поле обязательно"),
 });
@@ -27,7 +28,7 @@ export const FormLogin = () => (
         console.log(values);
       }}
     >
-      {({ errors, touched, isSubmitting }) => (
+      {({ isSubmitting }) => (
         <Form className={styles.form}>
           <h1 className={styles.form__title}>Signup</h1>
           <Field component={UiInput} type="email" name="email" title="Логин" />
