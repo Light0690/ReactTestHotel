@@ -30,7 +30,7 @@ export const FormLogin = () => (
     >
       {({ isSubmitting }) => (
         <Form className={styles.form}>
-          <h1 className={styles.form__title}>Signup</h1>
+          <h1 className={styles.form__title}>Simple Hotel Check</h1>
           <Field component={UiInput} type="email" name="email" title="Логин" />
           <Field
             component={UiInput}
