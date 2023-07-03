@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 import { dateNext, dateNow } from "../../helpers";
@@ -69,10 +69,10 @@ const mainSlice = createSlice({
     },
     addFavoritesItem: (state, actions) => {
       state.favorites = state.favorites.find(
-        (elem) => elem.hotelId == actions.payload.hotelId
+        (elem) => elem.hotelId === actions.payload.hotelId
       )
         ? state.favorites.filter(
-            (elem) => elem.hotelId != actions.payload.hotelId
+            (elem) => elem.hotelId !== actions.payload.hotelId
           )
         : [...state.favorites, actions.payload];
     },
@@ -83,11 +83,13 @@ const mainSlice = createSlice({
       state.favorites.sort((a, b) => {
         return action.payload.desc
           ? b[action.payload.type] - a[action.payload.type]
-          : a[action.payload.type] - b[action.payload.type]
-      })
-      state.sortType.map(elem => elem.type == action.payload.type ? elem.desc = !elem.desc : '');
-    }
-  }
+          : a[action.payload.type] - b[action.payload.type];
+      });
+      state.sortType.map((elem) =>
+        elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
+      );
+    },
+  },
 });
 
 export const formData = {
