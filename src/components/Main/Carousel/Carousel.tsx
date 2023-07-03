@@ -40,9 +40,9 @@ const Carousel: FC = () => {
         dragConstraints={{ right: 0, left: -width }}
         className={styles.carousel__inner}
       >
-        {images.map((image) => {
+        {images.map((image,id) => {
           return (
-            <motion.div className={styles.carousel__item}>
+            <motion.div className={styles.carousel__item} key={id}>
               <img src={image} />
             </motion.div>
           );
