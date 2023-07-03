@@ -1,6 +1,8 @@
 import { FC, useEffect } from "react";
-import { useAppSelector,useAppDispatch } from "../../redux/hooks";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import cn from "classnames";
+
+import { Navigate } from "react-router-dom";
 
 import { getHotelsAsync } from "../../redux/sagas/mainSaga";
 import { formatDateByMain } from "../../helpers";
@@ -14,27 +16,20 @@ import HotelGroup from "../../components/Main/HotelGroup/HotelGroup";
 import styles from "./Main.module.scss";
 
 
-
-type hotelType = {
-  hotelId: number;
-  hotelName: string;
-  location: any;
-  locationId: number;
-  priceAvg: number;
-  priceFrom: number;
-  pricePercentile: any;
-  stars: number;
-};
-
 const Main: FC = () => {
-  const location = useAppSelector(state => state.main.location);
-  const checkInDate = useAppSelector(state => state.main.checkInDate);
-  const hotels = useAppSelector(state => state.main.hotels)
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const location = useAppSelector((state) => state.main.location);
+  const checkInDate = useAppSelector((state) => state.main.checkInDate);
+  const hotels = useAppSelector((state) => state.main.hotels);
   const dispatch = useAppDispatch();
- 
+
   useEffect(() => {
-    dispatch(getHotelsAsync())
-  },[])
+    dispatch(getHotelsAsync());
+  }, []);
+
+  if (!isAuth) {
+    return <Navigate to={"/login"} />;
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -51,7 +46,9 @@ const Main: FC = () => {
               <div className={styles.symbol}>{">"}</div>
               <div>{location}</div>
             </div>
-            <div className={styles.hotel__date}>{formatDateByMain(checkInDate)}</div>
+            <div className={styles.hotel__date}>
+              {formatDateByMain(checkInDate)}
+            </div>
           </div>
           <div className={styles.hotel__carousel}>
             <Carousel />
