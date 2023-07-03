@@ -19,12 +19,6 @@ type hotelType = {
   stars: number;
 };
 
-interface formDataType {
-    location : string;
-    checkInDate : string;
-    checkOutDate : string;
-}
-
 function* getHotels() {
   const location    : string = yield select(formData.location);
   const checkInDate : string = yield select(formData.checkInDate);
