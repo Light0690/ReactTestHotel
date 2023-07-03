@@ -30,7 +30,24 @@
     line-height: 22px;
     letter-spacing: -0.408px;
   }
+
 }
+.icons { 
+  width: 99px;
+  height: 17px;
+
+  &__item{
+    width: 17px;
+    height: 17px;
+    fill: gray;
+    fill-opacity: 0.6;
+
+    &_active {
+      fill: #CDBC1E;
+    }
+  }
+}
+
 
 .price{
   display: flex;
