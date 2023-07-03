@@ -2,13 +2,14 @@
   width: 21px;
   height: 18px;
   flex-shrink: 0;
-  fill: #FFFFFF;
+  fill: #ffffff;
   cursor: pointer;
-  
-  &:hover{
-    fill: #C4C4C4;
+
+  &__active {
+    fill: #e55858;
   }
-  &:active{
-    fill: #E55858;
+
+  &:hover {
+    fill: #c4c4c4;
   }
 }
