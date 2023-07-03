@@ -1,4 +1,5 @@
 import { FC } from "react";
+import cn from "classnames";
 
 import UiHeart from "../../UI/UiHeart/UiHeart";
 
@@ -63,14 +64,13 @@ const HotelItem: FC = () => {
               />
             </g>
           </svg>
-          <div className={styles.flex__price}>
+          <div className={cn(styles.flex__price, styles.price)}>
             <div className={styles.price__title}>Price:</div>
             <div className={styles.price__cash}>23 924 P</div>
           </div>
         </div>
-        <hr className={styles.hr}/>
+        <hr className={styles.hr} />
       </div>
-    
     </>
   );
 };
