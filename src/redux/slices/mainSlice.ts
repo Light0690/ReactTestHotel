@@ -33,7 +33,7 @@ interface mainState {
 const initialState: mainState = {
   location: "Москва",
   checkInDate: dateNow(),
-  checkOutDate: dateNext(dateNow(),1),
+  checkOutDate: dateNext(dateNow(), 1),
   countDays: 1,
 
   hotels: [],
@@ -58,18 +58,26 @@ const mainSlice = createSlice({
       state.hotels = action.payload;
     },
     addFavoritesItem: (state, actions) => {
-      state.favorites = state.favorites.find((elem) => elem.hotelId == actions.payload.hotelId)
-        ? state.favorites.filter((elem) => elem.hotelId != actions.payload.hotelId)
+      state.favorites = state.favorites.find(
+        (elem) => elem.hotelId == actions.payload.hotelId
+      )
+        ? state.favorites.filter(
+            (elem) => elem.hotelId != actions.payload.hotelId
+          )
         : [...state.favorites, actions.payload];
+    },
+    sortFavorites: (state, action) => {
+      state.favorites.sort((a, b) => a["stars"] - b["stars"]);
     },
   },
 });
 
 export const formData = {
-  location: (state:RootState) => state.main.location,
-  checkInDate : (state: RootState) => state.main.checkInDate,
-  checkOutDate : (state: RootState) => state.main.checkOutDate
-}
+  location: (state: RootState) => state.main.location,
+  checkInDate: (state: RootState) => state.main.checkInDate,
+  checkOutDate: (state: RootState) => state.main.checkOutDate,
+};
 
-export const { setSearchForm, addFavoritesItem, setHotels } = mainSlice.actions;
+export const { setSearchForm, addFavoritesItem, setHotels, sortFavorites } =
+  mainSlice.actions;
 export default mainSlice.reducer;
