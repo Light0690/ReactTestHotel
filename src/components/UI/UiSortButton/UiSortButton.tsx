@@ -1,13 +1,25 @@
-import { FC,useState } from "react";
+import { FC, useState } from "react";
 
 import styles from "./UiSortButton.module.scss";
 
-const UiSortButton: FC = () => {
-  const [color,setColor] = useState<boolean>(true);
+interface sortProps {
+  onClick: (type: "stars" | "priceAvg", desc: boolean) => void;
+  title: string;
+  desc: boolean;
+  type: "stars" | "priceAvg";
+}
+
+const UiSortButton: FC<sortProps> = ({ onClick, title, desc, type }) => {
+  // const [color, setColor] = useState<boolean>(true);
+
+  const handleClick = () => {
+    onClick(type, desc);
+    // setColor(!color);
+  };
 
   return (
-    <button className={styles.button} onClick={()=> setColor(!color)}>
-      <div className={styles.button__title}>Рейтинг</div>
+    <button className={styles.button} onClick={handleClick}>
+      <div className={styles.button__title}>{title}</div>
       <div>
         <svg
           className={styles.button__icon}
@@ -22,13 +34,13 @@ const UiSortButton: FC = () => {
               id="select_2"
               d="M13.5 7.24264L12.4393 8.3033L9.25736 5.12132L6.07538 8.3033L5.01472 7.24264L9.25736 3L13.5 7.24264Z"
               fill="#41522E"
-              fillOpacity={color ? '0.3' : ''}
+              fillOpacity={!desc ? "0.3" : ""}
             />
             <path
               id="select_3"
               d="M13.5 10.8324L12.4393 9.77179L9.25736 12.9538L6.07538 9.77179L5.01472 10.8324L9.25736 15.0751L13.5 10.8324Z"
               fill="#41522E"
-              fillOpacity={!color ? '0.3' : ''}
+              fillOpacity={desc ? "0.3" : ""}
             />
           </g>
         </svg>

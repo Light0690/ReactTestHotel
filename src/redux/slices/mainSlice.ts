@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 import { dateNext, dateNow } from "../../helpers";
@@ -20,12 +20,18 @@ interface hotelItem {
   priceAvg: number;
   stars: number;
 }
+interface sortType {
+  title: string;
+  type: "stars" | "priceAvg";
+  desc: boolean;
+}
 
 interface mainState {
   location: string;
   checkInDate: string;
   checkOutDate: string;
   countDays: number;
+  sortType: sortType[];
   hotels: hotelType[];
   favorites: hotelItem[];
 }
@@ -36,6 +42,10 @@ const initialState: mainState = {
   checkOutDate: dateNext(dateNow(), 1),
   countDays: 1,
 
+  sortType: [
+    { title: "Рейтинг", type: "stars", desc: true },
+    { title: "Цена", type: "priceAvg", desc: true },
+  ],
   hotels: [],
   favorites: [],
 };
@@ -66,10 +76,18 @@ const mainSlice = createSlice({
           )
         : [...state.favorites, actions.payload];
     },
-    sortFavorites: (state, action) => {
-      state.favorites.sort((a, b) => a["stars"] - b["stars"]);
-    },
-  },
+    sortFavorites: (
+      state,
+      action: { payload: { type: "stars" | "priceAvg"; desc: boolean } }
+    ) => {
+      state.favorites.sort((a, b) => {
+        return action.payload.desc
+          ? b[action.payload.type] - a[action.payload.type]
+          : a[action.payload.type] - b[action.payload.type]
+      })
+      state.sortType.map(elem => elem.type == action.payload.type ? elem.desc = !elem.desc : '');
+    }
+  }
 });
 
 export const formData = {
