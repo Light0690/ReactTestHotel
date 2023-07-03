@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import cn from "classnames";
+import axios from "axios";
 
 import Header from "../../components/Main/Header/Header";
 import FormSearch from "../../components/Main/FormSearch/FormSearch";
@@ -10,6 +11,19 @@ import HotelGroup from "../../components/Main/HotelGroup/HotelGroup";
 import styles from "./Main.module.scss";
 
 const Main: FC = () => {
+  let hotels = {};
+  const url =
+    "http://engine.hotellook.com/api/v2/cache.json?location=Moscow&currency=rub&checkIn=2020-12-10&checkOut=2023-12-12&limit=10";
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://engine.hotellook.com/api/v2/cache.json?location=Moscow&currency=rub&checkIn=2023-12-10&checkOut=2023-12-12&limit=20"
+      )
+      .then((res) => (hotels = res))
+      .then(() => console.log(hotels));
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <Header />
