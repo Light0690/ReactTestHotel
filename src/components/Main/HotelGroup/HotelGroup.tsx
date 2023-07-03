@@ -31,9 +31,8 @@ const HotelGroup: FC = () => {
                     fill-opacity="0.05"
                   />
                 </svg>
-
                 <svg
-                className={styles.wrapper__house}
+                  className={styles.wrapper__house}
                   width="35"
                   height="35"
                   viewBox="0 0 35 35"
