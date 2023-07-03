@@ -1,12 +1,21 @@
 import { FC } from "react";
 
+import { useAppDispatch } from "../../../redux/hooks";
+import { setAuth } from "../../../redux/slices/auth";
+
 import styles from "./Header.module.scss";
 
 const Header: FC = () => {
+  const dispath = useAppDispatch();
+
+  const onClick = () => {
+    dispath(setAuth(false));
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.header__title}>Simple Hotel Check</div>
-      <div className={styles.header__icon}>
+      <div className={styles.header__icon} onClick={onClick}>
         <span>Выйти</span>
         <svg
           width="24"
