@@ -1,15 +1,8 @@
 import axios from "axios";
 
-type hotelType = {
-  hotelId: number;
-  hotelName: string;
-  location: any;
-  locationId: number;
-  priceAvg: number;
-  priceFrom: number;
-  pricePercentile: any;
-  stars: number;
-};
+import { hotelType } from "../redux/slices/mainSlice";
+
+
 interface formDataType {
   location: string;
   checkInDate: string;

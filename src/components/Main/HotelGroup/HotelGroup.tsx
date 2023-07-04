@@ -1,21 +1,13 @@
 import { FC } from "react";
 import { useAppSelector } from "../../../redux/hooks";
 
+import { hotelType } from "../../../redux/slices/mainSlice"; 
+
 import HotelItem from "../HotelItem/HotelItem";
 import HotelSkeleton from "../HotelSkeleton/HotelSkeleton";
 
 import styles from "./HotelGroup.module.scss";
 
-type hotelType = {
-  hotelId: number;
-  hotelName: string;
-  location: any;
-  locationId: number;
-  priceAvg: number;
-  priceFrom: number;
-  pricePercentile: any;
-  stars: number;
-};
 
 interface groupProps {
   hotels: hotelType[];

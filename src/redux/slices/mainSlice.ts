@@ -3,7 +3,7 @@ import { RootState } from "../store";
 
 import { dateNext, dateNow } from "../../helpers/date";
 
-type hotelType = {
+export type hotelType = {
   hotelId: number;
   hotelName: string;
   location: any;
@@ -14,13 +14,13 @@ type hotelType = {
   stars: number;
 };
 
-interface hotelItem {
+export interface hotelItem {
   hotelId: number;
   hotelName: string;
   priceAvg: number;
   stars: number;
 }
-interface sortType {
+export interface sortType {
   title: string;
   type: "stars" | "priceAvg";
   desc: boolean;

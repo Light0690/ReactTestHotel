@@ -5,20 +5,15 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { addFavoritesItem } from "../../../redux/slices/mainSlice";
 import { formatDateByMain } from "../../../helpers/date";
 
+import { hotelItem } from "../../../redux/slices/mainSlice";
+
 import { BsFillStarFill } from "react-icons/bs";
 
 import UiHeart from "../../UI/UiHeart/UiHeart";
 
 import styles from "./HotelItem.module.scss";
 
-interface itemProps {
-  hotelName: string;
-  hotelId: number;
-  priceAvg: number;
-  stars: number;
-}
-
-const HotelItem: FC<itemProps> = ({ hotelName, hotelId, priceAvg, stars }) => {
+const HotelItem: FC<hotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
   const checkInDate = useAppSelector((state) => state.main.checkInDate);
   const countDays = useAppSelector((state) => state.main.countDays);
   const favorites = useAppSelector((state) => state.main.favorites);
