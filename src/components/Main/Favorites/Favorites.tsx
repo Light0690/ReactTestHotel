@@ -18,27 +18,26 @@ const Favorites: FC = () => {
     dispatch(sortFavorites({ type, desc }));
   };
 
+  const sortTypeTSX = sortType.map((elem) => {
+    return (
+      <UiSortButton
+        key={elem.type}
+        onClick={onClick}
+        title={elem.title}
+        type={elem.type}
+        desc={elem.desc}
+      />
+    );
+  });
+  const favoritesTSX = favorites.length ? favorites.map((props) => (
+    <HotelItem key={props.hotelId} {...props} />
+  )) : <h2 className={styles.empty}>В избранном пока нет элементов</h2>;
+
   return (
     <div className={styles.favorites}>
       <h2 className={styles.favorites__title}>Избранное</h2>
-      <div className={styles.favorites__buttons}>
-        {sortType.map((elem) => {
-          return (
-            <UiSortButton
-              key={elem.type}
-              onClick={onClick}
-              title={elem.title}
-              type={elem.type}
-              desc={elem.desc}
-            />
-          );
-        })}
-      </div>
-      <div className={styles.favorites__group}>
-        {favorites.map((props) => (
-          <HotelItem key={props.hotelId} {...props} />
-        ))}
-      </div>
+      <div className={styles.favorites__buttons}>{sortTypeTSX}</div>
+      <div className={styles.favorites__group}>{favoritesTSX}</div>
     </div>
   );
 };
