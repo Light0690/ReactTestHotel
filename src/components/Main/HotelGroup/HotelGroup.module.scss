@@ -19,7 +19,7 @@
     padding: 16px 16px 16px 0px;
     flex-direction: column;
     gap: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   &__item {
     display: flex;
