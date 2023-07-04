@@ -3,7 +3,7 @@ import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 
 import { addFavoritesItem } from "../../../redux/slices/mainSlice";
-import { formatDateByMain } from "../../../helpers";
+import { formatDateByMain } from "../../../helpers/date";
 
 import { BsFillStarFill } from "react-icons/bs";
 
@@ -32,11 +32,11 @@ const HotelItem: FC<itemProps> = ({ hotelName, hotelId, priceAvg, stars }) => {
     dispatch(addFavoritesItem({ hotelName, hotelId, priceAvg, stars }));
   };
 
-  const daysTSX = ():string => {
-    if(countDays == 1) return `${countDays} день`;
-    else if(countDays > 1 && countDays < 5 ) return `${countDays} дня`;
-    else  return `${countDays} дней`;
-  }
+  const daysTSX = (): string => {
+    if (countDays == 1) return `${countDays} день`;
+    else if (countDays > 1 && countDays < 5) return `${countDays} дня`;
+    else return `${countDays} дней`;
+  };
 
   return (
     <div className={styles.wrapper}>

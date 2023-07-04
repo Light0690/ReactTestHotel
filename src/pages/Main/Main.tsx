@@ -5,7 +5,7 @@ import cn from "classnames";
 import { Navigate } from "react-router-dom";
 
 import { getHotelsAsync } from "../../redux/sagas/mainSaga";
-import { formatDateByMain } from "../../helpers";
+import { formatDateByMain } from "../../helpers/date";
 
 import Header from "../../components/Main/Header/Header";
 import FormSearch from "../../components/Main/FormSearch/FormSearch";
@@ -14,7 +14,6 @@ import Carousel from "../../components/Main/Carousel/Carousel";
 import HotelGroup from "../../components/Main/HotelGroup/HotelGroup";
 
 import styles from "./Main.module.scss";
-
 
 const Main: FC = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);

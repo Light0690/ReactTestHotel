@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-import { dateNext, dateNow } from "../../helpers";
+import { dateNext, dateNow } from "../../helpers/date";
 
 type hotelType = {
   hotelId: number;
