@@ -1,3 +1,4 @@
+import { useEffect} from 'react';
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -30,6 +31,10 @@ export const FormSearch = () => {
   const countDays = useAppSelector((state) => state.main.countDays);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getHotelsAsync());
+  }, []);
+
   const submitForm = (values: formValues) => {
     dispatch(setSearchForm(values));
     dispatch(getHotelsAsync());
@@ -48,7 +53,7 @@ export const FormSearch = () => {
           submitForm(values);
         }}
       >
-        {({  }) => (
+        {() => (
           <Form className={styles.form}>
             <Field component={UiInput} name="location" title="Локация" />
             <Field

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import styles from "./UiSortButton.module.scss";
 
@@ -10,11 +10,8 @@ interface sortProps {
 }
 
 const UiSortButton: FC<sortProps> = ({ onClick, title, desc, type }) => {
-  // const [color, setColor] = useState<boolean>(true);
-
   const handleClick = () => {
     onClick(type, desc);
-    // setColor(!color);
   };
 
   return (

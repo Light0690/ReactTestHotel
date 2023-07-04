@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { sortFavorites } from "../../../redux/slices/mainSlice";

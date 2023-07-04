@@ -19,7 +19,7 @@ const HotelItem: FC<hotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
   const favorites = useAppSelector((state) => state.main.favorites);
   const dispatch = useAppDispatch();
 
-  const isActive = favorites.find((elem) => elem.hotelId == hotelId)
+  const isActive = favorites.find((elem) => elem.hotelId === hotelId)
     ? true
     : false;
 
@@ -28,7 +28,7 @@ const HotelItem: FC<hotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
   };
 
   const daysTSX = (): string => {
-    if (countDays == 1) return `${countDays} день`;
+    if (countDays === 1) return `${countDays} день`;
     else if (countDays > 1 && countDays < 5) return `${countDays} дня`;
     else return `${countDays} дней`;
   };

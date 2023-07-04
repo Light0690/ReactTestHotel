@@ -1,10 +1,9 @@
-import { FC, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { FC } from "react";
+import { useAppSelector } from "../../redux/hooks";
 import cn from "classnames";
 
 import { Navigate } from "react-router-dom";
 
-import { getHotelsAsync } from "../../redux/sagas/mainSaga";
 import { formatDateByMain } from "../../helpers/date";
 
 import Header from "../../components/Main/Header/Header";
@@ -20,11 +19,6 @@ const Main: FC = () => {
   const location = useAppSelector((state) => state.main.location);
   const checkInDate = useAppSelector((state) => state.main.checkInDate);
   const hotels = useAppSelector((state) => state.main.hotels);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getHotelsAsync());
-  }, []);
 
   if (!isAuth) {
     return <Navigate to={"/login"} />;
