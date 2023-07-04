@@ -31,6 +31,7 @@ interface mainState {
   checkInDate: string;
   checkOutDate: string;
   countDays: number;
+  isLoading: boolean;
   sortType: sortType[];
   hotels: hotelType[];
   favorites: hotelItem[];
@@ -41,6 +42,7 @@ const initialState: mainState = {
   checkInDate: dateNow(),
   checkOutDate: dateNext(dateNow(), 1),
   countDays: 1,
+  isLoading: false,
 
   sortType: [
     { title: "Рейтинг", type: "stars", desc: true },
@@ -66,6 +68,9 @@ const mainSlice = createSlice({
     },
     setHotels: (state, action) => {
       state.hotels = action.payload;
+    },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
     },
     addFavoritesItem: (state, actions) => {
       state.favorites = state.favorites.find(
@@ -98,6 +103,11 @@ export const formData = {
   checkOutDate: (state: RootState) => state.main.checkOutDate,
 };
 
-export const { setSearchForm, addFavoritesItem, setHotels, sortFavorites } =
-  mainSlice.actions;
+export const {
+  setSearchForm,
+  addFavoritesItem,
+  setHotels,
+  sortFavorites,
+  setIsLoading,
+} = mainSlice.actions;
 export default mainSlice.reducer;
