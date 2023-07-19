@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { sortFavorites } from "../../../redux/slices/mainSlice";
+import { sortFavorites } from "../../../redux/slices/hotelsSlice";
 
-import HotelItem from "../HotelItem/HotelItem";
-import UiSortButton from "../../UI/UiSortButton/UiSortButton";
+import HotelItem from "../HotelItem";
+import UiSortButton from "../../UI/UiSortButton";
 
 import styles from "./Favorites.module.scss";
 
@@ -29,9 +29,11 @@ const Favorites: FC = () => {
       />
     );
   });
-  const favoritesTSX = favorites.length ? favorites.map((props) => (
-    <HotelItem key={props.hotelId} {...props} />
-  )) : <h2 className={styles.empty}>В избранном пока нет элементов</h2>;
+  const favoritesTSX = favorites.length ? (
+    favorites.map((props) => <HotelItem key={props.hotelId} {...props} />)
+  ) : (
+    <h2 className={styles.empty}>В избранном пока нет элементов</h2>
+  );
 
   return (
     <div className={styles.favorites}>

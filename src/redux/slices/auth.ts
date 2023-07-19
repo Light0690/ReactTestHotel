@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { getLocalStorage } from "../../helpers/local";
 
-interface authState {
+interface AuthState {
   isAuth: boolean;
 }
 
-const initialState: authState = getLocalStorage("auth");
+const initialState: AuthState = getLocalStorage("auth");
 
 const authSlice = createSlice({
   name: "auth",

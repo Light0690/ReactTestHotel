@@ -1,22 +1,21 @@
 import { FC } from "react";
 import { useAppSelector } from "../../../redux/hooks";
 
-import { hotelType } from "../../../redux/slices/mainSlice"; 
+import { HotelFetchType } from "../../../redux/slices/hotelsSlice";
 
-import HotelItem from "../HotelItem/HotelItem";
-import HotelSkeleton from "../HotelSkeleton/HotelSkeleton";
+import HotelItem from "../HotelItem";
+import HotelSkeleton from "../HotelSkeleton";
 
 import styles from "./HotelGroup.module.scss";
 
-
-interface groupProps {
-  hotels: hotelType[];
+interface HotelGroupProps {
+  hotels: HotelFetchType[];
 }
 
-const HotelGroup: FC<groupProps> = ({ hotels }) => {
+const HotelGroup: FC<HotelGroupProps> = ({ hotels }) => {
   const isLoading = useAppSelector((state) => state.main.isLoading);
   const favorites = useAppSelector((state) => state.main.favorites);
- 
+
   const hotelsTSX = hotels.length ? (
     hotels.map(({ hotelId, hotelName, priceAvg, stars }) => (
       <div className={styles.wrapper__item} key={hotelId}>

@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: 3px;
   padding-right: 10px;
-  
 
   .flex {
     width: 100%;
@@ -30,30 +29,28 @@
     line-height: 22px;
     letter-spacing: -0.408px;
   }
-
 }
-.icons { 
+.icons {
   width: 99px;
   height: 17px;
 
-  &__item{
+  &__item {
     width: 17px;
     height: 17px;
     fill: gray;
     fill-opacity: 0.6;
 
     &_active {
-      fill: #CDBC1E;
+      fill: #cdbc1e;
     }
   }
 }
 
-
-.price{
+.price {
   display: flex;
   gap: 10px;
 
-  &__title{
+  &__title {
     color: #878787;
     font-size: 11px;
     font-style: normal;
@@ -61,7 +58,7 @@
     line-height: 22px;
     letter-spacing: -0.408px;
   }
-  &__cash{
+  &__cash {
     color: #424242;
     text-align: right;
     font-size: 17px;
@@ -75,6 +72,6 @@
 .hr {
   margin: 5px 0;
   width: 98%;
-	border: none;
-	border-top: .5px solid gray;
+  border: none;
+  border-top: 0.5px solid gray;
 }

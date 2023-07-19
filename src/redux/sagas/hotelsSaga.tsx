@@ -1,12 +1,12 @@
 import { call, put, takeLatest, select } from "redux-saga/effects";
 import { createAction } from "@reduxjs/toolkit";
 
-import { setHotels, setIsLoading } from "../slices/mainSlice";
-import { formData } from "../slices/mainSlice";
+import { setHotels, setIsLoading } from "../slices/hotelsSlice";
+import { formData } from "../slices/hotelsSlice";
 
 import { fetchHotels } from "../../api";
 
-import { hotelType } from "../slices/mainSlice";
+import { HotelFetchType } from "../slices/hotelsSlice";
 
 export const getHotelsAsync = createAction("main/fetchHotels");
 
@@ -17,7 +17,7 @@ function* getHotels() {
 
   yield put(setIsLoading(true));
 
-  const data: hotelType[] = yield call(fetchHotels, {
+  const data: HotelFetchType[] = yield call(fetchHotels, {
     location,
     checkInDate,
     checkOutDate,
@@ -27,6 +27,6 @@ function* getHotels() {
   yield put(setIsLoading(false));
 }
 
-export function* mainSaga() {
+export function* hotelsSaga() {
   yield takeLatest(getHotelsAsync, getHotels);
 }

@@ -1,6 +1,6 @@
 import { all } from "redux-saga/effects";
-import { mainSaga } from "./mainSaga";
+import { hotelsSaga } from "./hotelsSaga";
 
 export default function* rootSaga() {
-  yield all([mainSaga()]);
+  yield all([hotelsSaga()]);
 }

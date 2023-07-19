@@ -2,18 +2,23 @@ import { FC } from "react";
 import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 
-import { addFavoritesItem } from "../../../redux/slices/mainSlice";
-import { formatDateByMain } from "../../../helpers/date";
+import { addFavoritesItem } from "../../../redux/slices/hotelsSlice";
+import { addMonthToDate } from "../../../helpers/date";
 
-import { hotelItem } from "../../../redux/slices/mainSlice";
+import { HotelItemInter } from "../../../redux/slices/hotelsSlice";
 
 import { BsFillStarFill } from "react-icons/bs";
 
-import UiHeart from "../../UI/UiHeart/UiHeart";
+import UiHeart from "../../UI/UiHeart";
 
 import styles from "./HotelItem.module.scss";
 
-const HotelItem: FC<hotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
+const HotelItem: FC<HotelItemInter> = ({
+  hotelName,
+  hotelId,
+  priceAvg,
+  stars,
+}) => {
   const checkInDate = useAppSelector((state) => state.main.checkInDate);
   const countDays = useAppSelector((state) => state.main.countDays);
   const favorites = useAppSelector((state) => state.main.favorites);
@@ -41,7 +46,7 @@ const HotelItem: FC<hotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
       </div>
       <div className={styles.flex}>
         <div className={styles.wrapper__date}>
-          {formatDateByMain(checkInDate)} - {daysTSX()}
+          {addMonthToDate(checkInDate)} - {daysTSX()}
         </div>
       </div>
       <div className={styles.flex}>

@@ -4,17 +4,17 @@ import cn from "classnames";
 
 import { Navigate } from "react-router-dom";
 
-import { formatDateByMain } from "../../helpers/date";
+import { addMonthToDate } from "../../helpers/date";
 
-import Header from "../../components/Main/Header/Header";
-import FormSearch from "../../components/Main/FormSearch/FormSearch";
-import Favorites from "../../components/Main/Favorites/Favorites";
-import Carousel from "../../components/Main/Carousel/Carousel";
-import HotelGroup from "../../components/Main/HotelGroup/HotelGroup";
+import Header from "../../components/Hotels/Header";
+import FormSearch from "../../components/Hotels/FormSearch";
+import Favorites from "../../components/Hotels/Favorites";
+import Carousel from "../../components/Hotels/Carousel";
+import HotelGroup from "../../components/Hotels/HotelGroup";
 
-import styles from "./Main.module.scss";
+import styles from "./Hotels.module.scss";
 
-const Main: FC = () => {
+const Hotels: FC = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const location = useAppSelector((state) => state.main.location);
   const checkInDate = useAppSelector((state) => state.main.checkInDate);
@@ -40,7 +40,7 @@ const Main: FC = () => {
               <div>{location}</div>
             </div>
             <div className={styles.hotel__date}>
-              {formatDateByMain(checkInDate)}
+              {addMonthToDate(checkInDate)}
             </div>
           </div>
           <div className={styles.hotel__carousel}>
@@ -53,4 +53,4 @@ const Main: FC = () => {
   );
 };
 
-export default Main;
+export default Hotels;

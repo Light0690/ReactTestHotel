@@ -1,13 +1,13 @@
-import { useEffect} from 'react';
+import { useEffect } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 
-import { setSearchForm } from "../../../redux/slices/mainSlice";
-import { getHotelsAsync } from "../../../redux/sagas/mainSaga";
+import { setSearchForm } from "../../../redux/slices/hotelsSlice";
+import { getHotelsAsync } from "../../../redux/sagas/hotelsSaga";
 
-import UiButton from "../../UI/UiButton/UiButton";
-import UiInput from "../../UI/UiInput/UiInput";
+import UiButton from "../../UI/UiButton";
+import UiInput from "../../UI/UiInput";
 
 import styles from "./FormSearch.module.scss";
 

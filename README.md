@@ -1,10 +1,12 @@
 # ReactTestHotel
 
-## Ссылки 
+## Ссылки
+
 - `Project` https://light0690.github.io/ReactTestHotel/
 - `Repository` https://github.com/Light0690/ReactTestHotel
 
 ## Технологии
+
 - React/-dom/-icons/router-dom/-redux
 - Redux/toolkit/saga
 - typescript
@@ -13,7 +15,7 @@
 - framer-motion
 - classnames
 - prettier
-   
+
 ## Порядок импортов
 
 - Библиотеки

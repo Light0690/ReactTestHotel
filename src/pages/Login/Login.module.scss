@@ -2,18 +2,18 @@
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  background-image:  url("../../assets/img/IMG_20210312_140957_174\ 1.png");
+  background-image: url('../../assets/img/authBackgound.png');
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
 
-  .blur{
+  .blur {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color:rgba(255, 255, 255, 0.60) ;
+    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
   }
 }

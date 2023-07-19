@@ -1,5 +1,5 @@
 import { FC } from "react";
-import cn from 'classnames';
+import cn from "classnames";
 
 import styles from "./UiHeart.module.scss";
 
@@ -13,7 +13,7 @@ const UiHeart: FC<heartProps> = ({ onClick, isActive }) => {
     <div>
       <svg
         onClick={onClick}
-        className={cn(styles.heart,isActive ? styles.heart__active : isActive)}
+        className={cn(styles.heart, isActive ? styles.heart__active : isActive)}
         width="23"
         height="20"
         viewBox="0 0 23 20"

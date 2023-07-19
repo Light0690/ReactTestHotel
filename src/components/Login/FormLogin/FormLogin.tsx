@@ -5,11 +5,10 @@ import { Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setAuth } from "../../../redux/slices/auth";
 
-import UiButton from "../../UI/UiButton/UiButton";
-import UiInput from "../../UI/UiInput/UiInput";
+import UiButton from "../../UI/UiButton";
+import UiInput from "../../UI/UiInput";
 
 import styles from "./FormLogin.module.scss";
-
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -25,7 +24,7 @@ export const FormLogin = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const dispatch = useAppDispatch();
 
-  if(isAuth) {
+  if (isAuth) {
     return <Navigate to={"/"} />;
   }
 

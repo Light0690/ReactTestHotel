@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-import { dateNext, dateNow } from "../../helpers/date";
+import { getNowDate, getNextDate } from "../../helpers/date";
 
-export type hotelType = {
+export interface HotelFetchType {
   hotelId: number;
   hotelName: string;
   location: any;
@@ -12,35 +12,36 @@ export type hotelType = {
   priceFrom: number;
   pricePercentile: any;
   stars: number;
-};
+}
 
-export interface hotelItem {
+export interface HotelItemInter {
   hotelId: number;
   hotelName: string;
   priceAvg: number;
   stars: number;
 }
-export interface sortType {
+
+export interface SortType {
   title: string;
   type: "stars" | "priceAvg";
   desc: boolean;
 }
 
-interface mainState {
+interface MainState {
   location: string;
   checkInDate: string;
   checkOutDate: string;
   countDays: number;
   isLoading: boolean;
-  sortType: sortType[];
-  hotels: hotelType[];
-  favorites: hotelItem[];
+  sortType: SortType[];
+  hotels: HotelFetchType[];
+  favorites: HotelItemInter[];
 }
 
-const initialState: mainState = {
+const initialState: MainState = {
   location: "Москва",
-  checkInDate: dateNow(),
-  checkOutDate: dateNext(dateNow(), 1),
+  checkInDate: getNowDate(),
+  checkOutDate: getNextDate(getNowDate(), 1),
   countDays: 1,
   isLoading: false,
 
@@ -61,7 +62,7 @@ const mainSlice = createSlice({
       state.checkInDate = actions.payload.checkInDate;
       state.countDays = actions.payload.countDays;
 
-      state.checkOutDate = dateNext(
+      state.checkOutDate = getNextDate(
         actions.payload.checkInDate,
         actions.payload.countDays
       );
