@@ -1,28 +1,24 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
+import { configureStore } from "@reduxjs/toolkit";
 
 import { setLocalStorage } from "../helpers/local";
 
 import hotelsSlice from "./slices/hotelsSlice";
 import authSlice from "./slices/authSlice";
-import rootSaga from "./sagas";
-
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
+import { hotelsAPI } from "./query/hotelsQuery";
 
 export const store = configureStore({
   reducer: {
     hotels: hotelsSlice,
     auth: authSlice,
+    [hotelsAPI.reducerPath]: hotelsAPI.reducer,
   },
-  middleware,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(hotelsAPI.middleware),
 });
 
 store.subscribe(() => {
   setLocalStorage("auth", store.getState().auth);
 });
-
-sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
