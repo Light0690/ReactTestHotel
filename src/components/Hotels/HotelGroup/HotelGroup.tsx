@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useAppSelector } from "@redux/hooks";
 
-import { HotelFetchType } from "@redux/slices/hotelsSlice";
+import { IHotelFetchType } from "@redux/slices/hotelsSlice";
 
 import HotelItem from "../HotelItem";
 import HotelSkeleton from "../HotelSkeleton";
@@ -9,7 +9,7 @@ import HotelSkeleton from "../HotelSkeleton";
 import styles from "./HotelGroup.module.scss";
 
 interface HotelGroupProps {
-  hotels: HotelFetchType[];
+  hotels: IHotelFetchType[];
 }
 
 const HotelGroup: FC<HotelGroupProps> = ({ hotels }) => {

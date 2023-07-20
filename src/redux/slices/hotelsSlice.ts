@@ -3,7 +3,7 @@ import { RootState } from "../store";
 
 import { getNowDate, getNextDate } from "../../helpers/date";
 
-export interface HotelFetchType {
+export interface IHotelFetchType {
   hotelId: number;
   hotelName: string;
   location: any;
@@ -14,14 +14,14 @@ export interface HotelFetchType {
   stars: number;
 }
 
-export interface HotelItemInter {
+export interface IHotelItem {
   hotelId: number;
   hotelName: string;
   priceAvg: number;
   stars: number;
 }
 
-export interface SortType {
+export interface ISortType {
   title: string;
   type: "stars" | "priceAvg";
   desc: boolean;
@@ -33,9 +33,9 @@ interface MainState {
   checkOutDate: string;
   countDays: number;
   isLoading: boolean;
-  sortType: SortType[];
-  hotels: HotelFetchType[];
-  favorites: HotelItemInter[];
+  sortType: ISortType[];
+  hotels: IHotelFetchType[];
+  favorites: IHotelItem[];
 }
 
 const initialState: MainState = {
@@ -57,7 +57,14 @@ const hotelsSlice = createSlice({
   name: "hotels",
   initialState,
   reducers: {
-    setSearchForm: (state, actions) => {
+    setSearchForm: (
+      state,
+      actions: PayloadAction<{
+        location: string;
+        checkInDate: string;
+        countDays: number;
+      }>
+    ) => {
       state.location = actions.payload.location;
       state.checkInDate = actions.payload.checkInDate;
       state.countDays = actions.payload.countDays;
@@ -67,24 +74,24 @@ const hotelsSlice = createSlice({
         actions.payload.countDays
       );
     },
-    setHotels: (state, action) => {
+    setHotels: (state, action: PayloadAction<IHotelFetchType[]>) => {
       state.hotels = action.payload;
     },
-    setIsLoading: (state, action : PayloadAction<boolean>) => {
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
-    addFavoritesItem: (state, actions) => {
+    addFavoritesItem: (state, action: PayloadAction<IHotelItem>) => {
       state.favorites = state.favorites.find(
-        (elem) => elem.hotelId === actions.payload.hotelId
+        (elem) => elem.hotelId === action.payload.hotelId
       )
         ? state.favorites.filter(
-            (elem) => elem.hotelId !== actions.payload.hotelId
+            (elem) => elem.hotelId !== action.payload.hotelId
           )
-        : [...state.favorites, actions.payload];
+        : [...state.favorites, action.payload];
     },
     sortFavorites: (
       state,
-      action: { payload: { type: "stars" | "priceAvg"; desc: boolean } }
+      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>
     ) => {
       state.favorites.sort((a, b) => {
         return action.payload.desc

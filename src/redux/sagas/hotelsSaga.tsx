@@ -6,7 +6,7 @@ import { formData } from "../slices/hotelsSlice";
 
 import { fetchHotels } from "../../api";
 
-import { HotelFetchType } from "../slices/hotelsSlice";
+import { IHotelFetchType } from "../slices/hotelsSlice";
 
 export const getHotelsAsync = createAction("main/fetchHotels");
 
@@ -17,7 +17,7 @@ function* getHotels() {
 
   yield put(setIsLoading(true));
 
-  const data: HotelFetchType[] = yield call(fetchHotels, {
+  const data: IHotelFetchType[] = yield call(fetchHotels, {
     location,
     checkInDate,
     checkOutDate,
