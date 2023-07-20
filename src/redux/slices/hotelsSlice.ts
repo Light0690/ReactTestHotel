@@ -1,31 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
 
-import { getNowDate, getNextDate } from "../../helpers/date";
+import { getNowDate, getNextDate } from "@helpers/date";
 
-export interface IHotelFetchType {
-  hotelId: number;
-  hotelName: string;
-  location: any;
-  locationId: number;
-  priceAvg: number;
-  priceFrom: number;
-  pricePercentile: any;
-  stars: number;
-}
-
-export interface IHotelItem {
-  hotelId: number;
-  hotelName: string;
-  priceAvg: number;
-  stars: number;
-}
-
-export interface ISortType {
-  title: string;
-  type: "stars" | "priceAvg";
-  desc: boolean;
-}
+import { IHotelFetch } from "@Interfaces/IHotelFetch";
+import { IHotelItem } from "@Interfaces/IHotelItem";
+import { ISort } from "@Interfaces/ISort";
 
 interface MainState {
   location: string;
@@ -33,8 +12,8 @@ interface MainState {
   checkOutDate: string;
   countDays: number;
   isLoading: boolean;
-  sortType: ISortType[];
-  hotels: IHotelFetchType[];
+  sortType: ISort[];
+  hotels: IHotelFetch[];
   favorites: IHotelItem[];
 }
 
@@ -74,7 +53,7 @@ const hotelsSlice = createSlice({
         actions.payload.countDays
       );
     },
-    setHotels: (state, action: PayloadAction<IHotelFetchType[]>) => {
+    setHotels: (state, action: PayloadAction<IHotelFetch[]>) => {
       state.hotels = action.payload;
     },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
@@ -104,12 +83,6 @@ const hotelsSlice = createSlice({
     },
   },
 });
-
-export const formData = {
-  location: (state: RootState) => state.hotels.location,
-  checkInDate: (state: RootState) => state.hotels.checkInDate,
-  checkOutDate: (state: RootState) => state.hotels.checkOutDate,
-};
 
 export const {
   setSearchForm,

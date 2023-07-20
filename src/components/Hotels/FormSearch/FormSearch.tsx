@@ -11,7 +11,6 @@ import UiInput from "@ui/UiInput";
 
 import styles from "./FormSearch.module.scss";
 
-
 const SignupSchema = Yup.object().shape({
   location: Yup.string().required("*поле обязательно"),
   checkInDate: Yup.string().required("*поле обязательно"),
@@ -31,19 +30,21 @@ export const FormSearch = () => {
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const checkOutDate = useAppSelector((state) => state.hotels.checkOutDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
-
-  const { data: hotels = [], error,isLoading } = hotelsAPI.useFetchHotelsQuery({
+  const dispatch = useAppDispatch();
+  const {
+    data: hotels = [],
+    error,
+    isLoading,
+  } = hotelsAPI.useFetchHotelsQuery({
     location,
     checkInDate,
     checkOutDate,
   });
 
-  const dispatch = useAppDispatch();
-// console.log(hotels)
-// console.log(error)
-console.log(isLoading)
   useEffect(() => {
-   if(hotels.length ){ dispatch(setHotels(hotels));}
+    if (hotels.length) {
+      dispatch(setHotels(hotels));
+    }
   }, [hotels]);
 
   const submitForm = (values: formValues) => {

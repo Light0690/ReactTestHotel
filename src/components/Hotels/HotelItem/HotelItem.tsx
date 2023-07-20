@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { addFavoritesItem } from "@redux/slices/hotelsSlice";
 import { addMonthToDate } from "@helpers/date";
 
-import { IHotelItem } from "@redux/slices/hotelsSlice";
+import { IHotelItem } from "@Interfaces/IHotelItem";
 
 import { BsFillStarFill } from "react-icons/bs";
 
@@ -13,12 +13,7 @@ import UiHeart from "@ui/UiHeart";
 
 import styles from "./HotelItem.module.scss";
 
-const HotelItem: FC<IHotelItem> = ({
-  hotelName,
-  hotelId,
-  priceAvg,
-  stars,
-}) => {
+const HotelItem: FC<IHotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
   const favorites = useAppSelector((state) => state.hotels.favorites);

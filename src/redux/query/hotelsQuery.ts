@@ -1,4 +1,4 @@
-import { IHotelFetchType } from "@redux/slices/hotelsSlice";
+import { IHotelFetch } from "@Interfaces/IHotelFetch";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 export const hotelsAPI = createApi({
@@ -8,7 +8,7 @@ export const hotelsAPI = createApi({
   }),
   endpoints: (build) => ({
     fetchHotels: build.query<
-      IHotelFetchType[],
+      IHotelFetch[],
       { location: string; checkInDate: string; checkOutDate: string }
     >({
       query: ({ location, checkInDate, checkOutDate }) => {

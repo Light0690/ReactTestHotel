@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { setLocalStorage } from "../helpers/local";
+import { setLocalStorage } from "@helpers/local";
 
 import hotelsSlice from "./slices/hotelsSlice";
 import authSlice from "./slices/authSlice";
