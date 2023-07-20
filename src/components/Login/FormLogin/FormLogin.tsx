@@ -2,11 +2,11 @@ import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { Navigate } from "react-router-dom";
 
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setAuth } from "../../../redux/slices/auth";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { setAuth } from "@redux/slices/auth";
 
-import UiButton from "../../UI/UiButton";
-import UiInput from "../../UI/UiInput";
+import UiButton from "@ui/UiButton";
+import UiInput from "@ui/UiInput";
 
 import styles from "./FormLogin.module.scss";
 

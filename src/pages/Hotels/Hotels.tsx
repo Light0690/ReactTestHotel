@@ -1,16 +1,16 @@
 import { FC } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "@redux/hooks";
 import cn from "classnames";
 
 import { Navigate } from "react-router-dom";
 
-import { addMonthToDate } from "../../helpers/date";
+import { addMonthToDate } from "@helpers/date";
 
-import Header from "../../components/Hotels/Header";
-import FormSearch from "../../components/Hotels/FormSearch";
-import Favorites from "../../components/Hotels/Favorites";
-import Carousel from "../../components/Hotels/Carousel";
-import HotelGroup from "../../components/Hotels/HotelGroup";
+import Header from "@components/Hotels/Header";
+import FormSearch from "@components/Hotels/FormSearch";
+import Favorites from "@components/Hotels/Favorites";
+import Carousel from "@components/Hotels/Carousel";
+import HotelGroup from "@components/Hotels/HotelGroup";
 
 import styles from "./Hotels.module.scss";
 

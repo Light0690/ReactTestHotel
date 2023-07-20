@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { sortFavorites } from "../../../redux/slices/hotelsSlice";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { sortFavorites } from "@redux/slices/hotelsSlice";
 
 import HotelItem from "../HotelItem";
-import UiSortButton from "../../UI/UiSortButton";
+import UiSortButton from "@ui/UiSortButton";
 
 import styles from "./Favorites.module.scss";
 

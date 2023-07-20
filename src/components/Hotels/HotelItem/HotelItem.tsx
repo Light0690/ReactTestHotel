@@ -1,15 +1,15 @@
 import { FC } from "react";
 import cn from "classnames";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
-import { addFavoritesItem } from "../../../redux/slices/hotelsSlice";
-import { addMonthToDate } from "../../../helpers/date";
+import { addFavoritesItem } from "@redux/slices/hotelsSlice";
+import { addMonthToDate } from "@helpers/date";
 
-import { HotelItemInter } from "../../../redux/slices/hotelsSlice";
+import { HotelItemInter } from "@redux/slices/hotelsSlice";
 
 import { BsFillStarFill } from "react-icons/bs";
 
-import UiHeart from "../../UI/UiHeart";
+import UiHeart from "@ui/UiHeart";
 
 import styles from "./HotelItem.module.scss";
 

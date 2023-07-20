@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, FC } from "react";
 import { motion } from "framer-motion";
 
-import carouselItem1 from "../../../assets/img/carouselImg1.png";
-import carouselItem2 from "../../../assets/img/carouselimg2.png";
-import carouselItem3 from "../../../assets/img/carouselimg3.png";
+import carouselItem1 from "@assets/img/carouselImg1.png";
+import carouselItem2 from "@assets/img/carouselimg2.png";
+import carouselItem3 from "@assets/img/carouselimg3.png";
 
 import styles from "./Caroules.module.scss";
 

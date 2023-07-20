@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import FormLogin from "../../components/Login/FormLogin";
+import FormLogin from "@components/Login/FormLogin";
 
 import styles from "./Login.module.scss";
 

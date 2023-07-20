@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppSelector } from "@redux/hooks";
 
-import { HotelFetchType } from "../../../redux/slices/hotelsSlice";
+import { HotelFetchType } from "@redux/slices/hotelsSlice";
 
 import HotelItem from "../HotelItem";
 import HotelSkeleton from "../HotelSkeleton";
