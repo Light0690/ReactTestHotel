@@ -16,9 +16,9 @@ import styles from "./Hotels.module.scss";
 
 const Hotels: FC = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
-  const location = useAppSelector((state) => state.main.location);
-  const checkInDate = useAppSelector((state) => state.main.checkInDate);
-  const hotels = useAppSelector((state) => state.main.hotels);
+  const location = useAppSelector((state) => state.hotels.location);
+  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
+  const hotels = useAppSelector((state) => state.hotels.hotels);
 
   if (!isAuth) {
     return <Navigate to={"/login"} />;

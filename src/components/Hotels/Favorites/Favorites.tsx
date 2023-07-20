@@ -9,8 +9,8 @@ import UiSortButton from "@ui/UiSortButton";
 import styles from "./Favorites.module.scss";
 
 const Favorites: FC = () => {
-  const favorites = useAppSelector((state) => state.main.favorites);
-  const sortType = useAppSelector((state) => state.main.sortType);
+  const favorites = useAppSelector((state) => state.hotels.favorites);
+  const sortType = useAppSelector((state) => state.hotels.sortType);
 
   const dispatch = useAppDispatch();
 

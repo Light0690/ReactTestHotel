@@ -19,9 +19,9 @@ const HotelItem: FC<HotelItemInter> = ({
   priceAvg,
   stars,
 }) => {
-  const checkInDate = useAppSelector((state) => state.main.checkInDate);
-  const countDays = useAppSelector((state) => state.main.countDays);
-  const favorites = useAppSelector((state) => state.main.favorites);
+  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
+  const countDays = useAppSelector((state) => state.hotels.countDays);
+  const favorites = useAppSelector((state) => state.hotels.favorites);
   const dispatch = useAppDispatch();
 
   const isActive = favorites.find((elem) => elem.hotelId === hotelId)

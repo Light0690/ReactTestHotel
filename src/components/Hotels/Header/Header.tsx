@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { useAppDispatch } from "@redux/hooks";
-import { setAuth } from "@redux/slices/auth";
+import { setAuth } from "@redux/slices/authSlice";
 
 import styles from "./Header.module.scss";
 

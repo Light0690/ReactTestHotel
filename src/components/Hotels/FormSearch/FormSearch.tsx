@@ -26,9 +26,9 @@ interface formValues {
 }
 
 export const FormSearch = () => {
-  const location = useAppSelector((state) => state.main.location);
-  const checkInDate = useAppSelector((state) => state.main.checkInDate);
-  const countDays = useAppSelector((state) => state.main.countDays);
+  const location = useAppSelector((state) => state.hotels.location);
+  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
+  const countDays = useAppSelector((state) => state.hotels.countDays);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

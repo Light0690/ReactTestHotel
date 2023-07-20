@@ -13,8 +13,8 @@ interface HotelGroupProps {
 }
 
 const HotelGroup: FC<HotelGroupProps> = ({ hotels }) => {
-  const isLoading = useAppSelector((state) => state.main.isLoading);
-  const favorites = useAppSelector((state) => state.main.favorites);
+  const isLoading = useAppSelector((state) => state.hotels.isLoading);
+  const favorites = useAppSelector((state) => state.hotels.favorites);
 
   const hotelsTSX = hotels.length ? (
     hotels.map(({ hotelId, hotelName, priceAvg, stars }) => (

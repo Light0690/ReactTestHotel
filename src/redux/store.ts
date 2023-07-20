@@ -4,7 +4,7 @@ import createSagaMiddleware from "redux-saga";
 import { setLocalStorage } from "../helpers/local";
 
 import hotelsSlice from "./slices/hotelsSlice";
-import authSlice from "./slices/auth";
+import authSlice from "./slices/authSlice";
 import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -12,7 +12,7 @@ const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
 
 export const store = configureStore({
   reducer: {
-    main: hotelsSlice,
+    hotels: hotelsSlice,
     auth: authSlice,
   },
   middleware,

@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { Navigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { setAuth } from "@redux/slices/auth";
+import { setAuth } from "@redux/slices/authSlice";
 
 import UiButton from "@ui/UiButton";
 import UiInput from "@ui/UiInput";

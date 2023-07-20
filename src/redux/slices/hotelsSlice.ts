@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 import { getNowDate, getNextDate } from "../../helpers/date";
@@ -53,8 +53,8 @@ const initialState: MainState = {
   favorites: [],
 };
 
-const mainSlice = createSlice({
-  name: "main",
+const hotelsSlice = createSlice({
+  name: "hotels",
   initialState,
   reducers: {
     setSearchForm: (state, actions) => {
@@ -70,7 +70,7 @@ const mainSlice = createSlice({
     setHotels: (state, action) => {
       state.hotels = action.payload;
     },
-    setIsLoading: (state, action) => {
+    setIsLoading: (state, action : PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
     addFavoritesItem: (state, actions) => {
@@ -99,9 +99,9 @@ const mainSlice = createSlice({
 });
 
 export const formData = {
-  location: (state: RootState) => state.main.location,
-  checkInDate: (state: RootState) => state.main.checkInDate,
-  checkOutDate: (state: RootState) => state.main.checkOutDate,
+  location: (state: RootState) => state.hotels.location,
+  checkInDate: (state: RootState) => state.hotels.checkInDate,
+  checkOutDate: (state: RootState) => state.hotels.checkOutDate,
 };
 
 export const {
@@ -110,5 +110,5 @@ export const {
   setHotels,
   sortFavorites,
   setIsLoading,
-} = mainSlice.actions;
-export default mainSlice.reducer;
+} = hotelsSlice.actions;
+export default hotelsSlice.reducer;
