@@ -6,8 +6,8 @@ import { Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { setAuth } from "@redux/slices/authSlice";
 
-import UiButton from "@ui/UiButton";
-import UiInput from "@ui/UiInput";
+import UiFormButton from "@components/UI/UiFormButton";
+import UiFormInput from "@components/UI/UiFormInput";
 
 import styles from "./FormLogin.module.scss";
 
@@ -41,7 +41,7 @@ export const FormLogin = () => {
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
       <h1 className={styles.form__title}>Simple Hotel Check</h1>
-      <UiInput
+      <UiFormInput
         name="email"
         title="Логин"
         type="email"
@@ -51,7 +51,7 @@ export const FormLogin = () => {
         errors={formik.errors.email}
         touched={formik.touched.email}
       />
-      <UiInput
+      <UiFormInput
         name="password"
         type="password"
         title="Пороль"
@@ -61,7 +61,7 @@ export const FormLogin = () => {
         errors={formik.errors.password}
         touched={formik.touched.password}
       />
-      <UiButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
+      <UiFormButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
     </form>
   );
 };

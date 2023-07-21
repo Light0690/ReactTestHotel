@@ -1,7 +1,7 @@
 import { FC, ChangeEventHandler, FocusEventHandler } from "react";
 import cn from "classnames";
 
-import styles from "./UiInput.module.scss";
+import styles from "./UiFormInput.module.scss";
 
 interface InputProps {
   name: string;
@@ -14,7 +14,7 @@ interface InputProps {
   touched: boolean | undefined;
 }
 
-const UiInput: FC<InputProps> = ({
+const UiFormInput: FC<InputProps> = ({
   name,
   type,
   title,
@@ -50,4 +50,4 @@ const UiInput: FC<InputProps> = ({
   );
 };
 
-export default UiInput;
+export default UiFormInput;

@@ -7,8 +7,8 @@ import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { setHotels, setSearchForm } from "@redux/slices/hotelsSlice";
 import { hotelsAPI } from "@redux/query/hotelsQuery";
 
-import UiButton from "@ui/UiButton";
-import UiInput from "@ui/UiInput";
+import UiFormButton from "@components/UI/UiFormButton";
+import UiFormInput from "@components/UI/UiFormInput";
 
 import styles from "./FormSearch.module.scss";
 
@@ -66,7 +66,7 @@ export const FormSearch: FC = () => {
   console.log(formik);
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
-      <UiInput
+      <UiFormInput
         name="location"
         title="Локация"
         type="string"
@@ -76,7 +76,7 @@ export const FormSearch: FC = () => {
         errors={formik.errors.location}
         touched={formik.touched.location}
       />
-      <UiInput
+      <UiFormInput
         name="checkInDate"
         type="date"
         title="Дата заселения"
@@ -86,7 +86,7 @@ export const FormSearch: FC = () => {
         errors={formik.errors.checkInDate}
         touched={formik.touched.checkInDate}
       />
-      <UiInput
+      <UiFormInput
         name="countDays"
         type="number"
         title="Количество дней"
@@ -96,7 +96,7 @@ export const FormSearch: FC = () => {
         errors={formik.errors.countDays}
         touched={formik.touched.countDays}
       />
-      <UiButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
+      <UiFormButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
     </form>
   );
 };

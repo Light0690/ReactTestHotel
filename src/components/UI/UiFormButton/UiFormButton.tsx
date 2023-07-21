@@ -1,14 +1,15 @@
 import { FC } from "react";
 
-import styles from "./UiButton.module.scss";
 import cn from "classnames";
 
-interface Props {
+import styles from "./UiFormButton.module.scss";
+
+interface ButtonProps {
   disabled: boolean;
   title: string;
 }
 
-const UiButton: FC<Props> = ({ disabled, title }) => {
+const UiFormButton: FC<ButtonProps> = ({ disabled, title }) => {
   return (
     <button
       type="submit"
@@ -20,4 +21,4 @@ const UiButton: FC<Props> = ({ disabled, title }) => {
   );
 };
 
-export default UiButton;
+export default UiFormButton;
