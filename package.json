@@ -31,12 +31,15 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sb": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -52,11 +55,25 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.1.0",
+    "@storybook/addon-interactions": "^7.1.0",
+    "@storybook/addon-links": "^7.1.0",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.1.0",
+    "@storybook/preset-create-react-app": "^7.1.0",
+    "@storybook/react": "^7.1.0",
+    "@storybook/react-webpack5": "^7.1.0",
+    "@storybook/testing-library": "^0.2.0",
     "@types/lodash": "^4.14.195",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-plugin-storybook": "^0.6.13",
     "lodash": "^4.17.21",
+    "prop-types": "^15.8.1",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1",
     "sass": "^1.63.6",
-    "typescript": "^4.1.6"
+    "storybook": "^7.1.0",
+    "typescript": "^4.1.6",
+    "webpack": "^5.88.2"
   }
 }
