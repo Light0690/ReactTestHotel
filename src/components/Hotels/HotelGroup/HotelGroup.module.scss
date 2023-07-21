@@ -35,8 +35,17 @@
     justify-content: center;
     align-items: center;
   }
+  &__circle {
+    width: 75px;
+    height: 75px;
+    color: #41522e;
+    opacity: 0.05;
+  }
   &__house {
     position: absolute;
+    width: 35px;
+    height: 35px;
+    color: #41522e;
   }
 }
 

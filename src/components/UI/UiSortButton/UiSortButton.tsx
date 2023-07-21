@@ -1,5 +1,8 @@
 import { FC } from "react";
 
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
+
 import styles from "./UiSortButton.module.scss";
 
 interface sortProps {

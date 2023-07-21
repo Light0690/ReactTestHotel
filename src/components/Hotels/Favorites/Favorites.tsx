@@ -29,6 +29,7 @@ const Favorites: FC = () => {
       />
     );
   });
+  
   const favoritesTSX = favorites.length ? (
     favorites.map((props) => <HotelItem key={props.hotelId} {...props} />)
   ) : (
