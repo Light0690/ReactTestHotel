@@ -10,4 +10,4 @@
         "@assets/*": ["src/assets/*"]
       }
     }
-  }
+}

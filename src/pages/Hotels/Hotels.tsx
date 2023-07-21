@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useAppSelector } from "@redux/hooks";
 import cn from "classnames";
 
@@ -14,7 +13,7 @@ import HotelGroup from "@components/Hotels/HotelGroup";
 
 import styles from "./Hotels.module.scss";
 
-const Hotels: FC = () => {
+const Hotels = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const location = useAppSelector((state) => state.hotels.location);
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);

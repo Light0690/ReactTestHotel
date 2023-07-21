@@ -1,13 +1,11 @@
-import { FC } from "react";
-
 import { useAppDispatch } from "@redux/hooks";
 import { setAuth } from "@redux/slices/authSlice";
 
-import { RxExit } from 'react-icons/rx';
+import { RxExit } from "react-icons/rx";
 
 import styles from "./Header.module.scss";
 
-const Header: FC = () => {
+const Header = () => {
   const dispath = useAppDispatch();
 
   const onClick = () => {
@@ -19,7 +17,7 @@ const Header: FC = () => {
       <div className={styles.header__title}>Simple Hotel Check</div>
       <div className={styles.header__icon} onClick={onClick}>
         <span>Выйти</span>
-        <RxExit style={{color : '#41522E'}}/>
+        <RxExit style={{ color: "#41522E" }} />
       </div>
     </div>
   );

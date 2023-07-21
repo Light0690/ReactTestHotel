@@ -1,4 +1,3 @@
-import { FC } from "react";
 import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
@@ -13,7 +12,7 @@ import UiHeart from "@ui/UiHeart";
 
 import styles from "./HotelItem.module.scss";
 
-const HotelItem: FC<IHotelItem> = ({ hotelName, hotelId, priceAvg, stars }) => {
+const HotelItem = ({ hotelName, hotelId, priceAvg, stars }: IHotelItem) => {
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
   const favorites = useAppSelector((state) => state.hotels.favorites);

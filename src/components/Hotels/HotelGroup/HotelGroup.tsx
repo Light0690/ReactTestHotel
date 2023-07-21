@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useAppSelector } from "@redux/hooks";
 
 import { IHotelFetch } from "@Interfaces/IHotelFetch";
@@ -15,7 +14,7 @@ interface HotelGroupProps {
   hotels: IHotelFetch[];
 }
 
-const HotelGroup: FC<HotelGroupProps> = ({ hotels }) => {
+const HotelGroup = ({ hotels }: HotelGroupProps) => {
   const isLoading = useAppSelector((state) => state.hotels.isLoading);
   const favorites = useAppSelector((state) => state.hotels.favorites);
 

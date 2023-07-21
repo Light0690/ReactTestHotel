@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FC } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 import carouselItem1 from "@assets/img/carouselImg1.png";
@@ -7,7 +7,7 @@ import carouselItem3 from "@assets/img/carouselimg3.png";
 
 import styles from "./Caroules.module.scss";
 
-const Carousel: FC = () => {
+const Carousel = () => {
   const [width, setWidth] = useState<number>(0);
   const carousel = useRef<HTMLDivElement | null>(null);
 

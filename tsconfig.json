@@ -19,7 +19,8 @@
   "include": ["src"],
   "typeRoots": [
     "../node_modules/@types",
-    "../@types"
+    "../@types-declaration"
   ],
+  "paths" : "",
   "extends": "./tsconfig.paths.json"
 }

@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import _ from "lodash";
@@ -12,13 +12,13 @@ import UiFormInput from "@components/UI/UiFormInput";
 
 import styles from "./FormSearch.module.scss";
 
-interface formValues {
+interface FormValues {
   location: string;
   checkInDate: string;
   countDays: number;
 }
 
-export const FormSearch: FC = () => {
+export const FormSearch = () => {
   const location = useAppSelector((state) => state.hotels.location);
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const checkOutDate = useAppSelector((state) => state.hotels.checkOutDate);
@@ -41,7 +41,7 @@ export const FormSearch: FC = () => {
     }
   }, [hotels]);
 
-  const submitForm = (values: formValues) => {
+  const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));
     dispatch(setHotels(hotels));
   };

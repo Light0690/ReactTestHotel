@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { sortFavorites } from "@redux/slices/hotelsSlice";
 
@@ -8,7 +6,7 @@ import UiSortButton from "@components/UI/UiSortButton";
 
 import styles from "./Favorites.module.scss";
 
-const Favorites: FC = () => {
+const Favorites = () => {
   const favorites = useAppSelector((state) => state.hotels.favorites);
   const sortType = useAppSelector((state) => state.hotels.sortType);
 
@@ -29,7 +27,7 @@ const Favorites: FC = () => {
       />
     );
   });
-  
+
   const favoritesTSX = favorites.length ? (
     favorites.map((props) => <HotelItem key={props.hotelId} {...props} />)
   ) : (

@@ -1,7 +1,6 @@
-import { FC } from "react";
 import ContentLoader from "react-content-loader";
 
-const HotelSkeleton: FC = () => (
+const HotelSkeleton = () => (
   <ContentLoader
     speed={2}
     width={580}
