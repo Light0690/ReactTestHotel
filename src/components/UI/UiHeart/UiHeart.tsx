@@ -3,12 +3,12 @@ import cn from "classnames";
 
 import styles from "./UiHeart.module.scss";
 
-interface heartProps {
+interface HeartProps {
   onClick: () => void;
   isActive: boolean;
 }
 
-const UiHeart: FC<heartProps> = ({ onClick, isActive }) => {
+const UiHeart: FC<HeartProps> = ({ onClick, isActive }) => {
   return (
     <div>
       <svg

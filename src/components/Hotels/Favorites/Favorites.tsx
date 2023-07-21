@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { sortFavorites } from "@redux/slices/hotelsSlice";
 
 import HotelItem from "../HotelItem";
-import UiSortButton from "@ui/UiSortButton";
+import UiSortButton from "@components/UI/UiSortButton";
 
 import styles from "./Favorites.module.scss";
 

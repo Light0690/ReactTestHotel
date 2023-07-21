@@ -61,7 +61,7 @@ export const FormLogin = () => {
         errors={formik.errors.password}
         touched={formik.touched.password}
       />
-      <UiFormButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
+      <UiFormButton title={"Войти"} disabled={!_.isEmpty(formik.errors)} />
     </form>
   );
 };

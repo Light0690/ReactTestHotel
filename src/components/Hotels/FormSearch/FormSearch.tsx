@@ -63,7 +63,7 @@ export const FormSearch: FC = () => {
       console.log(values);
     },
   });
-  console.log(formik);
+
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
       <UiFormInput

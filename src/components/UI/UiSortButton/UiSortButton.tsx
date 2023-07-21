@@ -2,14 +2,14 @@ import { FC } from "react";
 
 import styles from "./UiSortButton.module.scss";
 
-interface sortProps {
+interface SortProps {
   onClick: (type: "stars" | "priceAvg", desc: boolean) => void;
   title: string;
   desc: boolean;
   type: "stars" | "priceAvg";
 }
 
-const UiSortButton: FC<sortProps> = ({ onClick, title, desc, type }) => {
+const UiSortButton: FC<SortProps> = ({ onClick, title, desc, type }) => {
   const handleClick = () => {
     onClick(type, desc);
   };
