@@ -1,16 +1,20 @@
 import { FC } from "react";
 
 import styles from "./UiButton.module.scss";
+import cn from "classnames";
 
 interface Props {
-  type: "submit";
   disabled: boolean;
   title: string;
 }
 
-const UiButton: FC<Props> = ({ type, disabled, title }) => {
+const UiButton: FC<Props> = ({ disabled, title }) => {
   return (
-    <button type={type} disabled={disabled} className={styles.button}>
+    <button
+      type="submit"
+      disabled={disabled}
+      className={cn(styles.button, disabled && styles.button__disabled)}
+    >
       {title}
     </button>
   );

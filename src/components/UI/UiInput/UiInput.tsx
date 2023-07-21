@@ -1,48 +1,50 @@
-import { FC } from "react";
+import { FC, ChangeEventHandler, FocusEventHandler } from "react";
 import cn from "classnames";
 
 import styles from "./UiInput.module.scss";
 
-type Field = {
-  name: string;
-};
-
-type Form = {
-  touched: any;
-  errors: any;
-};
-
 interface InputProps {
-  field: Field;
-  form: Form;
+  name: string;
+  type: string;
   title: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  onBlur: FocusEventHandler<HTMLInputElement>;
+  value: string | number;
+  errors: string | undefined;
+  touched: boolean | undefined;
 }
 
 const UiInput: FC<InputProps> = ({
-  field,
-  form: { touched, errors },
+  name,
+  type,
   title,
-  ...props
+  onChange,
+  onBlur,
+  value,
+  errors,
+  touched,
 }) => {
   return (
     <div className={styles.container}>
       <label
         className={cn(
           styles.container__label,
-          touched[field.name] && errors[field.name] && styles.container__errors
+          touched && errors && styles.container__errors
         )}
-        htmlFor="email"
+        htmlFor={name}
       >
         {title}
       </label>
       <input
-        type="text"
+        name={name}
+        type={type}
         className={styles.container__input}
-        {...field}
-        {...props}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
       />
-      {touched[field.name] && errors[field.name] && (
-        <div className={styles.container__error}>{errors[field.name]}</div>
+      {touched && errors && (
+        <div className={styles.container__error}>{errors}</div>
       )}
     </div>
   );

@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import * as Yup from "yup";
-import { Formik, Form, Field } from "formik";
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { useFormik } from "formik";
+import _ from "lodash";
 
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { setHotels, setSearchForm } from "@redux/slices/hotelsSlice";
 import { hotelsAPI } from "@redux/query/hotelsQuery";
 
@@ -11,25 +12,18 @@ import UiInput from "@ui/UiInput";
 
 import styles from "./FormSearch.module.scss";
 
-const SignupSchema = Yup.object().shape({
-  location: Yup.string().required("*поле обязательно"),
-  checkInDate: Yup.string().required("*поле обязательно"),
-  countDays: Yup.number()
-    .typeError("*поле должно содержать только цифры")
-    .required("*поле обязательно"),
-});
-
 interface formValues {
   location: string;
   checkInDate: string;
   countDays: number;
 }
 
-export const FormSearch = () => {
+export const FormSearch: FC = () => {
   const location = useAppSelector((state) => state.hotels.location);
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const checkOutDate = useAppSelector((state) => state.hotels.checkOutDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
+
   const dispatch = useAppDispatch();
   const {
     data: hotels = [],
@@ -52,38 +46,58 @@ export const FormSearch = () => {
     dispatch(setHotels(hotels));
   };
 
+  const formik = useFormik({
+    initialValues: {
+      location,
+      checkInDate,
+      countDays,
+    },
+    validationSchema: Yup.object().shape({
+      location: Yup.string().required("*поле обязательно"),
+      checkInDate: Yup.string().required("*поле обязательно"),
+      countDays: Yup.number()
+        .typeError("*поле должно содержать только цифры")
+        .required("*поле обязательно"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+  console.log(formik);
   return (
-    <div>
-      <Formik
-        initialValues={{
-          location,
-          checkInDate,
-          countDays,
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          submitForm(values);
-        }}
-      >
-        {() => (
-          <Form className={styles.form}>
-            <Field component={UiInput} name="location" title="Локация" />
-            <Field
-              component={UiInput}
-              name="checkInDate"
-              type="Date"
-              title="Дата заселения"
-            />
-            <Field
-              component={UiInput}
-              name="countDays"
-              title="Колличество дней"
-            />
-            <UiButton type="submit" disabled={false} title={"Найти"} />
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <form onSubmit={formik.handleSubmit} className={styles.form}>
+      <UiInput
+        name="location"
+        title="Локация"
+        type="string"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.location}
+        errors={formik.errors.location}
+        touched={formik.touched.location}
+      />
+      <UiInput
+        name="checkInDate"
+        type="date"
+        title="Дата заселения"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.checkInDate}
+        errors={formik.errors.checkInDate}
+        touched={formik.touched.checkInDate}
+      />
+      <UiInput
+        name="countDays"
+        type="number"
+        title="Количество дней"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.countDays}
+        errors={formik.errors.countDays}
+        touched={formik.touched.countDays}
+      />
+      <UiButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
+    </form>
   );
 };
 

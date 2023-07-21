@@ -13,6 +13,10 @@
   background: linear-gradient(164deg, #41522e 1.1%, #be8022 100%);
   cursor: pointer;
 
+  &__disabled {
+    opacity: 0.5;
+  }
+
   &:hover {
     background: linear-gradient(
         0deg,
@@ -21,6 +25,7 @@
       ),
       linear-gradient(164deg, #41522e 1.1%, #be8022 100%);
   }
+
   &:active {
     background: linear-gradient(
         0deg,
