@@ -57,12 +57,6 @@ const hotelsSlice = createSlice({
         actions.payload.countDays
       );
     },
-    setHotels: (state, action: PayloadAction<IHotelFetch[]>) => {
-      state.hotels = action.payload;
-    },
-    setIsLoading: (state, action: PayloadAction<boolean>) => {
-      state.isLoading = action.payload;
-    },
     addFavoritesItem: (state, action: PayloadAction<IHotelItem>) => {
       state.favorites = state.favorites.find(
         (elem) => elem.hotelId === action.payload.hotelId
@@ -93,19 +87,16 @@ const hotelsSlice = createSlice({
     });
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
+      state.error = false;
     });
     builder.addCase(fetchHotels.rejected, (state) => {
       state.isLoading = false;
       state.error = true;
+      state.hotels = [];
     });
   },
 });
 
-export const {
-  setSearchForm,
-  addFavoritesItem,
-  setHotels,
-  sortFavorites,
-  setIsLoading,
-} = hotelsSlice.actions;
+export const { setSearchForm, addFavoritesItem, sortFavorites } =
+  hotelsSlice.actions;
 export default hotelsSlice.reducer;

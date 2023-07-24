@@ -4,13 +4,13 @@ import { useFormik } from "formik";
 import _ from "lodash";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { setHotels, setSearchForm } from "@redux/slices/hotelsSlice";
+import { setSearchForm } from "@redux/slices/hotelsSlice";
+import { fetchHotels } from "@redux/async/fetchHotels";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
 
 import styles from "./FormSearch.module.scss";
-import { fetchHotels } from "@redux/async/fetchHotels";
 
 interface FormValues {
   location: string;
