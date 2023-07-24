@@ -5,12 +5,12 @@ import _ from "lodash";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { setHotels, setSearchForm } from "@redux/slices/hotelsSlice";
-import { hotelsAPI } from "@redux/query/hotelsQuery";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
 
 import styles from "./FormSearch.module.scss";
+import { fetchHotels } from "@redux/async/fetchHotels";
 
 interface FormValues {
   location: string;
@@ -25,25 +25,13 @@ export const FormSearch = () => {
   const countDays = useAppSelector((state) => state.hotels.countDays);
 
   const dispatch = useAppDispatch();
-  const {
-    data: hotels = [],
-    error,
-    isLoading,
-  } = hotelsAPI.useFetchHotelsQuery({
-    location,
-    checkInDate,
-    checkOutDate,
-  });
 
   useEffect(() => {
-    if (hotels.length) {
-      dispatch(setHotels(hotels));
-    }
-  }, [hotels]);
+    dispatch(fetchHotels({ location, checkInDate, checkOutDate }));
+  }, [location, checkInDate, checkOutDate]);
 
   const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));
-    dispatch(setHotels(hotels));
   };
 
   const formik = useFormik({
@@ -59,9 +47,7 @@ export const FormSearch = () => {
         .typeError("*поле должно содержать только цифры")
         .required("*поле обязательно"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: submitForm,
   });
 
   return (

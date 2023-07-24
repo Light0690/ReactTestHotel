@@ -2,27 +2,31 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { getNowDate, getNextDate } from "@helpers/date";
 
+import { fetchHotels } from "@redux/async/fetchHotels";
+
 import { IHotelFetch } from "@Interfaces/IHotelFetch";
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { ISort } from "@Interfaces/ISort";
 
-interface MainState {
+interface State {
   location: string;
   checkInDate: string;
   checkOutDate: string;
   countDays: number;
   isLoading: boolean;
+  error: boolean;
   sortType: ISort[];
   hotels: IHotelFetch[];
   favorites: IHotelItem[];
 }
 
-const initialState: MainState = {
+const initialState: State = {
   location: "Москва",
   checkInDate: getNowDate(),
   checkOutDate: getNextDate(getNowDate(), 1),
   countDays: 1,
   isLoading: false,
+  error: false,
 
   sortType: [
     { title: "Рейтинг", type: "stars", desc: true },
@@ -81,6 +85,19 @@ const hotelsSlice = createSlice({
         elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
       );
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchHotels.fulfilled, (state, action) => {
+      state.hotels = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchHotels.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchHotels.rejected, (state) => {
+      state.isLoading = false;
+      state.error = true;
+    });
   },
 });
 
