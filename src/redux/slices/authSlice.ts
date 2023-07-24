@@ -2,11 +2,11 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { getLocalStorage } from "@helpers/local";
 
-interface AuthState {
+interface State {
   isAuth: boolean;
 }
 
-const initialState: AuthState = getLocalStorage("auth");
+const initialState: State = getLocalStorage("auth");
 
 const authSlice = createSlice({
   name: "auth",
