@@ -1,7 +1,7 @@
-import { useAppSelector } from "@redux/hooks";
+import { Navigate } from "react-router-dom";
 import cn from "classnames";
 
-import { Navigate } from "react-router-dom";
+import { useAppSelector } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date";
 
