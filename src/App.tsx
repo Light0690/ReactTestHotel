@@ -1,17 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import { FC } from "react";
 
-import Login from "./pages/Login";
-import Hotels from "./pages/Hotels";
+import { routes } from "./routes";
 
 import "./App.scss";
 
-const App: FC = () => {
+const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Hotels />} />
-        <Route path="/login" element={<Login />} />
+        {routes.map((route, id) => {
+          return (
+            <Route path={route.path} element={<route.element />} key={id} />
+          );
+        })}
       </Routes>
     </div>
   );
