@@ -1,15 +1,13 @@
-import { FC } from "react";
-
 import cn from "classnames";
 
 import styles from "./UiFormButton.module.scss";
 
-interface ButtonProps {
+interface Props {
   disabled: boolean;
   title: string;
 }
 
-const UiFormButton: FC<ButtonProps> = ({ disabled, title }) => {
+const UiFormButton = ({ disabled, title }: Props) => {
   return (
     <button
       type="submit"

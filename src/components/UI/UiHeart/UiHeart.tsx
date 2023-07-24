@@ -1,14 +1,13 @@
-import { FC } from "react";
 import cn from "classnames";
 
 import styles from "./UiHeart.module.scss";
 
-interface HeartProps {
+interface Props {
   onClick: () => void;
   isActive: boolean;
 }
 
-const UiHeart: FC<HeartProps> = ({ onClick, isActive }) => {
+const UiHeart = ({ onClick, isActive }: Props) => {
   return (
     <div>
       <svg

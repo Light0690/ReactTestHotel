@@ -1,9 +1,9 @@
-import { FC, ChangeEventHandler, FocusEventHandler } from "react";
+import { ChangeEventHandler, FocusEventHandler } from "react";
 import cn from "classnames";
 
 import styles from "./UiFormInput.module.scss";
 
-interface InputProps {
+interface Props {
   name: string;
   type: string;
   title: string;
@@ -14,7 +14,7 @@ interface InputProps {
   touched: boolean | undefined;
 }
 
-const UiFormInput: FC<InputProps> = ({
+const UiFormInput = ({
   name,
   type,
   title,
@@ -23,7 +23,7 @@ const UiFormInput: FC<InputProps> = ({
   value,
   errors,
   touched,
-}) => {
+}: Props) => {
   return (
     <div className={styles.container}>
       <label

@@ -10,11 +10,11 @@ import { BsCircleFill } from "react-icons/bs";
 
 import styles from "./HotelGroup.module.scss";
 
-interface HotelGroupProps {
+interface Props {
   hotels: IHotelFetch[];
 }
 
-const HotelGroup = ({ hotels }: HotelGroupProps) => {
+const HotelGroup = ({ hotels }: Props) => {
   const isLoading = useAppSelector((state) => state.hotels.isLoading);
   const favorites = useAppSelector((state) => state.hotels.favorites);
 
