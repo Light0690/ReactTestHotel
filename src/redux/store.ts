@@ -4,16 +4,12 @@ import { setLocalStorage } from "@helpers/local";
 
 import hotelsSlice from "./slices/hotelsSlice";
 import authSlice from "./slices/authSlice";
-import { hotelsAPI } from "./query/hotelsQuery";
 
 export const store = configureStore({
   reducer: {
     hotels: hotelsSlice,
     auth: authSlice,
-    [hotelsAPI.reducerPath]: hotelsAPI.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(hotelsAPI.middleware),
 });
 
 store.subscribe(() => {
