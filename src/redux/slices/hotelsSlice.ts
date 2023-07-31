@@ -46,7 +46,7 @@ const hotelsSlice = createSlice({
         location: string;
         checkInDate: string;
         countDays: number;
-      }>
+      }>,
     ) => {
       state.location = actions.payload.location;
       state.checkInDate = actions.payload.checkInDate;
@@ -54,21 +54,21 @@ const hotelsSlice = createSlice({
 
       state.checkOutDate = getNextDate(
         actions.payload.checkInDate,
-        actions.payload.countDays
+        actions.payload.countDays,
       );
     },
     addFavoritesItem: (state, action: PayloadAction<IHotelItem>) => {
       state.favorites = state.favorites.find(
-        (elem) => elem.hotelId === action.payload.hotelId
+        (elem) => elem.hotelId === action.payload.hotelId,
       )
         ? state.favorites.filter(
-            (elem) => elem.hotelId !== action.payload.hotelId
+            (elem) => elem.hotelId !== action.payload.hotelId,
           )
         : [...state.favorites, action.payload];
     },
     sortFavorites: (
       state,
-      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>
+      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>,
     ) => {
       state.favorites.sort((a, b) => {
         return action.payload.desc
@@ -76,7 +76,7 @@ const hotelsSlice = createSlice({
           : a[action.payload.type] - b[action.payload.type];
       });
       state.sortType.map((elem) =>
-        elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
+        elem.type === action.payload.type ? (elem.desc = !elem.desc) : "",
       );
     },
   },

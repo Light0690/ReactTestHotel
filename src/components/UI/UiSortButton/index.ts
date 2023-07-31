@@ -1,1 +1,1 @@
-export { default } from './UiSortButton';
+export { default } from "./UiSortButton";

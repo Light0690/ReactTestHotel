@@ -11,5 +11,5 @@ import NotFound from "../pages/NotFound";
 export const routes = [
   { path: HotelsRoute, element: Hotels },
   { path: LoginRoute, element: Login },
-  { path: NotFoundRoute, element: NotFound }
+  { path: NotFoundRoute, element: NotFound },
 ];

@@ -7,7 +7,6 @@ import notFound404 from "@assets/img/notFound404.png";
 
 import styles from "./NotFound.module.scss";
 
-
 const NotFound = () => {
   const history = useNavigate();
   const params = useParams();
@@ -26,7 +25,7 @@ const NotFound = () => {
             alt="notFound("
           />
           <h3>Упсс, страница - {params["*"]} пока не существует</h3>
-          <UiButton title={'назад'} onClick={onClick}/>
+          <UiButton title={"назад"} onClick={onClick} />
         </div>
       </div>
     </div>

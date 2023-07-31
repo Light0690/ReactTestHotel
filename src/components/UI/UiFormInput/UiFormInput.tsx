@@ -29,7 +29,7 @@ const UiFormInput = ({
       <label
         className={cn(
           styles.container__label,
-          touched && errors && styles.container__errors
+          touched && errors && styles.container__errors,
         )}
         htmlFor={name}
       >
