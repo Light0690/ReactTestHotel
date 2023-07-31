@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import _ from "lodash";
+import { isEmptyObj } from "minoru";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { setSearchForm } from "@redux/slices/hotelsSlice";
@@ -82,7 +82,7 @@ export const FormSearch = () => {
         errors={formik.errors.countDays}
         touched={formik.touched.countDays}
       />
-      <UiFormButton title={"Найти"} disabled={!_.isEmpty(formik.errors)} />
+      <UiFormButton title={"Найти"} disabled={!isEmptyObj(formik.errors)} />
     </form>
   );
 };
