@@ -7,9 +7,9 @@ import styles from "./Login.module.scss";
 
 const Login = () => {
   const error = useAppSelector((state) => state.auth.error);
-const errorTSX = useFetchWithError(error)
-  
-return (
+  const errorTSX = useFetchWithError(error);
+
+  return (
     <div className={styles.wrapper}>
       <div className={styles.blur}>
         <FormLogin />

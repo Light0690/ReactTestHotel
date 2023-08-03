@@ -22,5 +22,5 @@ export const fetchAuth = createAsyncThunk(
       dispatch(setErrorNotification(error.message));
       return rejectWithValue(error);
     }
-  }
+  },
 );

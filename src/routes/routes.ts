@@ -1,8 +1,4 @@
-import {
-  HotelsRoute,
-  LoginRoute,
-  NotFoundRoute,
-} from "@constans/routesConst";
+import { HotelsRoute, LoginRoute, NotFoundRoute } from "@constans/routesConst";
 
 import Hotels from "@pages/Hotels";
 import Login from "@pages/Login";

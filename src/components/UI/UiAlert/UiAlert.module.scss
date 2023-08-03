@@ -1,5 +1,5 @@
 .wrapper {
-  display:inline-block;
+  display: inline-block;
   padding: 15px 30px;
   position: absolute;
   bottom: 20px;
@@ -9,7 +9,7 @@
   background-color: #41522e;
   animation: appear 1s ease;
 
-  &__hidden{
+  &__hidden {
     animation: hidden 1s ease;
     opacity: 0;
   }

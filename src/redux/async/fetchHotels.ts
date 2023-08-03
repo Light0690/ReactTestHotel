@@ -13,16 +13,16 @@ export const fetchHotels = createAsyncThunk(
   "hotels/fetchHotels",
   async (
     { location, countDays }: fetchParams,
-    { dispatch, rejectWithValue }
+    { dispatch, rejectWithValue },
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `http://localhost:4444/hotels/${location}&${countDays}`
+        `http://localhost:4444/hotels/${location}&${countDays}`,
       );
       return response.data;
     } catch (error: any) {
       dispatch(setErrorNotification(error.message));
       return rejectWithValue(error);
     }
-  }
+  },
 );

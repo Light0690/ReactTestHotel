@@ -6,7 +6,6 @@ import { useFetchWithError } from "@hooks/useFetchWithError";
 
 import { addMonthToDate } from "@helpers/date";
 
-
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";
 import Favorites from "@components/Hotels/Favorites";
@@ -15,15 +14,14 @@ import HotelGroup from "@components/Hotels/HotelGroup";
 
 import styles from "./Hotels.module.scss";
 
-
 const Hotels = () => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const location = useAppSelector((state) => state.hotels.location);
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const hotels = useAppSelector((state) => state.hotels.hotels);
-  
+
   const error = useAppSelector((state) => state.hotels.error);
-  const errorTSX = useFetchWithError(error)
+  const errorTSX = useFetchWithError(error);
 
   if (!isAuth) {
     return <Navigate to={"/login"} />;
