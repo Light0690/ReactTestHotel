@@ -1,10 +1,10 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import _ from "lodash";
+import { isEmptyObj } from "minoru";
 import { Navigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { setAuth } from "@redux/slices/authSlice";
+import { fetchAuth } from "@redux/async/fetchAuth";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
@@ -17,8 +17,8 @@ export const FormLogin = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "test@mail.ru",
+      password: "qweqweqwe",
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
@@ -29,8 +29,8 @@ export const FormLogin = () => {
         .min(8, "*слишком короткий пороль")
         .required("*поле обязательно"),
     }),
-    onSubmit: (values) => {
-      dispatch(setAuth(true));
+    onSubmit: ({ email, password }) => {
+      dispatch(fetchAuth({ email, password }));
     },
   });
 
@@ -61,7 +61,7 @@ export const FormLogin = () => {
         errors={formik.errors.password}
         touched={formik.touched.password}
       />
-      <UiFormButton title={"Войти"} disabled={!_.isEmpty(formik.errors)} />
+      <UiFormButton title={"Войти"} disabled={!isEmptyObj(formik.errors)} />
     </form>
   );
 };

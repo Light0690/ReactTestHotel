@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { getLocalStorage } from "@helpers/local";
+import { fetchAuth } from "@redux/async/fetchAuth";
 
 interface State {
   isAuth: boolean;
@@ -15,6 +16,15 @@ const authSlice = createSlice({
     setAuth: (state, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchAuth.fulfilled, (state) => {
+      state.isAuth = true;
+    });
+    // builder.addCase(fetchAuth.pending, (state) => {});
+    // builder.addCase(fetchAuth.rejected, (state) => {
+
+    // });
   },
 });
 
