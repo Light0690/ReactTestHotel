@@ -1,32 +1,29 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { getNowDate, getNextDate } from "@helpers/date";
+import { getNowDate } from "@helpers/date";
 
 import { fetchHotels } from "@redux/async/fetchHotels";
 
-import { IHotelFetch } from "@Interfaces/IHotelFetch";
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { ISort } from "@Interfaces/ISort";
 
 interface State {
   location: string;
   checkInDate: string;
-  checkOutDate: string;
   countDays: number;
   isLoading: boolean;
-  error: boolean;
+  error: String;
   sortType: ISort[];
-  hotels: IHotelFetch[];
+  hotels: IHotelItem[];
   favorites: IHotelItem[];
 }
 
 const initialState: State = {
   location: "Москва",
   checkInDate: getNowDate(),
-  checkOutDate: getNextDate(getNowDate(), 1),
   countDays: 1,
   isLoading: false,
-  error: false,
+  error: "",
 
   sortType: [
     { title: "Рейтинг", type: "stars", desc: true },
@@ -46,29 +43,24 @@ const hotelsSlice = createSlice({
         location: string;
         checkInDate: string;
         countDays: number;
-      }>,
+      }>
     ) => {
       state.location = actions.payload.location;
       state.checkInDate = actions.payload.checkInDate;
       state.countDays = actions.payload.countDays;
-
-      state.checkOutDate = getNextDate(
-        actions.payload.checkInDate,
-        actions.payload.countDays,
-      );
     },
-    addFavoritesItem: (state, action: PayloadAction<IHotelItem>) => {
+    changeFavorites: (state, action: PayloadAction<IHotelItem>) => {
+      action.payload.isFavorite = !action.payload.isFavorite;
+
       state.favorites = state.favorites.find(
-        (elem) => elem.hotelId === action.payload.hotelId,
+        (elem) => elem._id === action.payload._id
       )
-        ? state.favorites.filter(
-            (elem) => elem.hotelId !== action.payload.hotelId,
-          )
+        ? state.favorites.filter((elem) => elem._id !== action.payload._id)
         : [...state.favorites, action.payload];
     },
     sortFavorites: (
       state,
-      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>,
+      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>
     ) => {
       state.favorites.sort((a, b) => {
         return action.payload.desc
@@ -76,27 +68,36 @@ const hotelsSlice = createSlice({
           : a[action.payload.type] - b[action.payload.type];
       });
       state.sortType.map((elem) =>
-        elem.type === action.payload.type ? (elem.desc = !elem.desc) : "",
+        elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
       );
+    },
+    setErrorNotification: (state, action: PayloadAction<String>) => {
+      state.error = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHotels.fulfilled, (state, action) => {
-      state.hotels = action.payload;
-      state.isLoading = false;
-    });
+    builder.addCase(
+      fetchHotels.fulfilled,
+      (state, action: PayloadAction<IHotelItem[]>) => {
+        state.hotels = action.payload;
+        state.isLoading = false;
+      }
+    );
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
-      state.error = false;
+      state.error = "";
     });
     builder.addCase(fetchHotels.rejected, (state) => {
       state.isLoading = false;
-      state.error = true;
       state.hotels = [];
     });
   },
 });
 
-export const { setSearchForm, addFavoritesItem, sortFavorites } =
-  hotelsSlice.actions;
+export const {
+  setSearchForm,
+  changeFavorites,
+  sortFavorites,
+  setErrorNotification,
+} = hotelsSlice.actions;
 export default hotelsSlice.reducer;

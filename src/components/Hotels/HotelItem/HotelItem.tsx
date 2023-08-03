@@ -1,7 +1,6 @@
 import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
-import { addFavoritesItem } from "@redux/slices/hotelsSlice";
 import { addMonthToDate } from "@helpers/date";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
@@ -11,19 +10,21 @@ import { BsFillStarFill } from "react-icons/bs";
 import UiHeart from "@ui/UiHeart";
 
 import styles from "./HotelItem.module.scss";
+import { changeFavorites } from "@redux/slices/hotelsSlice";
 
-const HotelItem = ({ hotelName, hotelId, priceAvg, stars }: IHotelItem) => {
+const HotelItem = ({
+  _id,
+  hotelName,
+  priceAvg,
+  stars,
+  isFavorite,
+}: IHotelItem) => {
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
-  const favorites = useAppSelector((state) => state.hotels.favorites);
   const dispatch = useAppDispatch();
 
-  const isActive = favorites.find((elem) => elem.hotelId === hotelId)
-    ? true
-    : false;
-
   const onClick = () => {
-    dispatch(addFavoritesItem({ hotelName, hotelId, priceAvg, stars }));
+    dispatch(changeFavorites({ _id, hotelName, priceAvg, stars, isFavorite }));
   };
 
   const daysTSX = (): string => {
@@ -36,7 +37,7 @@ const HotelItem = ({ hotelName, hotelId, priceAvg, stars }: IHotelItem) => {
     <div className={styles.wrapper}>
       <div className={styles.flex}>
         <h2 className={styles.wrapper__title}>{hotelName}</h2>
-        <UiHeart onClick={onClick} isActive={isActive} />
+        <UiHeart onClick={onClick} isActive={isFavorite} />
       </div>
       <div className={styles.flex}>
         <div className={styles.wrapper__date}>
@@ -51,7 +52,7 @@ const HotelItem = ({ hotelName, hotelId, priceAvg, stars }: IHotelItem) => {
                 key={id}
                 className={cn(
                   styles.icons__item,
-                  id + 1 <= stars ? styles.icons__item_active : "",
+                  id + 1 <= stars ? styles.icons__item_active : ""
                 )}
               />
             );

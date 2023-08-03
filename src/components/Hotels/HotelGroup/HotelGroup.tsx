@@ -1,6 +1,6 @@
 import { useAppSelector } from "@redux/hooks";
 
-import { IHotelFetch } from "@Interfaces/IHotelFetch";
+import { IHotelItem } from "@Interfaces/IHotelItem";
 
 import HotelItem from "../HotelItem";
 import HotelSkeleton from "../HotelSkeleton";
@@ -11,7 +11,7 @@ import { BsCircleFill } from "react-icons/bs";
 import styles from "./HotelGroup.module.scss";
 
 interface Props {
-  hotels: IHotelFetch[];
+  hotels: IHotelItem[];
 }
 
 const HotelGroup = ({ hotels }: Props) => {
@@ -19,17 +19,18 @@ const HotelGroup = ({ hotels }: Props) => {
   const favorites = useAppSelector((state) => state.hotels.favorites);
 
   const hotelsTSX = hotels.length ? (
-    hotels.map(({ hotelId, hotelName, priceAvg, stars }) => (
-      <div className={styles.wrapper__item} key={hotelId}>
+    hotels.map(({ _id, hotelName, priceAvg, stars, isFavorite }) => (
+      <div className={styles.wrapper__item} key={_id}>
         <div className={styles.wrapper__icon}>
           <BsCircleFill className={styles.wrapper__circle} />
           <FaHouse className={styles.wrapper__house} />
         </div>
         <HotelItem
-          hotelId={hotelId}
+          _id={_id}
           hotelName={hotelName}
           priceAvg={priceAvg}
           stars={stars}
+          isFavorite={isFavorite}
         />
       </div>
     ))

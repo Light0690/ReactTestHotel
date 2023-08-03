@@ -1,20 +1,28 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { IHotelFetch } from "@Interfaces/IHotelFetch";
+import { IHotelItem } from "@Interfaces/IHotelItem";
+import { setErrorNotification } from "@redux/slices/hotelsSlice";
 
 interface fetchParams {
   location: string;
-  checkInDate: string;
-  checkOutDate: string;
+  countDays: number;
 }
 
 export const fetchHotels = createAsyncThunk(
   "hotels/fetchHotels",
-  async ({ location, checkInDate, checkOutDate }: fetchParams) => {
-    const response = await axios.get<IHotelFetch[]>(
-      `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkInDate}&checkOut=${checkOutDate}&limit=15`,
-    );
-    return response.data;
-  },
+  async (
+    { location, countDays }: fetchParams,
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      const response = await axios.get<IHotelItem[]>(
+        `http://localhost:4444/hotels/${location}&${countDays}`
+      );
+      return response.data;
+    } catch (error: any) {
+      dispatch(setErrorNotification(error.message));
+      return rejectWithValue(error);
+    }
+  }
 );
