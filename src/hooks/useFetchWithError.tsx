@@ -8,7 +8,7 @@ export const useFetchWithError = (error: String) => {
   useEffect(() => {
     setTimeout(() => {
       setIsHidden(true);
-    }, 4000);
+    }, 5000);
   }, [error]);
 
   return <>{error && <UiAlert message={error} isHidden={isHidden} />}</>;
