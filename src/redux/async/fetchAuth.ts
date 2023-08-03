@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
-import { setErrorNotification } from "@redux/slices/hotelsSlice";
+import instance from "../../api/axiosConfig";
+
+import { setErrorNotification } from "@redux/slices/authSlice";
 
 interface fetchParams {
   email: string;
@@ -12,7 +13,7 @@ export const fetchAuth = createAsyncThunk(
   "auth/fetchAuth",
   async ({ email, password }: fetchParams, { dispatch, rejectWithValue }) => {
     try {
-      const response = await axios.post(`http://localhost:4444/auth/login`, {
+      const response = await instance.post(`http://localhost:4444/auth/login`, {
         email,
         password,
       });

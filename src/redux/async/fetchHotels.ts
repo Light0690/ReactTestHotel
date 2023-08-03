@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import instance from "../../api/axiosConfig";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { setErrorNotification } from "@redux/slices/hotelsSlice";
@@ -16,7 +16,7 @@ export const fetchHotels = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      const response = await axios.get<IHotelItem[]>(
+      const response = await instance.get<IHotelItem[]>(
         `http://localhost:4444/hotels/${location}&${countDays}`
       );
       return response.data;
