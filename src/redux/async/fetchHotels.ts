@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../api/axiosConfig";
+import instance from "@api/axiosConfig";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { setErrorNotification } from "@redux/slices/hotelsSlice";

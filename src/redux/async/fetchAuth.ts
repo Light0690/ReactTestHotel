@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import instance from "../../api/axiosConfig";
+import instance from "@api/axiosConfig";
 
 import { setErrorNotification } from "@redux/slices/authSlice";
 

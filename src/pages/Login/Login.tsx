@@ -1,5 +1,5 @@
 import { useAppSelector } from "@redux/hooks";
-import { useFetchWithError } from "../../hooks/useFetchWithError";
+import { useFetchWithError } from "@hooks/useFetchWithError";
 
 import FormLogin from "@components/Login/FormLogin";
 

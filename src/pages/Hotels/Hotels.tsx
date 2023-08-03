@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import cn from "classnames";
 
 import { useAppSelector } from "@redux/hooks";
-import { useFetchWithError } from "../../hooks/useFetchWithError";
+import { useFetchWithError } from "@hooks/useFetchWithError";
 
 import { addMonthToDate } from "@helpers/date";
 
