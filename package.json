@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "pr": "npx prettier . --check",
+    "pr": "npx prettier . --write",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

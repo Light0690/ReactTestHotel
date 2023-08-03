@@ -1,9 +1,13 @@
 import styles from "./UiAlert.module.scss";
 
-const UiAlert = () => {
+interface Props {
+  message: String;
+}
+
+const UiAlert = ({ message }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <h3>Упсс, что-то пошло не так</h3>
+      <h3>{message}</h3>
     </div>
   );
 };

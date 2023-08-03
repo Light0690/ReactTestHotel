@@ -20,7 +20,8 @@ const Hotels = () => {
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
   const hotels = useAppSelector((state) => state.hotels.hotels);
   const error = useAppSelector((state) => state.hotels.error);
-
+console.log(error)
+  // console.log(hotels);
   if (!isAuth) {
     return <Navigate to={"/login"} />;
   }
@@ -28,7 +29,6 @@ const Hotels = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
-
       <div className={styles.container}>
         <div className={styles.container__left}>
           <FormSearch />
@@ -51,7 +51,7 @@ const Hotels = () => {
           <HotelGroup hotels={hotels} />
         </div>
       </div>
-      {error && <UiAlert />}
+      {error && <UiAlert message={error}/>}
     </div>
   );
 };

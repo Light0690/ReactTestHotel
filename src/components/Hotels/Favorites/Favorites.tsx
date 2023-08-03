@@ -29,7 +29,7 @@ const Favorites = () => {
   });
 
   const favoritesTSX = favorites.length ? (
-    favorites.map((props) => <HotelItem key={props.hotelId} {...props} />)
+    favorites.map((elem) => <HotelItem key={elem._id} {...elem} />)
   ) : (
     <h2 className={styles.empty}>В избранном пока нет элементов</h2>
   );

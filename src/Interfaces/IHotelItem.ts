@@ -1,6 +1,8 @@
 export interface IHotelItem {
-  hotelId: number;
+  _id?: number;
   hotelName: string;
+  city?: string;
   priceAvg: number;
   stars: number;
+  isFavorite: boolean;
 }

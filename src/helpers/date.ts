@@ -13,13 +13,6 @@ export const getNowDate = () => {
   return formattingDate(res);
 };
 
-export const getNextDate = (date: string, countDays: string | number) => {
-  const [year, month, day] = date.split(/-/).map((elem) => Number(elem));
-  const res = new Date(year, month, day + +countDays);
-
-  return formattingDate(res);
-};
-
 export const addMonthToDate = (date: string) => {
   const [year, month, day] = date.split(/-/);
   const months = [

@@ -21,14 +21,13 @@ interface FormValues {
 export const FormSearch = () => {
   const location = useAppSelector((state) => state.hotels.location);
   const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
-  const checkOutDate = useAppSelector((state) => state.hotels.checkOutDate);
   const countDays = useAppSelector((state) => state.hotels.countDays);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchHotels({ location, checkInDate, checkOutDate }));
-  }, [location, checkInDate, checkOutDate]);
+    dispatch(fetchHotels({ location, countDays }));
+  }, [location, countDays]);
 
   const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));
