@@ -5,9 +5,13 @@ import { fetchAuth } from "@redux/async/fetchAuth";
 
 interface State {
   isAuth: boolean;
+  error: String;
 }
 
-const initialState: State = getLocalStorage("auth");
+const initialState: State = {
+  isAuth: getLocalStorage('auth'),
+  error: "",
+};
 
 const authSlice = createSlice({
   name: "auth",
@@ -16,17 +20,16 @@ const authSlice = createSlice({
     setAuth: (state, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
+    setErrorNotification: (state, action: PayloadAction<String>) => {
+      state.error = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAuth.fulfilled, (state) => {
       state.isAuth = true;
     });
-    // builder.addCase(fetchAuth.pending, (state) => {});
-    // builder.addCase(fetchAuth.rejected, (state) => {
-
-    // });
   },
 });
 
-export const { setAuth } = authSlice.actions;
+export const { setAuth, setErrorNotification } = authSlice.actions;
 export default authSlice.reducer;

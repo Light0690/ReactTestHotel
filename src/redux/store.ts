@@ -13,8 +13,9 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  setLocalStorage("auth", store.getState().auth);
+  setLocalStorage("auth", store.getState().auth.isAuth);
 });
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
