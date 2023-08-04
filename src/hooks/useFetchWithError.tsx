@@ -7,7 +7,6 @@ export const useFetchWithError = (error: String) => {
 
   useEffect(() => {
     setTimeout(() => {
-      
       setIsHidden(true);
     }, 5000);
   }, [error]);
