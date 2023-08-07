@@ -1,12 +1,13 @@
-import { setErrorNotification } from "@redux/slices/authSlice";
+import { setErrorNotification } from "@redux/slices/hotelsSlice";
 
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { IHotelItem } from "@Interfaces/IHotelItem";
 
 import instance from "./axiosConfig";
 
 interface fetchParams {
-  email: string;
-  password: string;
+  location: string;
+  countDays: number;
 }
 
 interface reduxParams {
@@ -14,16 +15,15 @@ interface reduxParams {
   rejectWithValue: (value: unknown) => any;
 }
 
-export const auth = {
-  doAuthorization: async (
-    { email, password }: fetchParams,
+export const hotels = {
+  getHotels: async (
+    { location, countDays }: fetchParams,
     { dispatch, rejectWithValue }: reduxParams
   ) => {
     try {
-      const response = await instance.post(`auth/login`, {
-        email,
-        password,
-      });
+      const response = await instance.get<IHotelItem[]>(
+        `hotels/${location}&${countDays}`
+      );
       return response.data;
     } catch (error: any) {
       dispatch(setErrorNotification(error.message));
