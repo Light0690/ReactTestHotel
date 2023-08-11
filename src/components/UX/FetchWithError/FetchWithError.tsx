@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 import UiAlert from "@components/UI/UiAlert/UiAlert";
 
-export const useFetchWithError = (error: String) => {
+interface props {
+  error: String;
+}
+
+const FetchWithError = ({ error }: props) => {
   const [isHidden, setIsHidden] = useState<boolean>(false);
 
   useEffect(() => {
@@ -13,3 +17,5 @@ export const useFetchWithError = (error: String) => {
 
   return <>{error && <UiAlert message={error} isHidden={isHidden} />}</>;
 };
+
+export default FetchWithError;

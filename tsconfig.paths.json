@@ -6,9 +6,9 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@ui/*": ["src/components/UI/*"],
+      "@ux/*": ["src/components/UX/*"],
       "@constans/*": ["src/constans/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@hooks/*": ["src/hooks/*"],
       "@Interfaces/*": ["src/Interfaces/*"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"]

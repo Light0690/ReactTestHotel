@@ -2,7 +2,6 @@ import { Navigate } from "react-router-dom";
 import cn from "classnames";
 
 import { useAppSelector } from "@redux/hooks";
-import { useFetchWithError } from "@hooks/useFetchWithError";
 
 import { addMonthToDate } from "@helpers/date";
 
@@ -11,6 +10,8 @@ import FormSearch from "@components/Hotels/FormSearch";
 import Favorites from "@components/Hotels/Favorites";
 import Carousel from "@components/Hotels/Carousel";
 import HotelGroup from "@components/Hotels/HotelGroup";
+
+import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Hotels.module.scss";
 
@@ -21,7 +22,6 @@ const Hotels = () => {
   const hotels = useAppSelector((state) => state.hotels.hotels);
 
   const error = useAppSelector((state) => state.hotels.error);
-  const errorTSX = useFetchWithError(error);
 
   if (!isAuth) {
     return <Navigate to={"/login"} />;
@@ -52,7 +52,7 @@ const Hotels = () => {
           <HotelGroup hotels={hotels} />
         </div>
       </div>
-      {errorTSX}
+      <FetchWithError error={error} />
     </div>
   );
 };
