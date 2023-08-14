@@ -5,7 +5,7 @@ import loaderBlack from "./img/loader-black.svg";
 import loaderWhite from "./img/loader-white.svg";
 import loaderBlue from "./img/loader-blue.svg";
 
-import styles from "./UILoading.module.css";
+import styles from "./UiLoading.module.scss";
 
 interface props {
   theme: string;
