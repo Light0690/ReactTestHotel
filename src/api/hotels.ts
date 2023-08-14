@@ -16,6 +16,12 @@ interface reduxParams {
 }
 
 export const hotels = {
+  /**
+   * Функция возвращает отели по параметрам
+   *
+   * @param param0 обьект состоящий из location - город отеля и countDays - колличество забронированных дней
+   * @returns массив обьектов - отелей или ошибку
+   */
   getHotels: async (
     { location, countDays }: fetchParams,
     { dispatch, rejectWithValue }: reduxParams
