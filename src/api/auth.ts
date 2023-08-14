@@ -16,7 +16,7 @@ interface reduxParams {
 
 export const auth = {
   /**
-   * Функция совершает авторизацию,
+   * Функция совершает авторизацию
    *
    * @param param0 обьект, состоящий из email и password
    * @returns boolean значение при успешном запросе, при ошибке записывает ее в state

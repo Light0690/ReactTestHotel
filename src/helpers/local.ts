@@ -15,7 +15,7 @@ export const getLocalStorage = (key: string) => {
 };
 
 /**
- * Фунцкия, записывающие ключ - значение в LocalStorage
+ * Фунцкия, записывающая ключ - значение в LocalStorage
  * 
  * @param { string } key любая строка
  * @param { any } data любое значение
