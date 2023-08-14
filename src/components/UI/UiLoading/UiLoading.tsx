@@ -34,11 +34,13 @@ const UILoading = ({ theme = "white", isShadow = true, classes }: props) => {
   }, [theme]);
 
   return (
-    <img
-      src={loaderIcon}
-      alt="loader"
-      className={cn(styles.loader, isShadow && styles.shadow, classes)}
-    />
+    <div className={styles.wrapper}>
+      <img
+        src={loaderIcon}
+        alt="loader"
+        className={cn(styles.loader, isShadow && styles.shadow, classes)}
+      />
+    </div>
   );
 };
 
