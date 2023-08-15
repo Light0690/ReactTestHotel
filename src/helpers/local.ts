@@ -1,6 +1,6 @@
 /**
- * Функция, возвращающая значение из LocalStorage по ключу 
- * 
+ * Функция, возвращающая значение из LocalStorage по ключу
+ *
  * @param { string } key любая строка
  * @returns значение из localStorage по ключу
  */
@@ -16,7 +16,7 @@ export const getLocalStorage = (key: string) => {
 
 /**
  * Фунцкия, записывающая ключ - значение в LocalStorage
- * 
+ *
  * @param { string } key любая строка
  * @param { any } data любое значение
  */

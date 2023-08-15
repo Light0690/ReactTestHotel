@@ -23,7 +23,7 @@ export const auth = {
    */
   doAuthorization: async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: reduxParams
+    { dispatch, rejectWithValue }: reduxParams,
   ) => {
     try {
       const response = await instance.post(`auth/login`, {

@@ -1,7 +1,7 @@
 /**
  * Функция принимает дату и возращает её строкой в формате - 0000-00-00
- * 
- * @param { Date } date любая дата  
+ *
+ * @param { Date } date любая дата
  * @returns { string } строка вида 0000-00-00
  */
 
@@ -13,10 +13,9 @@ const formattingDate = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
-
 /**
  * Функция, которая возвращает нынешнюю дату, отформатированную функцией formattingDate
- * 
+ *
  * @returns { string } нынешняя дата, отформатированную функцией formattingDate
  */
 export const getNowDate = (): string => {
@@ -26,10 +25,9 @@ export const getNowDate = (): string => {
   return formattingDate(res);
 };
 
-
 /**
- * Функция, заменяющая номер месяца на его название 
- * 
+ * Функция, заменяющая номер месяца на его название
+ *
  * @param { string } date отформатированная дата, формата 0000-00-00
  * @returns { string } отформатированная дата, с заменой цифры месяца на его название 0000-*****-00
  */
