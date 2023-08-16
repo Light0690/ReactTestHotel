@@ -3,17 +3,14 @@ import { AxiosError } from "axios";
 import { setErrorNotification } from "@redux/slices/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
-import { IReduxParams } from '@Interfaces/IReduxParams';
+import { IReduxParams } from "@Interfaces/IReduxParams";
 
 import instance from "./axiosConfig";
-
 
 interface fetchParams {
   location: string;
   countDays: number;
 }
-
-
 
 export const hotels = {
   /**
@@ -28,11 +25,11 @@ export const hotels = {
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`
+        `hotels/${location}&${countDays}`,
       );
       return response.data;
     } catch (error: any) {
-      if (error instanceof AxiosError){
+      if (error instanceof AxiosError) {
         dispatch(setErrorNotification(error.message));
         return rejectWithValue(error);
       }
