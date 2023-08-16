@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 
 import UiAlert from "@components/UI/UiAlert/UiAlert";
 
-interface props {
+interface Props {
   error: String;
 }
 
-const FetchWithError = ({ error }: props) => {
+const FetchWithError = ({ error }: Props) => {
   const [isHidden, setIsHidden] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsHidden(false);
+
     setTimeout(() => {
       setIsHidden(true);
     }, 5000);

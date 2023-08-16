@@ -1,6 +1,8 @@
+import { AxiosError } from "axios";
+
 import { setErrorNotification } from "@redux/slices/authSlice";
 
-import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { IReduxParams } from "@Interfaces/IReduxParams";
 
 import instance from "./axiosConfig";
 
@@ -9,31 +11,27 @@ interface fetchParams {
   password: string;
 }
 
-interface reduxParams {
-  dispatch: ThunkDispatch<unknown, unknown, AnyAction>;
-  rejectWithValue: (value: unknown) => any;
-}
-
-export const auth = {
-  /**
-   * Функция совершает авторизацию
-   *
-   * @param param0 обьект, состоящий из email и password
-   * @returns boolean значение при успешном запросе, при ошибке записывает ее в state
-   */
-  doAuthorization: async (
+const makeRequestUsingURL = (url: string) => {
+  return async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: reduxParams,
+    { dispatch, rejectWithValue }: IReduxParams
   ) => {
     try {
-      const response = await instance.post(`auth/login`, {
+      const response = await instance.post(url, {
         email,
         password,
       });
       return response.data;
     } catch (error: any) {
-      dispatch(setErrorNotification(error.message));
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        dispatch(setErrorNotification(error.response?.data.message));
+        return rejectWithValue(error);
+      }
     }
-  },
+  };
+};
+
+export const auth = {
+  doAuthorization: makeRequestUsingURL("auth/login"),
+  doRegistr: makeRequestUsingURL("auth/register"),
 };
