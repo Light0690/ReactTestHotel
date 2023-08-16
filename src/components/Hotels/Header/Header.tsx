@@ -13,13 +13,13 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header__title}>Simple Hotel Check</div>
       <div className={styles.header__icon} onClick={onClick}>
         <span>Выйти</span>
         <RxExit style={{ color: "#41522E" }} />
       </div>
-    </div>
+    </header>
   );
 };
 
