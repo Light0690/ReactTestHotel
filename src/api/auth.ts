@@ -1,6 +1,7 @@
-import { setErrorNotification } from "@redux/slices/authSlice";
-
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
+
+import { setErrorNotification } from "@redux/slices/authSlice";
 
 import instance from "./axiosConfig";
 
@@ -23,7 +24,7 @@ export const auth = {
    */
   doAuthorization: async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: reduxParams,
+    { dispatch, rejectWithValue }: reduxParams
   ) => {
     try {
       const response = await instance.post(`auth/login`, {
@@ -32,8 +33,10 @@ export const auth = {
       });
       return response.data;
     } catch (error: any) {
-      dispatch(setErrorNotification(error.message));
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        dispatch(setErrorNotification(error.message));
+        return rejectWithValue(error);
+      }
     }
   },
 };

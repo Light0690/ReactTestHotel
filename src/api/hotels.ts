@@ -1,6 +1,8 @@
+import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
+
 import { setErrorNotification } from "@redux/slices/hotelsSlice";
 
-import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
 import instance from "./axiosConfig";
@@ -24,16 +26,18 @@ export const hotels = {
    */
   getHotels: async (
     { location, countDays }: fetchParams,
-    { dispatch, rejectWithValue }: reduxParams,
+    { dispatch, rejectWithValue }: reduxParams
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`,
+        `hotels/${location}&${countDays}`
       );
       return response.data;
     } catch (error: any) {
-      dispatch(setErrorNotification(error.message));
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        dispatch(setErrorNotification(error.message));
+        return rejectWithValue(error);
+      }
     }
   },
 };
