@@ -1,17 +1,23 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { isEmptyObj } from "minoru";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { fetchAuth } from "@redux/async/fetchAuth";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
 
-import styles from "./FormLogin.module.scss";
+import styles from "./Form.module.scss";
 
-export const FormLogin = () => {
+interface Props {
+  header: string;
+  text: JSX.Element;
+  link: JSX.Element;
+  onSubmitFunc: Function;
+}
+
+export const Form = ({ header, text, link, onSubmitFunc }: Props) => {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
   const dispatch = useAppDispatch();
 
@@ -30,7 +36,7 @@ export const FormLogin = () => {
         .required("*поле обязательно"),
     }),
     onSubmit: ({ email, password }) => {
-      dispatch(fetchAuth({ email, password }));
+      dispatch(onSubmitFunc({ email, password }));
     },
   });
 
@@ -40,7 +46,7 @@ export const FormLogin = () => {
 
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
-      <h1 className={styles.form__title}>Simple Hotel Check</h1>
+      <h1 className={styles.form__title}>{header}</h1>
       <UiFormInput
         name="email"
         title="Логин"
@@ -61,9 +67,15 @@ export const FormLogin = () => {
         errors={formik.errors.password}
         touched={formik.touched.password}
       />
-      <UiFormButton title={"Войти"} disabled={!isEmptyObj(formik.errors)} />
+      <div className={styles.form__footer}>
+        <UiFormButton title={"Войти"} disabled={!isEmptyObj(formik.errors)} />
+        <div className={styles.form__link}>
+          {text}
+          <Link to="">{link}</Link>
+        </div>
+      </div>
     </form>
   );
 };
 
-export default FormLogin;
+export default Form;
