@@ -10,7 +10,7 @@ export const changeCssVariables = (isDark: boolean) => {
   cssVariables.forEach((element) => {
     root.style.setProperty(
       `--${element}-color-default`,
-      `var(--${element}-color-${isDark ? "dark" : "white"})`
+      `var(--${element}-color-${isDark ? "dark" : "white"})`,
     );
   });
 };

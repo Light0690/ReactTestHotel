@@ -22,11 +22,7 @@ const Header = () => {
       <div className={styles.header__title}>Simple Hotel Check</div>
       <div className={styles.header__buttons}>
         <button className={styles.header__icon} onClick={isTheme.changeIsDark}>
-          {isTheme.isDark ? (
-            <BsMoonFill />
-          ) : (
-            <BsFillSunFill />
-          )}
+          {isTheme.isDark ? <BsMoonFill /> : <BsFillSunFill />}
         </button>
         <button className={styles.header__exit} onClick={onClick}>
           <span>Выйти</span>
