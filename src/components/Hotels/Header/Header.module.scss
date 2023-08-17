@@ -6,7 +6,8 @@
   align-items: center;
 
   &__title {
-    color: #424242;
+    color: var(--text-color-default);
+    text-shadow: 0px 0px 17px var(--text-color-default) ;
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -14,15 +15,39 @@
     user-select: none;
   }
 
-  &__icon {
+  &__buttons {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__icon {
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      color: rgb(180, 180, 41);
+    }
+  }
+
+  &__exit {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 12px;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 
     span {
-      color: #41522e;
+      color: var(--color-green);
       text-align: right;
       font-size: 16px;
       font-style: normal;

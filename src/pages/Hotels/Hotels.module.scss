@@ -1,7 +1,7 @@
 .wrapper {
   min-width: 100%;
   min-height: 100vh;
-  background: #f4f4f4;
+  background: var(--theme-color-default);
   overflow: auto;
 
   display: flex;
@@ -35,7 +35,7 @@
       align-items: flex-end;
       gap: 28px;
       border-radius: 16px;
-      background: #fff;
+      background: var(--bg-color-default);
       box-shadow: 0px 4px 33px 0px rgba(0, 0, 0, 0.04);
     }
 
@@ -51,7 +51,7 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
-        color: #424242;
+        color: var(--text-color-default);
         font-size: 32px;
         font-style: normal;
         font-weight: 500;
@@ -67,7 +67,7 @@
         justify-content: center;
         align-items: center;
         gap: 15px;
-        color: #41522e;
+        color: var(--color-green);
         text-align: right;
         font-size: 24px;
         font-style: normal;

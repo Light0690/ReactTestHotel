@@ -8,6 +8,7 @@
       "@ui/*": ["src/components/UI/*"],
       "@ux/*": ["src/components/UX/*"],
       "@constans/*": ["src/constans/*"],
+      "@context/*": ["src/context/*"],
       "@helpers/*": ["src/helpers/*"],
       "@Interfaces/*": ["src/Interfaces/*"],
       "@pages/*": ["src/pages/*"],

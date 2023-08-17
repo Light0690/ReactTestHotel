@@ -8,11 +8,11 @@
   align-items: flex-start;
   gap: 15px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--bg-color-default);
   box-shadow: 0px 4px 33px 0px rgba(0, 0, 0, 0.04);
 
   &__title {
-    color: #424242;
+    color: var(--text-color-default);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -35,7 +35,7 @@
   }
 }
 .empty {
-  color: #424242be;
+  color: var(--text-color-default);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;

@@ -5,8 +5,6 @@ import { routes } from "./routes";
 
 import UILoading from "@components/UI/UiLoading/UiLoading";
 
-import "./App.scss";
-
 const App = () => {
   return (
     <div className="App">
