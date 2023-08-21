@@ -1,5 +1,9 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { sortFavorites } from "@redux/slices/hotelsSlice";
+import {
+  favoritesSelector,
+  sortTypeSelector,
+  sortFavorites,
+} from "@redux/slices/hotelsSlice";
 
 import HotelItem from "../HotelItem";
 import UiSortButton from "@components/UI/UiSortButton";
@@ -7,8 +11,8 @@ import UiSortButton from "@components/UI/UiSortButton";
 import styles from "./Favorites.module.scss";
 
 const Favorites = () => {
-  const favorites = useAppSelector((state) => state.hotels.favorites);
-  const sortType = useAppSelector((state) => state.hotels.sortType);
+  const favorites = useAppSelector(favoritesSelector);
+  const sortType = useAppSelector(sortTypeSelector);
 
   const dispatch = useAppDispatch();
 

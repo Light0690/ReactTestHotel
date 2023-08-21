@@ -2,8 +2,16 @@ import { Navigate } from "react-router-dom";
 import cn from "classnames";
 
 import { useAppSelector } from "@redux/hooks";
+import {
+  checkInDateSelector,
+  errorSelector,
+  hotelsSelector,
+  locationSelector,
+} from "@redux/slices/hotelsSlice";
 
 import { addMonthToDate } from "@helpers/date";
+
+import { authSelector } from "@redux/slices/authSlice";
 
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";
@@ -16,12 +24,11 @@ import FetchWithError from "@ux/FetchWithError";
 import styles from "./Hotels.module.scss";
 
 const Hotels = () => {
-  const isAuth = useAppSelector((state) => state.auth.isAuth);
-  const location = useAppSelector((state) => state.hotels.location);
-  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
-  const hotels = useAppSelector((state) => state.hotels.hotels);
-
-  const error = useAppSelector((state) => state.hotels.error);
+  const isAuth = useAppSelector(authSelector);
+  const location = useAppSelector(locationSelector);
+  const checkInDate = useAppSelector(checkInDateSelector);
+  const hotels = useAppSelector(hotelsSelector);
+  const error = useAppSelector(errorSelector);
 
   if (!isAuth) {
     return <Navigate to={"/login"} />;

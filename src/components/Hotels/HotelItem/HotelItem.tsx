@@ -10,7 +10,11 @@ import { BsFillStarFill } from "react-icons/bs";
 import UiHeart from "@ui/UiHeart";
 
 import styles from "./HotelItem.module.scss";
-import { changeFavorites } from "@redux/slices/hotelsSlice";
+import {
+  checkInDateSelector,
+  countDaysSelector,
+  changeFavorites,
+} from "@redux/slices/hotelsSlice";
 
 const HotelItem = ({
   _id,
@@ -19,8 +23,8 @@ const HotelItem = ({
   stars,
   isFavorite,
 }: IHotelItem) => {
-  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
-  const countDays = useAppSelector((state) => state.hotels.countDays);
+  const checkInDate = useAppSelector(checkInDateSelector);
+  const countDays = useAppSelector(countDaysSelector);
   const dispatch = useAppDispatch();
 
   const onClick = () => {
@@ -52,7 +56,7 @@ const HotelItem = ({
                 key={id}
                 className={cn(
                   styles.icons__item,
-                  id + 1 <= stars ? styles.icons__item_active : "",
+                  id + 1 <= stars ? styles.icons__item_active : ""
                 )}
               />
             );

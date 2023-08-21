@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useAppSelector } from "@redux/hooks";
+import { errorSelector } from "@redux/slices/authSlice";
 
 import { fetchAuth } from "@redux/async/Auth/fetchAuth";
 import { fetchRegistr } from "@redux/async/Auth/fetchRegistr";
@@ -11,8 +12,8 @@ import FetchWithError from "@ux/FetchWithError";
 import styles from "./Login.module.scss";
 
 const Login = () => {
+  const error = useAppSelector(errorSelector);
   const [isLoginForm, setIsLoginForm] = useState(true);
-  const error = useAppSelector((state) => state.auth.error);
 
   const RegistrTextTSX = <p>Уже есть аккаунт?</p>;
   const RegistrLinkTSX = (

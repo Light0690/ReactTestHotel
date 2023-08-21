@@ -4,6 +4,7 @@ import { isEmptyObj } from "minoru";
 import { Navigate, Link } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { authSelector } from "@redux/slices/authSlice";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
@@ -18,7 +19,7 @@ interface Props {
 }
 
 export const Form = ({ header, text, link, onSubmitFunc }: Props) => {
-  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const isAuth = useAppSelector(authSelector);
   const dispatch = useAppDispatch();
 
   const formik = useFormik({

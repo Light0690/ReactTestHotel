@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "@redux/store";
 
 import { getLocalStorage } from "@helpers/local";
 import { fetchAuth } from "@redux/async/Auth/fetchAuth";
@@ -40,6 +41,9 @@ const authSlice = createSlice({
     });
   },
 });
+
+export const authSelector = (state: RootState) => state.auth.isAuth;
+export const errorSelector = (state: RootState) => state.auth.error;
 
 export const { setAuth, setErrorNotification } = authSlice.actions;
 export default authSlice.reducer;

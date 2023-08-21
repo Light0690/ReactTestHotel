@@ -4,7 +4,12 @@ import { useFormik } from "formik";
 import { isEmptyObj } from "minoru";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { setSearchForm } from "@redux/slices/hotelsSlice";
+import {
+  checkInDateSelector,
+  countDaysSelector,
+  locationSelector,
+  setSearchForm,
+} from "@redux/slices/hotelsSlice";
 import { fetchHotels } from "@redux/async/fetchHotels";
 
 import UiFormButton from "@components/UI/UiFormButton";
@@ -19,9 +24,9 @@ interface FormValues {
 }
 
 export const FormSearch = () => {
-  const location = useAppSelector((state) => state.hotels.location);
-  const checkInDate = useAppSelector((state) => state.hotels.checkInDate);
-  const countDays = useAppSelector((state) => state.hotels.countDays);
+  const location = useAppSelector(locationSelector);
+  const checkInDate = useAppSelector(checkInDateSelector);
+  const countDays = useAppSelector(countDaysSelector);
 
   const dispatch = useAppDispatch();
 

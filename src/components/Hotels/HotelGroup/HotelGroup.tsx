@@ -1,5 +1,7 @@
 import { useAppSelector } from "@redux/hooks";
 
+import { favoritesSelector, isLoadingSelector } from "@redux/slices/hotelsSlice";
+
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
 import HotelItem from "../HotelItem";
@@ -10,13 +12,14 @@ import { BsCircleFill } from "react-icons/bs";
 
 import styles from "./HotelGroup.module.scss";
 
+
 interface Props {
   hotels: IHotelItem[];
 }
 
 const HotelGroup = ({ hotels }: Props) => {
-  const isLoading = useAppSelector((state) => state.hotels.isLoading);
-  const favorites = useAppSelector((state) => state.hotels.favorites);
+  const isLoading = useAppSelector(isLoadingSelector);
+  const favorites = useAppSelector(favoritesSelector);
 
   const hotelsTSX = hotels.length ? (
     hotels.map(({ _id, hotelName, priceAvg, stars, isFavorite }) => (
