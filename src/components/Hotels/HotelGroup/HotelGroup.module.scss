@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  max-height: 420px;
+  max-height: 460px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -8,7 +8,7 @@
 
   &__title {
     color: var(--text-color-default);
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 300;
     line-height: 22px;
@@ -49,7 +49,7 @@
 }
 
 .empty {
-  color: #424242;
+  color: var(--text-color-default);
   font-style: normal;
   font-weight: 400;
 }
