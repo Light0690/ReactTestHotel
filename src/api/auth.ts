@@ -1,4 +1,4 @@
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 
 import { setErrorNotification } from "@redux/slices/authSlice";
 
@@ -14,7 +14,7 @@ interface fetchParams {
 const makeRequestUsingURL = (url: string) => {
   return async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams,
+    { dispatch, rejectWithValue }: IReduxParams
   ) => {
     try {
       const response = await instance.post(url, {
@@ -22,8 +22,8 @@ const makeRequestUsingURL = (url: string) => {
         password,
       });
       return response.data;
-    } catch (error: any) {
-      if (error instanceof AxiosError) {
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
         dispatch(setErrorNotification(error.response?.data.message));
         return rejectWithValue(error);
       }

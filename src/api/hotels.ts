@@ -1,4 +1,4 @@
-import { AxiosError } from "axios";
+import { isAxiosError } from "axios";
 
 import { setErrorNotification } from "@redux/slices/hotelsSlice";
 
@@ -21,15 +21,15 @@ export const hotels = {
    */
   getHotels: async (
     { location, countDays }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams,
+    { dispatch, rejectWithValue }: IReduxParams
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`,
+        `hotels/${location}&${countDays}`
       );
       return response.data;
-    } catch (error: any) {
-      if (error instanceof AxiosError) {
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
         dispatch(setErrorNotification(error.message));
         return rejectWithValue(error);
       }
