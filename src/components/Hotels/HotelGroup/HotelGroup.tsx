@@ -1,6 +1,9 @@
 import { useAppSelector } from "@redux/hooks";
 
-import { favoritesSelector, isLoadingSelector } from "@redux/slices/hotelsSlice";
+import {
+  favoritesSelector,
+  isLoadingSelector,
+} from "@redux/slices/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -11,7 +14,6 @@ import { FaHouse } from "react-icons/fa6";
 import { BsCircleFill } from "react-icons/bs";
 
 import styles from "./HotelGroup.module.scss";
-
 
 interface Props {
   hotels: IHotelItem[];

@@ -56,7 +56,7 @@ const HotelItem = ({
                 key={id}
                 className={cn(
                   styles.icons__item,
-                  id + 1 <= stars ? styles.icons__item_active : ""
+                  id + 1 <= stars ? styles.icons__item_active : "",
                 )}
               />
             );

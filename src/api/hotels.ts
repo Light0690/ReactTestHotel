@@ -21,11 +21,11 @@ export const hotels = {
    */
   getHotels: async (
     { location, countDays }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams
+    { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`
+        `hotels/${location}&${countDays}`,
       );
       return response.data;
     } catch (error: unknown) {
