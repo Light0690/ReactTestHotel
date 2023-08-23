@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 
-import { setErrorNotification } from "@redux/slices/authSlice";
+import { setErrorNotification } from "@redux/slices/Auth/authSlice";
 
 import { IReduxParams } from "@Interfaces/IReduxParams";
 

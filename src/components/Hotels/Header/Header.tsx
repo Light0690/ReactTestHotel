@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@redux/hooks";
 
-import { setAuth } from "@redux/slices/authSlice";
+import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/ThemeProvider";
 
 import { RxExit } from "react-icons/rx";

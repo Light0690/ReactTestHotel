@@ -36,6 +36,13 @@
       "plugin:storybook/recommended"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "@helpers/(.*)": ["../../../helpers/$1.ts"],
+      "@Interfaces/*": ["src/Interfaces/*"],
+      "^@redux/*$": ["src/redux/*"]
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",

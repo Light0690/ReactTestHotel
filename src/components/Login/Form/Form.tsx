@@ -4,7 +4,7 @@ import { isEmptyObj } from "minoru";
 import { Navigate, Link } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { authSelector } from "@redux/slices/authSlice";
+import { authSelector } from "@redux/slices/Auth/authSlice";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";

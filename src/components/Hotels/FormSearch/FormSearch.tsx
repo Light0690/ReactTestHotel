@@ -9,8 +9,8 @@ import {
   countDaysSelector,
   locationSelector,
   setSearchForm,
-} from "@redux/slices/hotelsSlice";
-import { fetchHotels } from "@redux/async/fetchHotels";
+} from "@redux/slices/Hotels/hotelsSlice";
+import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";

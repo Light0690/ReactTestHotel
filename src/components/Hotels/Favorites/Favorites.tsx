@@ -3,7 +3,7 @@ import {
   favoritesSelector,
   sortTypeSelector,
   sortFavorites,
-} from "@redux/slices/hotelsSlice";
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import HotelItem from "../HotelItem";
 import UiSortButton from "@components/UI/UiSortButton";

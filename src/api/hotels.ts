@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 
-import { setErrorNotification } from "@redux/slices/hotelsSlice";
+import { setErrorNotification } from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { IReduxParams } from "@Interfaces/IReduxParams";

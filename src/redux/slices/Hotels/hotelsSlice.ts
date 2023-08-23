@@ -3,7 +3,7 @@ import { RootState } from "@redux/store";
 
 import { getNowDate } from "@helpers/date";
 
-import { fetchHotels } from "@redux/async/fetchHotels";
+import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { ISort } from "@Interfaces/ISort";

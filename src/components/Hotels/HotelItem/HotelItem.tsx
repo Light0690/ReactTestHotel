@@ -14,7 +14,7 @@ import {
   checkInDateSelector,
   countDaysSelector,
   changeFavorites,
-} from "@redux/slices/hotelsSlice";
+} from "@redux/slices/Hotels/hotelsSlice";
 
 const HotelItem = ({
   _id,

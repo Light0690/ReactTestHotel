@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useAppSelector } from "@redux/hooks";
-import { errorSelector } from "@redux/slices/authSlice";
+import { errorSelector } from "@redux/slices/Auth/authSlice";
 
 import { fetchAuth } from "@redux/async/Auth/fetchAuth";
 import { fetchRegistr } from "@redux/async/Auth/fetchRegistr";

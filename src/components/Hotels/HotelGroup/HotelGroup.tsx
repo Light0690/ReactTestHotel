@@ -3,7 +3,7 @@ import { useAppSelector } from "@redux/hooks";
 import {
   favoritesSelector,
   isLoadingSelector,
-} from "@redux/slices/hotelsSlice";
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
