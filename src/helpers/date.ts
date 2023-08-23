@@ -5,7 +5,7 @@
  * @returns { string } строка вида 0000-00-00
  */
 
-const formattingDate = (date: Date): string => {
+export const formattingDate = (date: Date): string => {
   const year = date.getFullYear();
   const month = date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth();
   const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
@@ -29,9 +29,13 @@ export const getNowDate = (): string => {
  * Функция, заменяющая номер месяца на его название
  *
  * @param { string } date отформатированная дата, формата 0000-00-00
- * @returns { string } отформатированная дата, с заменой цифры месяца на его название 0000-*****-00
+ * @returns { string } отформатированная дата, с заменой цифры месяца на его название `00 ***** 0000`
  */
 export const addMonthToDate = (date: string): string => {
+  if(date === '') {
+    return 'ошибка параметров'
+  }
+
   const [year, month, day] = date.split(/-/);
   const months = [
     "января",
