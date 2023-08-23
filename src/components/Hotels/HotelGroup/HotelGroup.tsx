@@ -42,7 +42,7 @@ const HotelGroup = ({ hotels }: Props) => {
   ) : (
     <h2 className={styles.empty}>Нет подходящих отелей</h2>
   );
-  const skeletonsTSX = [...new Array(5)].map((_, id) => (
+  const skeletonsTSX = [...new Array(4)].map((_, id) => (
     <div key={id}>
       <HotelSkeleton />
     </div>

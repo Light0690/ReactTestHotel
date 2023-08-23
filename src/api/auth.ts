@@ -14,7 +14,7 @@ interface fetchParams {
 const makeRequestUsingURL = (url: string) => {
   return async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams,
+    { dispatch, rejectWithValue }: IReduxParams
   ) => {
     try {
       const response = await instance.post(url, {
@@ -24,7 +24,8 @@ const makeRequestUsingURL = (url: string) => {
       return response.data;
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setErrorNotification(error.response?.data.message));
+        const message = error.response?.data.message || error.message;
+        dispatch(setErrorNotification(message));
         return rejectWithValue(error);
       }
     }

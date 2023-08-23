@@ -21,16 +21,17 @@ export const hotels = {
    */
   getHotels: async (
     { location, countDays }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams,
+    { dispatch, rejectWithValue }: IReduxParams
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`,
+        `hotels/${location}&${countDays}`
       );
       return response.data;
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setErrorNotification(error.message));
+        const message = error.response?.data.message || error.message;
+        dispatch(setErrorNotification(message));
         return rejectWithValue(error);
       }
     }

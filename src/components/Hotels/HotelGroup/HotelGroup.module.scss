@@ -15,6 +15,7 @@
     letter-spacing: -0.408px;
   }
   &__group {
+    max-height: 320px;
     display: flex;
     padding: 16px 16px 16px 0px;
     flex-direction: column;
@@ -49,6 +50,7 @@
 }
 
 .empty {
+  opacity: 0.6;
   color: var(--text-color-default);
   font-style: normal;
   font-weight: 400;

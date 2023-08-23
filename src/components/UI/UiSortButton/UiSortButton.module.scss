@@ -1,16 +1,16 @@
 .button {
   display: flex;
-  padding: 4px 8px;
+  padding: 2px 6px;
   align-items: center;
   gap: 4px;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid #41522e;
   background: #fff;
   cursor: pointer;
 
   &__title {
     color: #41522e;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;

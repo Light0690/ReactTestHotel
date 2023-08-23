@@ -44,7 +44,7 @@ const hotelsSlice = createSlice({
         location: string;
         checkInDate: string;
         countDays: number;
-      }>,
+      }>
     ) => {
       state.location = actions.payload.location;
       state.checkInDate = actions.payload.checkInDate;
@@ -54,14 +54,14 @@ const hotelsSlice = createSlice({
       action.payload.isFavorite = !action.payload.isFavorite;
 
       state.favorites = state.favorites.find(
-        (elem) => elem._id === action.payload._id,
+        (elem) => elem._id === action.payload._id
       )
         ? state.favorites.filter((elem) => elem._id !== action.payload._id)
         : [...state.favorites, action.payload];
     },
     sortFavorites: (
       state,
-      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>,
+      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>
     ) => {
       state.favorites.sort((a, b) => {
         return action.payload.desc
@@ -69,7 +69,7 @@ const hotelsSlice = createSlice({
           : a[action.payload.type] - b[action.payload.type];
       });
       state.sortType.map((elem) =>
-        elem.type === action.payload.type ? (elem.desc = !elem.desc) : "",
+        elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
       );
     },
     setErrorNotification: (state, action: PayloadAction<String>) => {
@@ -82,7 +82,7 @@ const hotelsSlice = createSlice({
       (state, action: PayloadAction<IHotelItem[]>) => {
         state.hotels = action.payload;
         state.isLoading = false;
-      },
+      }
     );
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
