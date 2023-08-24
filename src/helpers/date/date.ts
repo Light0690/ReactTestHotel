@@ -32,8 +32,8 @@ export const getNowDate = (): string => {
  * @returns { string } отформатированная дата, с заменой цифры месяца на его название `00 ***** 0000`
  */
 export const addMonthToDate = (date: string): string => {
-  if(date === '') {
-    return 'ошибка параметров'
+  if (date === "") {
+    return "ошибка параметров";
   }
 
   const [year, month, day] = date.split(/-/);

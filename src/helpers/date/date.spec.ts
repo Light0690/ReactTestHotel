@@ -1,4 +1,4 @@
-import { formattingDate, getNowDate, addMonthToDate } from "../helpers/date";
+import { formattingDate, getNowDate, addMonthToDate } from "./date";
 
 describe("formattingDate", () => {
   test("корректные параметры", () => {

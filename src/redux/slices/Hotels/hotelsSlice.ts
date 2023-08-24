@@ -1,14 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@redux/store";
 
-import { getNowDate } from "@helpers/date";
+import { getNowDate } from "@helpers/date/date";
 
 import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 import { ISort } from "@Interfaces/ISort";
 
-interface State {
+export interface State {
   location: string;
   checkInDate: string;
   countDays: number;
