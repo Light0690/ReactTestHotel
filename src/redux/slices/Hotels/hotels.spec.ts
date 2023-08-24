@@ -59,7 +59,7 @@ describe("hotelsSlice", () => {
 
     expect(reducer(undefined, changeFavorites(itemFavorite))).toEqual(newState);
     expect(
-      reducer(newState, changeFavorites({ ...itemFavorite, isFavorite: true }))
+      reducer(newState, changeFavorites({ ...itemFavorite, isFavorite: true })),
     ).toEqual({ ...state, favorites: [] });
   });
 
@@ -92,11 +92,11 @@ describe("hotelsSlice", () => {
     expect(
       reducer(
         { ...state, favorites: [itemFavorite1, itemFavorite2] },
-        sortFavorites({ type: "stars", desc: true })
-      )
+        sortFavorites({ type: "stars", desc: true }),
+      ),
     ).toEqual(newState);
     expect(
-      reducer(newState, sortFavorites({ type: "stars", desc: false }))
+      reducer(newState, sortFavorites({ type: "stars", desc: false })),
     ).toEqual({
       ...state,
       sortType: [

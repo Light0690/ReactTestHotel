@@ -14,7 +14,7 @@ interface fetchParams {
 const makeRequestUsingURL = (url: string) => {
   return async (
     { email, password }: fetchParams,
-    { dispatch, rejectWithValue }: IReduxParams
+    { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.post(url, {
