@@ -5,7 +5,11 @@
  * @returns значение из localStorage по ключу
  */
 export const getLocalStorage = (key: string) => {
-  const data = localStorage.getItem(key);
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const data = localStorage?.getItem(key);
 
   if (data !== null) {
     return JSON.parse(data);

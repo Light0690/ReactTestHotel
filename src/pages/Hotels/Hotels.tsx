@@ -10,7 +10,7 @@ import {
 } from "@redux/slices/Hotels/hotelsSlice";
 import { authSelector } from "@redux/slices/Auth/authSlice";
 
-import { addMonthToDate } from "@helpers/date";
+import { addMonthToDate } from "@helpers/date/date";
 
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";

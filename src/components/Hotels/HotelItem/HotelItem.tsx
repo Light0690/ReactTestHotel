@@ -1,7 +1,7 @@
 import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
-import { addMonthToDate } from "@helpers/date";
+import { addMonthToDate } from "@helpers/date/date";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -9,12 +9,14 @@ import { BsFillStarFill } from "react-icons/bs";
 
 import UiHeart from "@ui/UiHeart";
 
-import styles from "./HotelItem.module.scss";
+
 import {
   checkInDateSelector,
   countDaysSelector,
   changeFavorites,
 } from "@redux/slices/Hotels/hotelsSlice";
+
+import styles from "./HotelItem.module.scss";
 
 const HotelItem = ({
   _id,
