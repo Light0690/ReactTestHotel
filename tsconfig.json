@@ -16,8 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
-  "typeRoots": ["./node_modules/@types", "./@types-declaration/alltypes.d.ts"],
+  "include": ["src", "test"],
+  "typeRoots": [
+    "./node_modules/@types",
+    "./@types-declaration/alltypes.d.ts",
+    "@types/jest"
+  ],
   "paths": "",
   "extends": "./tsconfig.paths.json"
 }
