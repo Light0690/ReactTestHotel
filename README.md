@@ -1,11 +1,9 @@
 # ReactTestHotel
 
-## Доступ к сайту временно закрыт
+## Ссылки
 
-<!-- ## Ссылки
-
-- `Project` https://light0690.github.io/ReactTestHotel/
-- `Repository` https://github.com/Light0690/ReactTestHotel -->
+- `Project` https://light0690.github.io/ReactTestHotelFront/#/
+- `Repository` https://github.com/Light0690/ReactTestHotelFront
 
 ## Технологии
 
