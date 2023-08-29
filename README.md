@@ -8,10 +8,14 @@
 ## Технологии
 
 - React/-dom/-icons/router-dom/-redux
-- Redux/toolkit/saga
-- typescript
-- axios
-- formik/yup
+- Redux toolkit
+- TypeScript
+- Axios
+- Jest
+- Storybook
+- Formik/yup
+- Sass
+- typedoc
 - framer-motion
 - classnames
 - prettier
