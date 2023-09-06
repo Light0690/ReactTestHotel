@@ -10,7 +10,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  background: linear-gradient(164deg, #41522e 1.1%, #be8022 100%);
+  background: linear-gradient(
+    117deg,
+    rgba(31, 37, 24, 1) 0%,
+    rgb(39, 121, 66) 57%,
+    rgba(7, 70, 33, 1) 95%
+  );
   cursor: pointer;
 
   &__disabled {
@@ -19,19 +24,19 @@
 
   &:hover {
     background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.2) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-      ),
-      linear-gradient(164deg, #41522e 1.1%, #be8022 100%);
+      117deg,
+      rgba(31, 37, 24, .5) 0%,
+      rgb(39, 121, 66, .5) 57%,
+      rgba(7, 70, 33, .5) 95%
+    );
   }
 
   &:active {
     background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.2) 100%
-      ),
-      linear-gradient(164deg, #41522e 1.1%, #be8022 100%);
+      117deg,
+      rgb(11, 14, 9) 0%,
+      rgb(21, 66, 36) 57%,
+      rgba(7, 70, 33, 1) 95%
+    );
   }
 }
