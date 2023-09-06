@@ -1,7 +1,7 @@
 import { pathsToModuleNameMapper, JestConfigWithTsJest } from "ts-jest";
-// import { compilerOptions } from "./tsconfig.paths.json";
+import  * as alias  from "./tsconfig.paths.json";
 
-// const paths = pathsToModuleNameMapper(compilerOptions.paths);
+ const jestPaths = pathsToModuleNameMapper(alias.paths);
 
 const jestConfig: JestConfigWithTsJest = {
   preset: "ts-jest",
@@ -13,7 +13,7 @@ const jestConfig: JestConfigWithTsJest = {
   transformIgnorePatterns: ["/node_modules/(?!(uuid)/)"],
   moduleDirectories: ["node_modules", "<rootDir>"],
   moduleNameMapper: {
-    // ...paths,
+    ...jestPaths,
     "^.+\\.(css|less|scss)$": "babel-jest",
   },
 };
