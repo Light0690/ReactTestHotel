@@ -7,7 +7,7 @@ import ThemeProvider from "@context/ThemeProvider";
 
 import App from "./App";
 
-import "./styles/index.scss";
+import "./styles/main.scss";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <HashRouter>
