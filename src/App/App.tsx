@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 
-import { routes } from "./routes";
+import { routes } from "../routes";
 
 import UILoading from "@components/UI/UiLoading/UiLoading";
 
@@ -14,9 +14,7 @@ const App = () => {
             <Route
               path={route.path}
               element={
-                <Suspense
-                  fallback={<UILoading theme="black" isShadow={false} />}
-                >
+                <Suspense fallback={<UILoading theme="black" isShadow={false} />}>
                   <route.element />
                 </Suspense>
               }
