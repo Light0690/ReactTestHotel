@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom";
 
 import { Provider } from "react-redux";
 import { store } from "@redux/store";
@@ -7,7 +7,6 @@ import { store } from "@redux/store";
 import HotelItem from "./HotelItem";
 
 describe("", () => {
-
   const item = {
     _id: 1,
     hotelName: "test1",
@@ -20,12 +19,11 @@ describe("", () => {
   test("", () => {
     const { queryByText } = render(
       <Provider store={store}>
-        <HotelItem {...item}/>
-      </Provider>
+        <HotelItem {...item} />
+      </Provider>,
     );
 
-    
-    expect(queryByText('Стоимость:')).toBeInTheDocument();
-    expect(queryByText('цена')).not.toBeInTheDocument();
+    expect(queryByText("Стоимость:")).toBeInTheDocument();
+    expect(queryByText("цена")).not.toBeInTheDocument();
   });
 });

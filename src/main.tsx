@@ -9,12 +9,12 @@ import App from "./App";
 
 import "./index.scss";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <HashRouter>
-  <Provider store={store}>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </Provider>
-</HashRouter>,
-)
+    <Provider store={store}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </Provider>
+  </HashRouter>,
+);

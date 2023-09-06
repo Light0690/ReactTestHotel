@@ -9,7 +9,6 @@ import { BsFillStarFill } from "react-icons/bs";
 
 import UiHeart from "@ui/UiHeart";
 
-
 import {
   checkInDateSelector,
   countDaysSelector,
