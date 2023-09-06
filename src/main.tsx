@@ -9,15 +9,12 @@ import App from "./App";
 
 import "./index.scss";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
-);
-root.render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <HashRouter>
-    <Provider store={store}>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </Provider>
-  </HashRouter>,
-);
+  <Provider store={store}>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </Provider>
+</HashRouter>,
+)
