@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import UiButton from "@components/UI/UiButton/UiButton";
+import UiButton from "@components/UI/UiButton";
 
 import notFound404 from "@assets/img/notFound404.png";
 
