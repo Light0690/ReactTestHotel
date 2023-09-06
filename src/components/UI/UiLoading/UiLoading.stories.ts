@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import UiLoading from "./UiLoading";
 
 const meta = {
@@ -6,7 +6,6 @@ const meta = {
 } satisfies Meta<typeof UiLoading>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 export const Black = {
   args: {

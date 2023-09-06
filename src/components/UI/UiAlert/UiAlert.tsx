@@ -3,8 +3,8 @@ import cn from "classnames";
 import styles from "./UiAlert.module.scss";
 
 interface Props {
-  message: String;
-  isHidden: Boolean;
+  message: string;
+  isHidden: boolean;
 }
 
 const UiAlert = ({ message, isHidden }: Props) => {

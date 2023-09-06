@@ -11,7 +11,7 @@ interface State {
 }
 
 const initialState: State = {
-  isAuth: typeof window !== undefined ? getLocalStorage("auth") : null,
+  isAuth:  getLocalStorage("auth"),
   error: "",
 };
 

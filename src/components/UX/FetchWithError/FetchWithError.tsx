@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import UiAlert from "@components/UI/UiAlert/UiAlert";
 
 interface Props {
-  error: String;
+  error: string;
 }
 
 const FetchWithError = ({ error }: Props) => {

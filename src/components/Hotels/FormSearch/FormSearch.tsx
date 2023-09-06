@@ -32,7 +32,7 @@ export const FormSearch = () => {
 
   useEffect(() => {
     dispatch(fetchHotels({ location, countDays }));
-  }, [location, countDays]);
+  }, [location, countDays, dispatch]);
 
   const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));

@@ -4,13 +4,15 @@
  * @param { boolean } isDark - утверждение, темная тема или нет
  */
 export const changeCssVariables = (isDark: boolean) => {
-  const root: any = document.querySelector(":root");
+  const root: HTMLElement | null = document.querySelector(":root");
   const cssVariables = ["text", "theme", "bg"];
 
   cssVariables.forEach((element) => {
-    root.style.setProperty(
-      `--${element}-color-default`,
-      `var(--${element}-color-${isDark ? "dark" : "white"})`,
-    );
+    if (root) {
+      root.style.setProperty(
+        `--${element}-color-default`,
+        `var(--${element}-color-${isDark ? "dark" : "white"})`,
+      );
+    }
   });
 };

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import UiHeart from "./UiHeart";
 
 const meta = {
@@ -6,7 +6,6 @@ const meta = {
 } satisfies Meta<typeof UiHeart>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 export const Example = {
   args: {
