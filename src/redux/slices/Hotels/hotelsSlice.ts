@@ -13,7 +13,7 @@ export interface State {
   checkInDate: string;
   countDays: number;
   isLoading: boolean;
-  error: String;
+  error: string;
   sortType: ISort[];
   hotels: IHotelItem[];
   favorites: IHotelItem[];
@@ -72,7 +72,7 @@ const hotelsSlice = createSlice({
         elem.type === action.payload.type ? (elem.desc = !elem.desc) : "",
       );
     },
-    setErrorNotification: (state, action: PayloadAction<String>) => {
+    setErrorNotification: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
   },

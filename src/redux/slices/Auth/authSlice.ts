@@ -7,7 +7,7 @@ import { fetchRegistr } from "@redux/async/Auth/fetchRegistr";
 
 interface State {
   isAuth: boolean;
-  error: String;
+  error: string;
 }
 
 const initialState: State = {
@@ -22,7 +22,7 @@ const authSlice = createSlice({
     setAuth: (state, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
-    setErrorNotification: (state, action: PayloadAction<String>) => {
+    setErrorNotification: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
   },
