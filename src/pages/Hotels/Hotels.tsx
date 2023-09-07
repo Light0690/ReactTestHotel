@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import cn from "classnames";
 
 import { useAppSelector } from "@redux/hooks";
@@ -8,7 +7,6 @@ import {
   hotelsSelector,
   locationSelector,
 } from "@redux/slices/Hotels/hotelsSlice";
-import { authSelector } from "@redux/slices/Auth/authSlice";
 
 import { addMonthToDate } from "@helpers/date/date";
 
@@ -23,15 +21,10 @@ import FetchWithError from "@ux/FetchWithError";
 import styles from "./Hotels.module.scss";
 
 const Hotels = () => {
-  const isAuth = useAppSelector(authSelector);
   const location = useAppSelector(locationSelector);
   const checkInDate = useAppSelector(checkInDateSelector);
   const hotels = useAppSelector(hotelsSelector);
   const error = useAppSelector(errorSelector);
-
-  if (!isAuth) {
-    return <Navigate to={"/login"} />;
-  }
 
   return (
     <div className={styles.wrapper}>
