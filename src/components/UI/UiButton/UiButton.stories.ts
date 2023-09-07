@@ -13,3 +13,28 @@ export const Example = {
     onClick: () => console.log(1),
   },
 } satisfies Meta<typeof UiButton>;
+
+export const Small = {
+  args: {
+    title: "назад",
+    size: "small",
+    onClick: () => console.log(1),
+  },
+} satisfies Meta<typeof UiButton>;
+
+export const Large = {
+  args: {
+    title: "назад",
+    size: "large",
+    onClick: () => console.log(1),
+  },
+} satisfies Meta<typeof UiButton>;
+
+export const Primary = {
+  args: {
+    title: "назад",
+    size: "large",
+    color: "primary",
+    onClick: () => console.log(1),
+  },
+} satisfies Meta<typeof UiButton>;
