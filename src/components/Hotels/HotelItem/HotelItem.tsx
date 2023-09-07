@@ -2,28 +2,22 @@ import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date/date";
-
-import { IHotelItem } from "@Interfaces/IHotelItem";
-
-import { BsFillStarFill } from "react-icons/bs";
-
-import UiHeart from "@ui/UiHeart";
-
 import {
   checkInDateSelector,
   countDaysSelector,
   changeFavorites,
 } from "@redux/slices/Hotels/hotelsSlice";
 
+import { IHotelItem } from "@Interfaces/IHotelItem";
+
+import { BsFillStarFill } from "react-icons/bs";
+
+import UiHeart from "@ui/UiHeart";
+import UiButton from "@ui/UiButton";
+
 import styles from "./HotelItem.module.scss";
 
-const HotelItem = ({
-  _id,
-  hotelName,
-  priceAvg,
-  stars,
-  isFavorite,
-}: IHotelItem) => {
+const HotelItem = ({ _id, hotelName, priceAvg, stars, isFavorite }: IHotelItem) => {
   const checkInDate = useAppSelector(checkInDateSelector);
   const countDays = useAppSelector(countDaysSelector);
   const dispatch = useAppDispatch();
@@ -38,6 +32,15 @@ const HotelItem = ({
     else return `${countDays} дней`;
   };
 
+  const iconsTSX = [...new Array(5)].map((_, id) => {
+    return (
+      <BsFillStarFill
+        key={id}
+        className={cn(styles.icons__item, id + 1 <= stars ? styles.icons__item_active : "")}
+      />
+    );
+  });
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.flex}>
@@ -48,24 +51,12 @@ const HotelItem = ({
         <div className={styles.wrapper__date}>
           {addMonthToDate(checkInDate)} - {daysTSX()}
         </div>
+        <div className={styles.wrapper__price}>от {priceAvg} P</div>
       </div>
       <div className={styles.flex}>
-        <div className={styles.icons}>
-          {[...new Array(5)].map((elem, id) => {
-            return (
-              <BsFillStarFill
-                key={id}
-                className={cn(
-                  styles.icons__item,
-                  id + 1 <= stars ? styles.icons__item_active : "",
-                )}
-              />
-            );
-          })}
-        </div>
-        <div className={cn(styles.flex__price, styles.price)}>
-          <div className={styles.price__title}>Стоимость:</div>
-          <div className={styles.price__cash}>{priceAvg} P</div>
+        <div className={styles.icons}>{iconsTSX}</div>
+        <div>
+          <UiButton title={"забронировать"} onClick={() => console.log(1)} />
         </div>
       </div>
       <hr className={styles.hr} />
