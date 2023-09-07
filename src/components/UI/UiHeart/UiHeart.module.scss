@@ -1,6 +1,9 @@
 .wrapper {
+  display: flex;
+  align-items: center;
   border: none;
   background-color: transparent;
+
   &__heart {
     width: 20px;
     height: 18px;
@@ -8,14 +11,15 @@
     cursor: pointer;
 
     &_active {
-      fill: #e44f4f;
+      fill: #c01616;
     }
 
     &:hover {
-      fill: #c4c4c4;
+      opacity: 0.5;
     }
 
     &:active {
+      opacity: 1;
       fill: #961717;
     }
   }
