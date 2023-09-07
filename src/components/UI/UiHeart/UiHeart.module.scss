@@ -1,7 +1,6 @@
 .heart {
   width: 21px;
   height: 18px;
-  flex-shrink: 0;
   fill: #ffffff;
   cursor: pointer;
 
@@ -11,5 +10,9 @@
 
   &:hover {
     fill: #c4c4c4;
+  }
+
+  &:active {
+    fill: #e55858;
   }
 }
