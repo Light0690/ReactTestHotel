@@ -24,7 +24,7 @@ const NotFound = () => {
             alt="notFound("
           />
           <h3>Упсс, страница - {params["*"]} пока не существует</h3>
-          <UiButton title={"назад"} onClick={onClick} />
+          <UiButton title={"назад"} onClick={onClick} size="large" />
         </div>
       </div>
     </div>
