@@ -1,23 +1,57 @@
 .button {
   width: 100%;
-  padding: 10px;
-  background-color: white;
-  color: #41522e;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  border: 1px solid #41522e;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: #fff;
+}
+
+.large {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.small {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.normal {
+  background-color: #41522e;
 
   &:hover {
-    opacity: 0.8;
-    background-color: rgba(224, 224, 224, 0.3);
+    background-color: #41522e86;
   }
 
   &:active {
-    opacity: 1;
-    background-color: white;
+    background-color: #2f3b20;
+  }
+}
+
+.primary {
+  background: linear-gradient(
+    117deg,
+    rgba(31, 37, 24, 1) 0%,
+    rgb(39, 121, 66) 57%,
+    rgba(7, 70, 33, 1) 95%
+  );
+  &:hover {
+    background: linear-gradient(
+      117deg,
+      rgba(31, 37, 24, 0.8) 0%,
+      rgb(39, 121, 66, 0.8) 57%,
+      rgba(7, 70, 33, 0.8) 95%
+    );
+  }
+
+  &:active {
+    background: linear-gradient(
+      117deg,
+      rgb(11, 14, 9) 0%,
+      rgb(21, 66, 36) 57%,
+      rgba(7, 70, 33, 1) 95%
+    );
   }
 }
