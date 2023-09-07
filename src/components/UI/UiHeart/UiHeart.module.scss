@@ -1,18 +1,22 @@
-.heart {
-  width: 21px;
-  height: 18px;
-  fill: #ffffff;
-  cursor: pointer;
+.wrapper {
+  border: none;
+  background-color: transparent;
+  &__heart {
+    width: 20px;
+    height: 18px;
+    fill: #dddcdc;
+    cursor: pointer;
 
-  &__active {
-    fill: #e55858;
-  }
+    &_active {
+      fill: #e44f4f;
+    }
 
-  &:hover {
-    fill: #c4c4c4;
-  }
+    &:hover {
+      fill: #c4c4c4;
+    }
 
-  &:active {
-    fill: #e55858;
+    &:active {
+      fill: #961717;
+    }
   }
 }
