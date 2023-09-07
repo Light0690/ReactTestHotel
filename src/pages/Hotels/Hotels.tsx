@@ -1,5 +1,3 @@
-import cn from "classnames";
-
 import { useAppSelector } from "@redux/hooks";
 import {
   checkInDateSelector,
@@ -8,13 +6,10 @@ import {
   locationSelector,
 } from "@redux/slices/Hotels/hotelsSlice";
 
-import { addMonthToDate } from "@helpers/date/date";
-
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";
-import Favorites from "@components/Hotels/Favorites";
-import Carousel from "@components/Hotels/Carousel";
-import HotelGroup from "@components/Hotels/HotelGroup";
+import SortHotels from "@components/Hotels/SortHotels";
+import Container from "@components/Hotels/Container";
 
 import FetchWithError from "@ux/FetchWithError";
 
@@ -29,27 +24,12 @@ const Hotels = () => {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <div className={styles.container}>
-        <div className={styles.container__left}>
+      <div className={styles.wrapper__container}>
+        <div className={styles.wrapper__search}>
           <FormSearch />
-          <Favorites />
+          <SortHotels />
         </div>
-        <div className={cn(styles.container__right, styles.hotel)}>
-          <div className={styles.hotel__title}>
-            <div className={styles.hotel__name}>
-              <div>Отели</div>
-              <div className={styles.symbol}>{">"}</div>
-              <div>{location}</div>
-            </div>
-            <div className={styles.hotel__date}>
-              {addMonthToDate(checkInDate)}
-            </div>
-          </div>
-          <div className={styles.hotel__carousel}>
-            <Carousel />
-          </div>
-          <HotelGroup hotels={hotels} />
-        </div>
+        <Container location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>
       <FetchWithError error={error} />
     </div>
