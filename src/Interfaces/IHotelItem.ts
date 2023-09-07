@@ -1,5 +1,5 @@
 export interface IHotelItem {
-  _id?: number;
+  _id: number;
   hotelName: string;
   city?: string;
   priceAvg: number;
