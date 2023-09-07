@@ -1,0 +1,10 @@
+.wrapper {
+  width: 15px;
+  height: 15px;
+  fill: gray;
+  fill-opacity: 0.6;
+
+  &_active {
+    fill: rgb(255, 208, 0);
+  }
+}
