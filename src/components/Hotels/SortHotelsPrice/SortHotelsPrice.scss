@@ -1,0 +1,17 @@
+.slider {
+  width: 100%;
+  height: 10px;
+  margin: 20px 0;
+  background-color: rgba(0, 145, 73, .4);
+  border-radius: var(--border-radius-medium);
+
+  .thumb {
+    top: -6px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--theme-color-default);
+    border: 2px solid var(--color-green);
+    border-radius: 50%;
+    cursor: grabbing;
+  }
+}
