@@ -1,8 +1,8 @@
 import UiStars from "@components/UI/UiStars";
 
-import styles from "./SortHotels.module.scss";
+import styles from "./SortHotelsStars.module.scss";
 
-const SortHotels = () => {
+const SortHotelsStars = () => {
   const starsTSX = [...new Array(5)].map((_, id) => {
     return (
       <div className={styles.wrapper__flex} key={id}>
@@ -15,11 +15,11 @@ const SortHotels = () => {
   });
 
   return (
-    <div className={styles.wrapper}>
-      <div>Количество звезд</div>
+    <div className='wrapper'>
+      <h3>Количество звезд</h3>
       {starsTSX}
     </div>
   );
 };
 
-export default SortHotels;
+export default SortHotelsStars;
