@@ -1,6 +1,5 @@
 .wrapper {
   min-width: 1000px;
-  min-height: 100vh;
   padding: 0 10px 10px;
   background: var(--theme-color-default);
   overflow: auto;
@@ -10,6 +9,7 @@
   align-items: center;
 
   &__container {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
