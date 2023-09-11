@@ -15,7 +15,10 @@ const UiStars = ({ stars }: Props) => {
         return (
           <BsFillStarFill
             key={id}
-            className={cn(styles.wrapper, id + 1 <= stars ? styles.wrapper_active : "")}
+            className={cn(
+              styles.wrapper,
+              id + 1 <= stars ? styles.wrapper_active : "",
+            )}
           />
         );
       })}

@@ -52,12 +52,19 @@ const hotelsSlice = createSlice({
     },
     changeFavorites: (state, action: PayloadAction<IHotelItem>) => {
       state.hotels = state.hotels.map((elem) =>
-        elem._id === action.payload._id ? { ...elem, isFavorite: !elem.isFavorite } : elem,
+        elem._id === action.payload._id
+          ? { ...elem, isFavorite: !elem.isFavorite }
+          : elem,
       );
 
-      state.favorites = state.favorites.find((elem) => elem._id === action.payload._id)
+      state.favorites = state.favorites.find(
+        (elem) => elem._id === action.payload._id,
+      )
         ? state.favorites.filter((elem) => elem._id !== action.payload._id)
-        : [...state.favorites, { ...action.payload, isFavorite: !action.payload.isFavorite }];
+        : [
+            ...state.favorites,
+            { ...action.payload, isFavorite: !action.payload.isFavorite },
+          ];
     },
     sortFavorites: (
       state,
@@ -77,10 +84,13 @@ const hotelsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHotels.fulfilled, (state, action: PayloadAction<IHotelItem[]>) => {
-      state.hotels = action.payload;
-      state.isLoading = false;
-    });
+    builder.addCase(
+      fetchHotels.fulfilled,
+      (state, action: PayloadAction<IHotelItem[]>) => {
+        state.hotels = action.payload;
+        state.isLoading = false;
+      },
+    );
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
       state.error = "";
@@ -93,7 +103,8 @@ const hotelsSlice = createSlice({
 });
 
 export const locationSelector = (state: RootState) => state.hotels.location;
-export const checkInDateSelector = (state: RootState) => state.hotels.checkInDate;
+export const checkInDateSelector = (state: RootState) =>
+  state.hotels.checkInDate;
 export const countDaysSelector = (state: RootState) => state.hotels.countDays;
 export const isLoadingSelector = (state: RootState) => state.hotels.isLoading;
 export const errorSelector = (state: RootState) => state.hotels.error;
@@ -101,6 +112,10 @@ export const sortTypeSelector = (state: RootState) => state.hotels.sortType;
 export const hotelsSelector = (state: RootState) => state.hotels.hotels;
 export const favoritesSelector = (state: RootState) => state.hotels.favorites;
 
-export const { setSearchForm, changeFavorites, sortFavorites, setErrorNotification } =
-  hotelsSlice.actions;
+export const {
+  setSearchForm,
+  changeFavorites,
+  sortFavorites,
+  setErrorNotification,
+} = hotelsSlice.actions;
 export default hotelsSlice.reducer;

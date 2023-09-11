@@ -1,4 +1,4 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
@@ -18,7 +18,13 @@ import UiStars from "@ui/UiStars";
 
 import styles from "./HotelItem.module.scss";
 
-const HotelItem = ({ _id, hotelName, priceAvg, stars, isFavorite }: IHotelItem) => {
+const HotelItem = ({
+  _id,
+  hotelName,
+  priceAvg,
+  stars,
+  isFavorite,
+}: IHotelItem) => {
   const navigation = useNavigate();
   const checkInDate = useAppSelector(checkInDateSelector);
   const countDays = useAppSelector(countDaysSelector);

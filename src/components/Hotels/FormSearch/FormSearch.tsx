@@ -53,7 +53,7 @@ export const FormSearch = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className='wrapper'>
+    <form onSubmit={formik.handleSubmit} className="wrapper">
       <UiFormInput
         name="location"
         title="Локация"

@@ -16,7 +16,11 @@ const UiFormButton = ({ disabled, title }: Props) => {
       <button
         type="submit"
         disabled={disabled}
-        className={cn(styles.wrapper__button, disabled && styles.wrapper__button_disabled)}>
+        className={cn(
+          styles.wrapper__button,
+          disabled && styles.wrapper__button_disabled,
+        )}
+      >
         {title}
       </button>
     </motion.div>

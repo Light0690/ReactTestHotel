@@ -1,5 +1,4 @@
 .wrapper {
-  
   &__flex {
     display: flex;
     cursor: pointer;
@@ -14,7 +13,6 @@
     position: absolute;
     z-index: -1;
     opacity: 0;
-
   }
   &__customСheckbox + label {
     display: inline-flex;

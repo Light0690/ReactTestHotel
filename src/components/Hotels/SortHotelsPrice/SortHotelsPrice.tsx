@@ -17,7 +17,13 @@ const SortHotelsPrice = () => {
         от {values[0]} - до {values[1]}
       </div>
 
-      <Slider className="slider" onChange={setValues} value={values} min={MIN} max={MAX} />
+      <Slider
+        className="slider"
+        onChange={setValues}
+        value={values}
+        min={MIN}
+        max={MAX}
+      />
     </div>
   );
 };

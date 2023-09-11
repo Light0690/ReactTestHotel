@@ -7,8 +7,8 @@ const HotelSkeleton = () => (
     height={86}
     viewBox="0 0 740 86"
     backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb">
-
+    foregroundColor="#ecebeb"
+  >
     <rect x="121" y="15" rx="10" ry="10" width="80" height="20" />
     <rect x="121" y="39" rx="10" ry="10" width="140" height="20" />
     <rect x="121" y="65" rx="10" ry="10" width="89" height="20" />

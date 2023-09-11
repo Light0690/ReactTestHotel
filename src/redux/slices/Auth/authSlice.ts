@@ -11,7 +11,7 @@ interface State {
 }
 
 const initialState: State = {
-  isAuth:  getLocalStorage("auth"),
+  isAuth: getLocalStorage("auth"),
   error: "",
 };
 

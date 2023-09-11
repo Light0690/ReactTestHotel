@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/ThemeProvider";
-import { FavoriteRoute } from "@constans/routesConst";
+import { FavoriteRoute, HotelsRoute } from "@constans/routesConst";
 
 import UiHeart from "@ui/UiHeart";
 
@@ -12,7 +12,6 @@ import { BsFillSunFill } from "react-icons/bs";
 import { BsMoonFill } from "react-icons/bs";
 
 import styles from "./Header.module.scss";
-
 
 const Header = () => {
   const isTheme = useTheme();
@@ -24,7 +23,11 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.header__title}>Simple Hotel Check</div>
+      <div>
+        <Link className={styles.header__title} to={HotelsRoute}>
+          Simple Hotel Check
+        </Link>
+      </div>
       <div className={styles.header__buttons}>
         <Link to={FavoriteRoute} className={styles.header__link}>
           <UiHeart isActive={true} onClick={() => console.log(1)} />

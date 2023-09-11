@@ -1,5 +1,5 @@
 {
-  "compilerOptions" : {
+  "compilerOptions": {
     "paths": {
       "@api/*": ["src/api/*"],
       "@assets/*": ["src/assets/*"],
