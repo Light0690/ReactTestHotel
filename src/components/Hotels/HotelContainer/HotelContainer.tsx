@@ -5,7 +5,7 @@ import { IHotelItem } from "@Interfaces/IHotelItem";
 import Carousel from "../Carousel";
 import HotelGroup from "../HotelGroup";
 
-import styles from "./Container.module.scss";
+import styles from "./HotelContainer.module.scss";
 
 interface Props {
   location: string;
@@ -13,7 +13,7 @@ interface Props {
   hotels: IHotelItem[];
 }
 
-const Container = ({ location, checkInDate, hotels }: Props) => {
+const HotelContainer = ({ location, checkInDate, hotels }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper__title}>
@@ -32,4 +32,4 @@ const Container = ({ location, checkInDate, hotels }: Props) => {
   );
 };
 
-export default Container;
+export default HotelContainer;

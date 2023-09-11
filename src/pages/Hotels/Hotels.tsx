@@ -9,7 +9,7 @@ import {
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";
 import SortHotels from "@components/Hotels/SortHotels";
-import Container from "@components/Hotels/Container";
+import HotelContainer from "@components/Hotels/HotelContainer";
 
 import FetchWithError from "@ux/FetchWithError";
 
@@ -29,7 +29,7 @@ const Hotels = () => {
           <FormSearch />
           <SortHotels />
         </div>
-        <Container location={location} checkInDate={checkInDate} hotels={hotels} />
+        <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>
       <FetchWithError error={error} />
     </div>
