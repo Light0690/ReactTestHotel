@@ -19,7 +19,11 @@ const NotFound = () => {
     <div className={styles.wrapper}>
       <div className={cn("block", styles.wrapper__box)}>
         <div className={styles.wrapper__title}>
-          <img className={styles.wrapper__img} src={notFound404} alt="notFound(" />
+          <img
+            className={styles.wrapper__img}
+            src={notFound404}
+            alt="notFound("
+          />
           <h3>Упсс, страница - {params["*"]} пока не существует</h3>
           <UiButton title={"назад"} onClick={onClick} size="large" />
         </div>

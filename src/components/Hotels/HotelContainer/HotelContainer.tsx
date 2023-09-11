@@ -24,7 +24,9 @@ const HotelContainer = ({ location, checkInDate, hotels }: Props) => {
           <div className={styles.wrapper__symbol}>{">"}</div>
           <div>{location}</div>
         </div>
-        <div className={styles.wrapper__date}>{addMonthToDate(checkInDate)}</div>
+        <div className={styles.wrapper__date}>
+          {addMonthToDate(checkInDate)}
+        </div>
       </div>
       <div className={styles.wrapper__carousel}>
         <Carousel />

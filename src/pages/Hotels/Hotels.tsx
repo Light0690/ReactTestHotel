@@ -49,7 +49,11 @@ const Hotels = () => {
         ) : (
           ""
         )}
-        <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+        <HotelContainer
+          location={location}
+          checkInDate={checkInDate}
+          hotels={hotels}
+        />
       </div>
       <FetchWithError error={error} />
     </div>

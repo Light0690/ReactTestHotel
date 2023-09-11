@@ -10,12 +10,25 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   touched: boolean | undefined;
 }
 
-const UiFormInput = ({ name, type, title, onChange, onBlur, value, errors, touched }: Props) => {
+const UiFormInput = ({
+  name,
+  type,
+  title,
+  onChange,
+  onBlur,
+  value,
+  errors,
+  touched,
+}: Props) => {
   return (
     <div className={styles.container}>
       <label
-        className={cn(styles.container__label, touched && errors && styles.container__errors)}
-        htmlFor={name}>
+        className={cn(
+          styles.container__label,
+          touched && errors && styles.container__errors,
+        )}
+        htmlFor={name}
+      >
         {title}
       </label>
       <input
@@ -26,7 +39,9 @@ const UiFormInput = ({ name, type, title, onChange, onBlur, value, errors, touch
         onChange={onChange}
         onBlur={onBlur}
       />
-      {touched && errors && <div className={styles.container__error}>{errors}</div>}
+      {touched && errors && (
+        <div className={styles.container__error}>{errors}</div>
+      )}
     </div>
   );
 };
