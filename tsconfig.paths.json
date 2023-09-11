@@ -9,6 +9,7 @@
       "@constans/*": ["src/constans/*"],
       "@context/*": ["src/context/*"],
       "@helpers/*": ["src/helpers/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@Interfaces/*": ["src/Interfaces/*"],
       "@pages/*": ["src/pages/*"],
       "@redux/*": ["src/redux/*"]
