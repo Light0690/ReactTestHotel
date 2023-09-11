@@ -19,9 +19,10 @@
   &__search{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
 }
+
 @media(max-width: 1400px) {
     .wrapper{
       padding: 0 5px 5px;
