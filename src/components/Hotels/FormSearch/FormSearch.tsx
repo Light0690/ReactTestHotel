@@ -15,8 +15,6 @@ import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
 
-import styles from "./FormSearch.module.scss";
-
 interface FormValues {
   location: string;
   checkInDate: string;
@@ -55,7 +53,7 @@ export const FormSearch = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.form}>
+    <form onSubmit={formik.handleSubmit} className='wrapper'>
       <UiFormInput
         name="location"
         title="Локация"

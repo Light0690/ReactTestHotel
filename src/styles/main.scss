@@ -41,3 +41,15 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 250px;
+  padding: 10px 20px;
+  color: var(--text-color-default);
+  background-color: var(--bg-color-default);
+  box-shadow: var(--box-shadow-main);
+  border-radius: var(--border-radius-medium);
+}
