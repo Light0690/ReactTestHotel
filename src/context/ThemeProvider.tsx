@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext, FC } from "react";
+import { useState, useEffect, createContext, FC } from "react";
 
 import { changeCssVariables } from "@helpers/changeCssVariables";
 
@@ -15,7 +15,7 @@ const defaultState = {
   isDark: false,
 };
 
-const ThemeContext = createContext<IThemeContext>(defaultState);
+export const ThemeContext = createContext<IThemeContext>(defaultState);
 
 const ThemeProvider: FC<Props> = ({ children, ...props }) => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -42,5 +42,3 @@ const ThemeProvider: FC<Props> = ({ children, ...props }) => {
 };
 
 export default ThemeProvider;
-
-export const useTheme = () => useContext(ThemeContext);

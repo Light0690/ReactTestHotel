@@ -2,7 +2,7 @@ import { useAppDispatch } from "@redux/hooks";
 import { Link } from "react-router-dom";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
-import { useTheme } from "@context/ThemeProvider";
+import { useTheme } from "@context/useTheme";
 import { FavoriteRoute, HotelsRoute } from "@constans/routesConst";
 
 import UiHeart from "@ui/UiHeart";
