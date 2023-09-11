@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { isEmptyObj } from "minoru";
@@ -10,7 +9,6 @@ import {
   locationSelector,
   setSearchForm,
 } from "@redux/slices/Hotels/hotelsSlice";
-import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
@@ -27,10 +25,6 @@ export const FormSearch = () => {
   const countDays = useAppSelector(countDaysSelector);
 
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchHotels({ location, countDays }));
-  }, [location, countDays, dispatch]);
 
   const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));
@@ -53,7 +47,7 @@ export const FormSearch = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="wrapper">
+    <form onSubmit={formik.handleSubmit} className="block">
       <UiFormInput
         name="location"
         title="Локация"
