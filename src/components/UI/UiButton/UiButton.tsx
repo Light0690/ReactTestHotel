@@ -2,6 +2,7 @@ import { MouseEventHandler } from "react";
 import cn from "classnames";
 
 import styles from "./UiButton.module.scss";
+import { motion } from "framer-motion";
 
 interface props {
   title: string;
@@ -12,9 +13,11 @@ interface props {
 
 const UiButton = ({ title, size = "small", color = "normal", onClick }: props) => {
   return (
-    <button className={cn(styles.button, styles[size],styles[color])} onClick={onClick}>
-      {title}
-    </button>
+    <motion.div whileHover={{ scale: 1.05 }} className={styles.wrapper}>
+      <button className={cn(styles.wrapper__button, styles[size], styles[color])} onClick={onClick}>
+        {title}
+      </button>
+    </motion.div>
   );
 };
 

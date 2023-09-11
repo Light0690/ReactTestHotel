@@ -1,9 +1,13 @@
-.button {
+.wrapper {
   width: 100%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
+
+  &__button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
 }
 
 .large {
@@ -21,10 +25,6 @@
 .normal {
   background-color: #41522e;
 
-  &:hover {
-    background-color: #41522e86;
-  }
-
   &:active {
     background-color: #2f3b20;
   }
@@ -37,14 +37,6 @@
     rgb(39, 121, 66) 57%,
     rgba(7, 70, 33, 1) 95%
   );
-  &:hover {
-    background: linear-gradient(
-      117deg,
-      rgba(31, 37, 24, 0.8) 0%,
-      rgb(39, 121, 66, 0.8) 57%,
-      rgba(7, 70, 33, 0.8) 95%
-    );
-  }
 
   &:active {
     background: linear-gradient(

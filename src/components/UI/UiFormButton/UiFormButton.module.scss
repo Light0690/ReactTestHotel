@@ -1,27 +1,28 @@
-.button {
+.wrapper {
   width: 100%;
-  height: 45px;
-  flex-shrink: 0;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-  background: #41522e;
-  cursor: pointer;
 
-  &__disabled {
-    opacity: 0.5;
-  }
+  &__button {
+    width: 100%;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    background: #41522e;
+    cursor: pointer;
 
-  &:hover {
-    background-color: #41522e86;
-  }
+    &_disabled {
+      cursor: auto;
+      opacity: 0.5;
+    }
 
-  &:active {
-    background-color: #2f3b20;
+    &:active {
+      background-color: #2f3b20;
+    }
   }
 }
