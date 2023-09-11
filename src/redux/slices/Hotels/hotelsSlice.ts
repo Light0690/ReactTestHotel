@@ -51,9 +51,13 @@ const hotelsSlice = createSlice({
       state.countDays = actions.payload.countDays;
     },
     changeFavorites: (state, action: PayloadAction<IHotelItem>) => {
+      state.hotels = state.hotels.map((elem) =>
+        elem._id === action.payload._id ? { ...elem, isFavorite: !elem.isFavorite } : elem,
+      );
+
       state.favorites = state.favorites.find((elem) => elem._id === action.payload._id)
         ? state.favorites.filter((elem) => elem._id !== action.payload._id)
-        : [...state.favorites, action.payload];
+        : [...state.favorites, { ...action.payload, isFavorite: !action.payload.isFavorite }];
     },
     sortFavorites: (
       state,
