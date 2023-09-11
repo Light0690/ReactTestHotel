@@ -29,9 +29,7 @@ export const Form = ({ header, text, link, onSubmitFunc }: Props) => {
       password: "qweqweqwe",
     },
     validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .email("*некорректный email")
-        .required("*поле обязательно"),
+      email: Yup.string().email("*некорректный email").required("*поле обязательно"),
       password: Yup.string()
         .matches(/^[^А-яёЁ]+$/, "*поле не может содержать кириллицу")
         .min(8, "*слишком короткий пороль")
