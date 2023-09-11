@@ -1,3 +1,5 @@
+import cn from "classnames";
+
 import { addMonthToDate } from "@helpers/date/date";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
@@ -15,16 +17,14 @@ interface Props {
 
 const HotelContainer = ({ location, checkInDate, hotels }: Props) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={cn("block", styles.wrapper)}>
       <div className={styles.wrapper__title}>
         <div className={styles.wrapper__name}>
           <div>Отели</div>
           <div className={styles.wrapper__symbol}>{">"}</div>
           <div>{location}</div>
         </div>
-        <div className={styles.wrapper__date}>
-          {addMonthToDate(checkInDate)}
-        </div>
+        <div className={styles.wrapper__date}>{addMonthToDate(checkInDate)}</div>
       </div>
       <div className={styles.wrapper__carousel}>
         <Carousel />

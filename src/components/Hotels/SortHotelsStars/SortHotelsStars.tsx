@@ -19,7 +19,7 @@ const SortHotelsStars = () => {
   });
 
   return (
-    <div className="wrapper">
+    <div className="block">
       <h3>Количество звезд</h3>
       {starsTSX}
     </div>

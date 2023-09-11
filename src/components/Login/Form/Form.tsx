@@ -2,6 +2,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { isEmptyObj } from "minoru";
 import { Navigate, Link } from "react-router-dom";
+import cn from 'classnames'
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { authSelector } from "@redux/slices/Auth/authSlice";
@@ -46,7 +47,7 @@ export const Form = ({ header, text, link, onSubmitFunc }: Props) => {
   }
 
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.form}>
+    <form onSubmit={formik.handleSubmit} className={cn('block',styles.form)}>
       <h1 className={styles.form__title}>{header}</h1>
       <UiFormInput
         name="email"

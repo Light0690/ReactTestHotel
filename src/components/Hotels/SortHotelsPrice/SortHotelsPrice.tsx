@@ -11,7 +11,7 @@ const SortHotelsPrice = () => {
   const [values, setValues] = useState([MIN, MAX]);
 
   return (
-    <div className="wrapper">
+    <div className="block">
       <h3>Цена</h3>
       <div>
         от {values[0]} - до {values[1]}
