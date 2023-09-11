@@ -9,7 +9,7 @@ interface Props {
 }
 
 const UiFormButton = ({ disabled, title }: Props) => {
-  const animate = disabled ? "" : { scale: 1.05 };
+  const animate = disabled ? "" : { scale: 1.02 };
 
   return (
     <motion.div className={styles.wrapper} whileHover={animate}>

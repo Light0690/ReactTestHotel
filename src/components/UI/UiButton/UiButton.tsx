@@ -18,7 +18,7 @@ const UiButton = ({
   onClick,
 }: props) => {
   return (
-    <motion.div whileHover={{ scale: 1.05 }} className={styles.wrapper}>
+    <motion.div whileHover={{ scale: 1.02 }} className={styles.wrapper}>
       <button
         className={cn(styles.wrapper__button, styles[size], styles[color])}
         onClick={onClick}
