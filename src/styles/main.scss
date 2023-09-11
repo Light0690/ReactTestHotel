@@ -3,7 +3,7 @@
 
   --border-radius-medium: 16px;
 
-  --box-shadow-main: 1px 1px 20px rgb(0, 0, 0, 0.5);
+  --box-shadow-main: 1px 1px 12px rgb(0, 0, 0, 0.5);
 
   --text-color-white: #424242;
   --text-color-dark: #ffffffee;
@@ -14,7 +14,7 @@
   --theme-color-default: #f4f4f4;
 
   --bg-color-white: #fff;
-  --bg-color-dark: #6969693d;
+  --bg-color-dark: #2e2e2e;
   --bg-color-default: #fff;
 }
 
@@ -42,11 +42,10 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.wrapper {
+.block {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 250px;
   padding: 10px 20px;
   color: var(--text-color-default);
   background-color: var(--bg-color-default);
