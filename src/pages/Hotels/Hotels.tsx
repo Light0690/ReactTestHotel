@@ -8,7 +8,8 @@ import {
 
 import Header from "@components/Hotels/Header";
 import FormSearch from "@components/Hotels/FormSearch";
-import SortHotels from "@components/Hotels/SortHotels";
+import SortHotelsStars from "@components/Hotels/SortHotelsStars";
+import SortHotelsPrice from "@components/Hotels/SortHotelsPrice";
 import HotelContainer from "@components/Hotels/HotelContainer";
 
 import FetchWithError from "@ux/FetchWithError";
@@ -27,7 +28,8 @@ const Hotels = () => {
       <div className={styles.wrapper__container}>
         <div className={styles.wrapper__search}>
           <FormSearch />
-          <SortHotels />
+          <SortHotelsStars />
+          <SortHotelsPrice />
         </div>
         <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>
