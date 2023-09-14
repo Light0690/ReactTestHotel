@@ -2,22 +2,31 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { isEmptyObj } from "minoru";
 
-import { useAppDispatch } from "@redux/hooks";
-import { setSearchForm } from "@redux/slices/Hotels/hotelsSlice";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import {
+  checkInDateSelector,
+  countDaysSelector,
+  locationSelector,
+  setSearchForm,
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import UiFormButton from "@components/UI/UiFormButton";
 import UiFormInput from "@components/UI/UiFormInput";
 
-interface Props {
+interface FormValues {
   location: string;
   checkInDate: string;
   countDays: number;
 }
 
-export const FormSearch = ({ location, checkInDate, countDays }: Props) => {
+export const FormSearch = () => {
+  const location = useAppSelector(locationSelector);
+  const checkInDate = useAppSelector(checkInDateSelector);
+  const countDays = useAppSelector(countDaysSelector);
+
   const dispatch = useAppDispatch();
 
-  const submitForm = (values: Props) => {
+  const submitForm = (values: FormValues) => {
     dispatch(setSearchForm(values));
   };
 
