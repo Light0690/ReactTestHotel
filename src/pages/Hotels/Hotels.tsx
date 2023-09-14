@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import cn from "classnames";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { useResize } from "@hooks/useResize";
@@ -33,8 +34,8 @@ const Hotels = () => {
   const { isScreenMd, isScreenXl } = useResize();
 
   useEffect(() => {
-    dispatch(fetchHotels({ location, countDays }));
-  }, [location, countDays, dispatch]);
+    dispatch(fetchHotels({ location, checkInDate, countDays }));
+  }, [location, checkInDate, countDays, dispatch]);
 
   return (
     <div className={styles.wrapper}>
@@ -45,13 +46,9 @@ const Hotels = () => {
           <PopupMenu component={<SortAndSearchContainer />} />
         )}
         {isScreenMd ? (
-          <HotelContainer
-            location={location}
-            checkInDate={checkInDate}
-            hotels={hotels}
-          />
+          <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
         ) : (
-          <div className="block">
+          <div className={cn("block", styles.wrapper__group)}>
             <HotelGroup hotels={hotels} />
           </div>
         )}
