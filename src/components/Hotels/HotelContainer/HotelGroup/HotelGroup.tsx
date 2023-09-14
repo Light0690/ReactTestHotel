@@ -1,6 +1,9 @@
 import { useAppSelector } from "@redux/hooks";
 
-import { favoritesSelector, isLoadingSelector } from "@redux/slices/Hotels/hotelsSlice";
+import {
+  favoritesSelector,
+  isLoadingSelector,
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -21,23 +24,25 @@ const HotelGroup = ({ hotels }: Props) => {
   const favorites = useAppSelector(favoritesSelector);
 
   const hotelsTSX = hotels.length ? (
-    hotels.map(({ _id, hotelName, checkInDate, days, priceAvg, stars, isFavorite }) => (
-      <div className={styles.wrapper__item} key={_id}>
-        <div className={styles.wrapper__icon}>
-          <BsCircleFill className={styles.wrapper__circle} />
-          <FaHouse className={styles.wrapper__house} />
+    hotels.map(
+      ({ _id, hotelName, checkInDate, days, priceAvg, stars, isFavorite }) => (
+        <div className={styles.wrapper__item} key={_id}>
+          <div className={styles.wrapper__icon}>
+            <BsCircleFill className={styles.wrapper__circle} />
+            <FaHouse className={styles.wrapper__house} />
+          </div>
+          <HotelItem
+            _id={_id}
+            hotelName={hotelName}
+            checkInDate={checkInDate}
+            days={days}
+            priceAvg={priceAvg}
+            stars={stars}
+            isFavorite={isFavorite}
+          />
         </div>
-        <HotelItem
-          _id={_id}
-          hotelName={hotelName}
-          checkInDate={checkInDate}
-          days={days}
-          priceAvg={priceAvg}
-          stars={stars}
-          isFavorite={isFavorite}
-        />
-      </div>
-    ))
+      ),
+    )
   ) : (
     <h2 className={styles.empty}>Нет подходящих отелей</h2>
   );
@@ -52,7 +57,9 @@ const HotelGroup = ({ hotels }: Props) => {
       <div className={styles.wrapper__title}>
         Добавлено в избранное : <b>{favorites.length}</b> отеля
       </div>
-      <div className={styles.wrapper__group}>{isLoading ? skeletonsTSX : hotelsTSX}</div>
+      <div className={styles.wrapper__group}>
+        {isLoading ? skeletonsTSX : hotelsTSX}
+      </div>
     </div>
   );
 };

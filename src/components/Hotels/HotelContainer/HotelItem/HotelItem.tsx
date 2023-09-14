@@ -4,7 +4,7 @@ import { useAppDispatch } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date/date";
 
-import { changeFavorites } from "@redux/slices/Hotels/hotelsSlice";
+// import { changeFavorites } from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -27,9 +27,9 @@ const HotelItem = ({
 
   const dispatch = useAppDispatch();
 
-  const onClick = () => {
-    dispatch(changeFavorites({ _id, checkInDate, days, hotelName, priceAvg, stars, isFavorite }));
-  };
+  // const onClick = () => {
+  //   dispatch(changeFavorites({ _id, checkInDate, days, hotelName, priceAvg, stars, isFavorite }));
+  // };
 
   const daysTSX = (): string => {
     if (days === 1) return `${days} день`;
@@ -45,7 +45,7 @@ const HotelItem = ({
     <div className={styles.wrapper}>
       <div className={styles.flex}>
         <h2 className={styles.wrapper__title}>{hotelName}</h2>
-        <UiHeart onClick={onClick} isActive={isFavorite} />
+        <UiHeart onClick={() => console.log(1)} isActive={isFavorite} />
       </div>
       <div className={styles.flex}>
         <div className={styles.wrapper__date}>

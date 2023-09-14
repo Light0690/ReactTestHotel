@@ -17,8 +17,7 @@ const FetchWithError = ({ error }: Props) => {
       setIsVisible(false);
     }, 3000);
   }, [error]);
-  console.log(error);
-  console.log(Boolean(error));
+
   return (
     <>
       <AnimatePresence>

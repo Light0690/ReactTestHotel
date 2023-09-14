@@ -48,7 +48,11 @@ const Hotels = () => {
           <PopupMenu component={<SortAndSearchContainer />} />
         )}
         {isScreenMd ? (
-          <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+          <HotelContainer
+            location={location}
+            checkInDate={checkInDate}
+            hotels={hotels}
+          />
         ) : (
           <div className={cn("block", styles.wrapper__group)}>
             <HotelGroup hotels={hotels} />
