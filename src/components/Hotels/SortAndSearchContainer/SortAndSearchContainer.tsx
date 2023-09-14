@@ -4,10 +4,16 @@ import SortHotelsPrice from "./SortHotelsPrice";
 
 import styles from "./SortAndSearchContainer.module.scss";
 
-const SortAndSearchContainer = () => {
+interface Props {
+  location: string;
+  checkInDate: string;
+  countDays: number;
+}
+
+const SortAndSearchContainer = ({ location, checkInDate, countDays }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <FormSearch />
+      <FormSearch location={location} checkInDate={checkInDate} countDays={countDays} />
       <SortHotelsStars />
       <SortHotelsPrice />
     </div>

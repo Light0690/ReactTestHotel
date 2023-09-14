@@ -37,7 +37,15 @@ const Hotels = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper__container}>
-        {isScreenXl ? <SortAndSearchContainer /> : ""}
+        {isScreenXl ? (
+          <SortAndSearchContainer
+            location={location}
+            checkInDate={checkInDate}
+            countDays={countDays}
+          />
+        ) : (
+          ""
+        )}
         <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>
       <FetchWithError error={error} />
