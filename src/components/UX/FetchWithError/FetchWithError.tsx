@@ -1,23 +1,39 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import UiAlert from "@components/UI/UiAlert/UiAlert";
+import UiAlert from "@ui/UiAlert";
 
 interface Props {
   error: string;
 }
 
 const FetchWithError = ({ error }: Props) => {
-  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState(Boolean(error));
 
   useEffect(() => {
-    setIsHidden(false);
+    setIsVisible(Boolean(error));
 
     setTimeout(() => {
-      setIsHidden(true);
-    }, 5000);
+      setIsVisible(false);
+    }, 3000);
   }, [error]);
-
-  return <>{error && <UiAlert message={error} isHidden={isHidden} />}</>;
+  console.log(error);
+  console.log(Boolean(error));
+  return (
+    <>
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            key="FetchWithError"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+            <UiAlert message={error} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 };
 
 export default FetchWithError;

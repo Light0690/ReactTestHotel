@@ -4,12 +4,11 @@ import styles from "./UiAlert.module.scss";
 
 interface Props {
   message: string;
-  isHidden: boolean;
 }
 
-const UiAlert = ({ message, isHidden }: Props) => {
+const UiAlert = ({ message }: Props) => {
   return (
-    <div className={cn(styles.wrapper, isHidden ? styles.wrapper__hidden : "")}>
+    <div className={cn(styles.wrapper)}>
       <h3>{message}</h3>
     </div>
   );
