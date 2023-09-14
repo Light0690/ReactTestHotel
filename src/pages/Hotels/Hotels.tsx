@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-
 import { useResize } from "@hooks/useResize";
 
 import {
@@ -13,9 +12,7 @@ import {
 } from "@redux/slices/Hotels/hotelsSlice";
 import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
-import FormSearch from "@components/Hotels/SortAndSearchContainer/FormSearch";
-import SortHotelsStars from "@components/Hotels/SortAndSearchContainer/SortHotelsStars";
-import SortHotelsPrice from "@components/Hotels/SortAndSearchContainer/SortHotelsPrice";
+import SortAndSearchContainer from "@components/Hotels/SortAndSearchContainer";
 import HotelContainer from "@components/Hotels/HotelContainer";
 
 import FetchWithError from "@ux/FetchWithError";
@@ -40,20 +37,8 @@ const Hotels = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper__container}>
-        {isScreenXl ? (
-          <div className={styles.wrapper__search}>
-            <FormSearch />
-            <SortHotelsStars />
-            <SortHotelsPrice />
-          </div>
-        ) : (
-          ""
-        )}
-        <HotelContainer
-          location={location}
-          checkInDate={checkInDate}
-          hotels={hotels}
-        />
+        {isScreenXl ? <SortAndSearchContainer /> : ""}
+        <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>
       <FetchWithError error={error} />
     </div>
