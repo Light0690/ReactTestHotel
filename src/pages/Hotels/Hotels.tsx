@@ -15,6 +15,7 @@ import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 import SortAndSearchContainer from "@components/Hotels/SortAndSearchContainer";
 import HotelContainer from "@components/Hotels/HotelContainer";
 
+import PopupMenu from "@ux/PopupMenu";
 import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Hotels.module.scss";
@@ -38,13 +39,9 @@ const Hotels = () => {
     <div className={styles.wrapper}>
       <div className={styles.wrapper__container}>
         {isScreenXl ? (
-          <SortAndSearchContainer
-            location={location}
-            checkInDate={checkInDate}
-            countDays={countDays}
-          />
+          <SortAndSearchContainer />
         ) : (
-          ""
+          <PopupMenu component={<SortAndSearchContainer />} />
         )}
         <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
       </div>

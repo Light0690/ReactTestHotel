@@ -1,0 +1,37 @@
+.wrapper {
+  &__button {
+    padding: 10px;
+    background-color: var(--bg-color-default);
+    border: none;
+    border-radius: var(--border-radius-min);
+    cursor: pointer;
+  }
+  &__settingIcon {
+    width: 25px;
+    height: 25px;
+    color: var(--text-color-default);
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99.5vw;
+    height: 100vh;
+    background-color: rgba(216, 216, 216, 0.7);
+    z-index: 1;
+  }
+
+  &__block {
+    position: absolute;
+    top: 115px;
+    left: 60px;
+    z-index: 1;
+    width: 300px;
+    height: 500px;
+    padding: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: auto;
+  }
+}
