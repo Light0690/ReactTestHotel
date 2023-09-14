@@ -1,14 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { useAppDispatch } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date/date";
 
-import {
-  checkInDateSelector,
-  countDaysSelector,
-  changeFavorites,
-} from "@redux/slices/Hotels/hotelsSlice";
+import { changeFavorites } from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -21,23 +17,24 @@ import styles from "./HotelItem.module.scss";
 const HotelItem = ({
   _id,
   hotelName,
+  checkInDate,
+  days,
   priceAvg,
   stars,
   isFavorite,
 }: IHotelItem) => {
   const navigation = useNavigate();
-  const checkInDate = useAppSelector(checkInDateSelector);
-  const countDays = useAppSelector(countDaysSelector);
+
   const dispatch = useAppDispatch();
 
   const onClick = () => {
-    dispatch(changeFavorites({ _id, hotelName, priceAvg, stars, isFavorite }));
+    dispatch(changeFavorites({ _id, checkInDate, days, hotelName, priceAvg, stars, isFavorite }));
   };
 
   const daysTSX = (): string => {
-    if (countDays === 1) return `${countDays} день`;
-    else if (countDays > 1 && countDays < 5) return `${countDays} дня`;
-    else return `${countDays} дней`;
+    if (days === 1) return `${days} день`;
+    else if (days > 1 && days < 5) return `${days} дня`;
+    else return `${days} дней`;
   };
 
   const goToHotelById = () => {

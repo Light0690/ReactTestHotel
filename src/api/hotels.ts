@@ -9,6 +9,7 @@ import instance from "./axiosConfig";
 
 interface fetchParams {
   location: string;
+  checkInDate: string;
   countDays: number;
 }
 
@@ -16,16 +17,16 @@ export const hotels = {
   /**
    * Функция возвращает отели по параметрам
    *
-   * @param param0 обьект состоящий из location - город отеля и countDays - колличество забронированных дней
+   * @param param0 обьект состоящий из location - город отеля, checkInDate - дата заселения, countDays - колличество забронированных дней
    * @returns массив обьектов - отелей или ошибку
    */
   getHotels: async (
-    { location, countDays }: fetchParams,
+    { location, checkInDate, countDays }: fetchParams,
     { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${countDays}`,
+        `hotels/${location}&${checkInDate}&${countDays}`,
       );
       return response.data;
     } catch (error: unknown) {

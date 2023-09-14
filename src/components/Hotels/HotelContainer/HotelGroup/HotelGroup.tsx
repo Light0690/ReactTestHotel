@@ -1,9 +1,6 @@
 import { useAppSelector } from "@redux/hooks";
 
-import {
-  favoritesSelector,
-  isLoadingSelector,
-} from "@redux/slices/Hotels/hotelsSlice";
+import { favoritesSelector, isLoadingSelector } from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -24,7 +21,7 @@ const HotelGroup = ({ hotels }: Props) => {
   const favorites = useAppSelector(favoritesSelector);
 
   const hotelsTSX = hotels.length ? (
-    hotels.map(({ _id, hotelName, priceAvg, stars, isFavorite }) => (
+    hotels.map(({ _id, hotelName, checkInDate, days, priceAvg, stars, isFavorite }) => (
       <div className={styles.wrapper__item} key={_id}>
         <div className={styles.wrapper__icon}>
           <BsCircleFill className={styles.wrapper__circle} />
@@ -33,6 +30,8 @@ const HotelGroup = ({ hotels }: Props) => {
         <HotelItem
           _id={_id}
           hotelName={hotelName}
+          checkInDate={checkInDate}
+          days={days}
           priceAvg={priceAvg}
           stars={stars}
           isFavorite={isFavorite}
@@ -53,9 +52,7 @@ const HotelGroup = ({ hotels }: Props) => {
       <div className={styles.wrapper__title}>
         Добавлено в избранное : <b>{favorites.length}</b> отеля
       </div>
-      <div className={styles.wrapper__group}>
-        {isLoading ? skeletonsTSX : hotelsTSX}
-      </div>
+      <div className={styles.wrapper__group}>{isLoading ? skeletonsTSX : hotelsTSX}</div>
     </div>
   );
 };
