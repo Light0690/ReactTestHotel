@@ -14,11 +14,13 @@ import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
 import SortAndSearchContainer from "@components/Hotels/SortAndSearchContainer";
 import HotelContainer from "@components/Hotels/HotelContainer";
+import HotelGroup from "@components/Hotels/HotelContainer/HotelGroup";
 
 import PopupMenu from "@ux/PopupMenu";
 import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Hotels.module.scss";
+
 
 const Hotels = () => {
   const location = useAppSelector(locationSelector);
@@ -29,7 +31,7 @@ const Hotels = () => {
 
   const dispatch = useAppDispatch();
 
-  const { isScreenXl } = useResize();
+  const { isScreenMd, isScreenXl } = useResize();
 
   useEffect(() => {
     dispatch(fetchHotels({ location, countDays }));
@@ -43,7 +45,13 @@ const Hotels = () => {
         ) : (
           <PopupMenu component={<SortAndSearchContainer />} />
         )}
-        <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+        {isScreenMd ? (
+          <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+        ) : (
+          <div className="block">
+            <HotelGroup hotels={hotels} />
+          </div>
+        )}
       </div>
       <FetchWithError error={error} />
     </div>
