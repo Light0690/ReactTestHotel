@@ -10,6 +10,7 @@ import {
   errorSelector,
   hotelsSelector,
   locationSelector,
+  sortByStarsSelector,
 } from "@redux/slices/Hotels/hotelsSlice";
 import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
@@ -26,6 +27,7 @@ const Hotels = () => {
   const location = useAppSelector(locationSelector);
   const checkInDate = useAppSelector(checkInDateSelector);
   const countDays = useAppSelector(countDaysSelector);
+  const sortByStars = useAppSelector(sortByStarsSelector);
   const hotels = useAppSelector(hotelsSelector);
   const error = useAppSelector(errorSelector);
 
@@ -34,8 +36,8 @@ const Hotels = () => {
   const { isScreenMd, isScreenXl } = useResize();
 
   useEffect(() => {
-    dispatch(fetchHotels({ location, checkInDate, countDays }));
-  }, [location, checkInDate, countDays, dispatch]);
+    dispatch(fetchHotels({ location, checkInDate, countDays, sortByStars }));
+  }, [location, checkInDate, countDays, sortByStars, dispatch]);
 
   return (
     <div className={styles.wrapper}>
