@@ -4,15 +4,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-self: stretch;
 
   &__title {
     color: var(--text-color-default);
     font-size: 18px;
-    font-style: normal;
     font-weight: 300;
-    line-height: 22px;
-    letter-spacing: -0.408px;
   }
   &__group {
     max-height: 320px;
@@ -52,6 +48,15 @@
 .empty {
   opacity: 0.6;
   color: var(--text-color-default);
-  font-style: normal;
   font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    max-height: 500px;
+
+    &__group {
+      max-height: 420px;
+    }
+  }
 }

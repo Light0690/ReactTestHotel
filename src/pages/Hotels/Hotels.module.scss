@@ -15,6 +15,10 @@
     align-items: flex-start;
     gap: 24px;
   }
+
+  &__group{
+    height: 500px;
+  }
 }
 
 @media (max-width: 1400px) {
