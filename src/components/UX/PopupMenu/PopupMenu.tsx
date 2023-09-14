@@ -31,7 +31,6 @@ const PopupMenu = ({ component }: Props) => {
               initial={{ x: -300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 300, opacity: 0 }}
-              transition={{ duration: 0.2 }}
               className={cn("block", styles.wrapper__block)}
               onClick={(e) => e.stopPropagation()}>
               {component}
