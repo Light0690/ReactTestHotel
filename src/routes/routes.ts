@@ -8,13 +8,13 @@ import {
 } from "@constans/routesConst";
 
 const Hotels = lazy(() => import("@pages/Hotels"));
-const HotelById = lazy(() => import("@pages/HotelById"));
-const Favorite = lazy(() => import("@pages/Favorite"));
+// const HotelById = lazy(() => import("@pages/HotelById"));
+// const Favorite = lazy(() => import("@pages/Favorite"));
 const NotFound = lazy(() => import("@pages/NotFound"));
 
 export const routes = [
   { path: HotelsRoute, element: Hotels },
-  { path: HotelByIdRoute, element: HotelById },
-  { path: FavoriteRoute, element: Favorite },
+  { path: HotelByIdRoute, element: NotFound },
+  { path: FavoriteRoute, element: NotFound },
   { path: NotFoundRoute, element: NotFound },
 ];
