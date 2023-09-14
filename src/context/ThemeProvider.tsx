@@ -1,6 +1,7 @@
 import { useState, useEffect, createContext, FC } from "react";
 
 import { changeCssVariables } from "@helpers/changeCssVariables";
+import { getLocalStorage, setLocalStorage } from "@helpers/local";
 
 interface IThemeContext {
   isDark: boolean;
@@ -18,7 +19,8 @@ const defaultState = {
 export const ThemeContext = createContext<IThemeContext>(defaultState);
 
 const ThemeProvider: FC<Props> = ({ children, ...props }) => {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const local: string = getLocalStorage("isDark");
+  const [isDark, setIsDark] = useState<boolean>(local ? Boolean(local) : false);
 
   useEffect(() => {
     changeCssVariables(isDark);
@@ -26,6 +28,7 @@ const ThemeProvider: FC<Props> = ({ children, ...props }) => {
 
   const changeIsDark = () => {
     setIsDark((prev) => !prev);
+    setLocalStorage("isDark", `${!isDark}`);
   };
 
   return (
@@ -34,8 +37,7 @@ const ThemeProvider: FC<Props> = ({ children, ...props }) => {
         isDark,
         changeIsDark,
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </ThemeContext.Provider>
   );
