@@ -13,9 +13,9 @@ import {
 } from "@redux/slices/Hotels/hotelsSlice";
 import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
-import FormSearch from "@components/Hotels/FormSearch";
-import SortHotelsStars from "@components/Hotels/SortHotelsStars";
-import SortHotelsPrice from "@components/Hotels/SortHotelsPrice";
+import FormSearch from "@components/Hotels/SortAndSearchContainer/FormSearch";
+import SortHotelsStars from "@components/Hotels/SortAndSearchContainer/SortHotelsStars";
+import SortHotelsPrice from "@components/Hotels/SortAndSearchContainer/SortHotelsPrice";
 import HotelContainer from "@components/Hotels/HotelContainer";
 
 import FetchWithError from "@ux/FetchWithError";

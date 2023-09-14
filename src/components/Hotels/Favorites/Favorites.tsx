@@ -5,7 +5,7 @@ import {
   sortFavorites,
 } from "@redux/slices/Hotels/hotelsSlice";
 
-import HotelItem from "../HotelItem";
+import HotelItem from "../HotelContainer/HotelItem";
 import UiSortButton from "@components/UI/UiSortButton";
 
 import styles from "./Favorites.module.scss";

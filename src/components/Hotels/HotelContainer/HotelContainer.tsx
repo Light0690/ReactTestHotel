@@ -4,8 +4,8 @@ import { addMonthToDate } from "@helpers/date/date";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
-import Carousel from "../Carousel";
-import HotelGroup from "../HotelGroup";
+import Carousel from "./Carousel";
+import HotelGroup from "./HotelGroup";
 
 import styles from "./HotelContainer.module.scss";
 

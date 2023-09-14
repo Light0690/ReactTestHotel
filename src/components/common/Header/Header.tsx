@@ -1,5 +1,6 @@
-import { useAppDispatch } from "@redux/hooks";
 import { Link } from "react-router-dom";
+
+import { useAppDispatch } from "@redux/hooks";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/useTheme";
