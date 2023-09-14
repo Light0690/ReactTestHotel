@@ -4,11 +4,10 @@ import SortHotelsPrice from "./SortHotelsPrice";
 
 import styles from "./SortAndSearchContainer.module.scss";
 
-
 const SortAndSearchContainer = () => {
   return (
     <div className={styles.wrapper}>
-      <FormSearch  />
+      <FormSearch />
       <SortHotelsStars />
       <SortHotelsPrice />
     </div>

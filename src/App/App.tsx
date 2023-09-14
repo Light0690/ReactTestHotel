@@ -7,7 +7,7 @@ import { authSelector } from "@redux/slices/Auth/authSlice";
 import { routes } from "../routes";
 
 import Layout from "@components/common/Layout";
-import UILoading from "@components/UI/UiLoading";
+import UILoading from "@ui/UiLoading";
 
 const Login = lazy(() => import("@pages/Login"));
 

@@ -21,7 +21,6 @@ import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Hotels.module.scss";
 
-
 const Hotels = () => {
   const location = useAppSelector(locationSelector);
   const checkInDate = useAppSelector(checkInDateSelector);
@@ -46,7 +45,11 @@ const Hotels = () => {
           <PopupMenu component={<SortAndSearchContainer />} />
         )}
         {isScreenMd ? (
-          <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+          <HotelContainer
+            location={location}
+            checkInDate={checkInDate}
+            hotels={hotels}
+          />
         ) : (
           <div className="block">
             <HotelGroup hotels={hotels} />

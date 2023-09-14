@@ -37,7 +37,8 @@ const ThemeProvider: FC<Props> = ({ children, ...props }) => {
         isDark,
         changeIsDark,
       }}
-      {...props}>
+      {...props}
+    >
       {children}
     </ThemeContext.Provider>
   );
