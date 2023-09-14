@@ -1,5 +1,5 @@
 .wrapper {
-  min-width: 1000px;
+  width: 100%;
   padding: 0 10px 10px;
   background: var(--theme-color-default);
   overflow: auto;
@@ -15,12 +15,6 @@
     align-items: flex-start;
     gap: 24px;
   }
-
-  &__search {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 
 @media (max-width: 1400px) {
@@ -31,8 +25,13 @@
     }
   }
 }
-@media (max-width: 900px) {
+
+@media (max-width: 760px) {
   .wrapper {
-    min-width: 760px;
+
+    &__container {
+      margin-top: 5px;
+      gap: 5px;
+    }
   }
 }
