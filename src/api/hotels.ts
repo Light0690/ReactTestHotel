@@ -11,6 +11,7 @@ interface fetchParams {
   location: string;
   checkInDate: string;
   countDays: number;
+  sortByStars: number[];
 }
 
 export const hotels = {
@@ -21,13 +22,14 @@ export const hotels = {
    * @returns массив обьектов - отелей или ошибку
    */
   getHotels: async (
-    { location, checkInDate, countDays }: fetchParams,
+    { location, checkInDate, countDays, sortByStars }: fetchParams,
     { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${checkInDate}&${countDays}`,
+        `hotels/${location}&${checkInDate}&${countDays}/${sortByStars}`,
       );
+
       return response.data;
     } catch (error: unknown) {
       if (isAxiosError(error)) {
