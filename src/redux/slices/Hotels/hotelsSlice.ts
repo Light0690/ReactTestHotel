@@ -55,7 +55,9 @@ const hotelsSlice = createSlice({
       state.countDays = action.payload.countDays;
     },
     setSortByStars: (state, action: PayloadAction<number>) => {
-      state.sortByStars = state.sortByStars.find((elem) => elem === action.payload)
+      state.sortByStars = state.sortByStars.find(
+        (elem) => elem === action.payload,
+      )
         ? state.sortByStars.filter((elem) => elem !== action.payload)
         : [...state.sortByStars, action.payload];
     },
@@ -96,10 +98,13 @@ const hotelsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchHotels.fulfilled, (state, action: PayloadAction<IHotelItem[]>) => {
-      state.hotels = action.payload;
-      state.isLoading = false;
-    });
+    builder.addCase(
+      fetchHotels.fulfilled,
+      (state, action: PayloadAction<IHotelItem[]>) => {
+        state.hotels = action.payload;
+        state.isLoading = false;
+      },
+    );
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
       state.error = "";
@@ -112,16 +117,23 @@ const hotelsSlice = createSlice({
 });
 
 export const locationSelector = (state: RootState) => state.hotels.location;
-export const checkInDateSelector = (state: RootState) => state.hotels.checkInDate;
+export const checkInDateSelector = (state: RootState) =>
+  state.hotels.checkInDate;
 export const countDaysSelector = (state: RootState) => state.hotels.countDays;
-export const sortByStarsSelector = (state: RootState) => state.hotels.sortByStars;
-export const sortByPriceSelector = (state: RootState) => state.hotels.sortByPrice;
+export const sortByStarsSelector = (state: RootState) =>
+  state.hotels.sortByStars;
+export const sortByPriceSelector = (state: RootState) =>
+  state.hotels.sortByPrice;
 export const isLoadingSelector = (state: RootState) => state.hotels.isLoading;
 export const errorSelector = (state: RootState) => state.hotels.error;
 // export const sortTypeSelector = (state: RootState) => state.hotels.sortType;
 export const hotelsSelector = (state: RootState) => state.hotels.hotels;
 export const favoritesSelector = (state: RootState) => state.hotels.favorites;
 
-export const { setSearchForm, setSortByStars, setSortByPrice, setErrorNotification } =
-  hotelsSlice.actions;
+export const {
+  setSearchForm,
+  setSortByStars,
+  setSortByPrice,
+  setErrorNotification,
+} = hotelsSlice.actions;
 export default hotelsSlice.reducer;

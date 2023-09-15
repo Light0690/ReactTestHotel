@@ -25,6 +25,6 @@ export const getLocalStorage = (key: string) => {
  * @param data любое значение
  */
 
-export const setLocalStorage = (key: string, data: string ) => {
+export const setLocalStorage = (key: string, data: string) => {
   localStorage.setItem(key, data);
 };

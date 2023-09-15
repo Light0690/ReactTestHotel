@@ -38,7 +38,15 @@ const Hotels = () => {
   const { isScreenMd, isScreenXl } = useResize();
 
   useEffect(() => {
-    dispatch(fetchHotels({ location, checkInDate, countDays, sortByStars, sortByPrice }));
+    dispatch(
+      fetchHotels({
+        location,
+        checkInDate,
+        countDays,
+        sortByStars,
+        sortByPrice,
+      }),
+    );
   }, [location, checkInDate, countDays, sortByStars, sortByPrice, dispatch]);
 
   return (
@@ -50,7 +58,11 @@ const Hotels = () => {
           <PopupMenu component={<SortAndSearchContainer />} />
         )}
         {isScreenMd ? (
-          <HotelContainer location={location} checkInDate={checkInDate} hotels={hotels} />
+          <HotelContainer
+            location={location}
+            checkInDate={checkInDate}
+            hotels={hotels}
+          />
         ) : (
           <div className={cn("block", styles.wrapper__group)}>
             <HotelGroup hotels={hotels} />

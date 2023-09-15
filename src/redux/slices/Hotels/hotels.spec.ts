@@ -22,7 +22,7 @@ describe("hotelsSlice", () => {
     hotels: [],
     favorites: [],
     sortByStars: [],
-    sortByPrice: []
+    sortByPrice: [],
   };
 
   test("должно вернуть initial state", () => {

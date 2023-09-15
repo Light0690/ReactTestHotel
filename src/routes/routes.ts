@@ -1,6 +1,11 @@
 import { lazy } from "react";
 
-import { HOTELSROUTE, HOTELBYIDROUTE, FAVORITEROUTE, NOTFOUNDROUTE } from "@constans/routesConst";
+import {
+  HOTELSROUTE,
+  HOTELBYIDROUTE,
+  FAVORITEROUTE,
+  NOTFOUNDROUTE,
+} from "@constans/routesConst";
 
 const Hotels = lazy(() => import("@pages/Hotels"));
 // const HotelById = lazy(() => import("@pages/HotelById"));

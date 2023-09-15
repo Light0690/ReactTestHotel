@@ -22,7 +22,9 @@ const App = () => {
             <Route
               path={route.path}
               element={
-                <Suspense fallback={<UILoading theme="black" isShadow={false} />}>
+                <Suspense
+                  fallback={<UILoading theme="black" isShadow={false} />}
+                >
                   {isAuth ? (
                     <Layout>
                       <route.element />
