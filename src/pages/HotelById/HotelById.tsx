@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import styles from "./HotelById.module.scss";
+// import styles from "./HotelById.module.scss";
 
 const HotelById = () => {
   const params = useParams();

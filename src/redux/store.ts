@@ -13,7 +13,7 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  setLocalStorage("auth", store.getState().auth.isAuth);
+  setLocalStorage("auth", store.getState().auth.isAuth.toString());
 });
 
 export type RootState = ReturnType<typeof store.getState>;

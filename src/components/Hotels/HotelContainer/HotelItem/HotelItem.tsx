@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch } from "@redux/hooks";
+// import { useAppDispatch } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date/date";
 
@@ -25,7 +25,7 @@ const HotelItem = ({
 }: IHotelItem) => {
   const navigation = useNavigate();
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   // const onClick = () => {
   //   dispatch(changeFavorites({ _id, checkInDate, days, hotelName, priceAvg, stars, isFavorite }));
