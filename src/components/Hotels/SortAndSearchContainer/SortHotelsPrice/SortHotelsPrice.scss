@@ -7,11 +7,15 @@
 
   .thumb {
     top: -6px;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     background-color: var(--theme-color-default);
-    border: 2px solid var(--color-green);
+    border: 5px solid var(--color-green);
     border-radius: 50%;
-    cursor: grabbing;
+    cursor: pointer;
+
+    &:hover {
+      border-width: 4.5px;
+    }
   }
 }
