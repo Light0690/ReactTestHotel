@@ -1,5 +1,5 @@
-export const HotelsRoute = "/";
-export const HotelByIdRoute = "/:id";
-export const LoginRoute = "/login";
-export const FavoriteRoute = "/favorite";
-export const NotFoundRoute = "/*";
+export const HOTELSROUTE = "/";
+export const HOTELBYIDROUTE = "/:id";
+export const LOGINROUTE = "/login";
+export const FAVORITEROUTE = "/favorite";
+export const NOTFOUNDROUTE = "/*";
