@@ -2,19 +2,21 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@redux/store";
 
 import { getNowDate } from "@helpers/date/date";
-
 import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
 
+import { MAX, MIN } from "@constans/sortPriceValues";
+
 import { IHotelItem } from "@Interfaces/IHotelItem";
-import { ISort } from "@Interfaces/ISort";
+// import { ISort } from "@Interfaces/ISort";
 
 export interface State {
   location: string;
   checkInDate: string;
   countDays: number;
+  sortByStars: number[];
+  sortByPrice: number[];
   isLoading: boolean;
   error: string;
-  sortByStars: number[];
   // sortType: ISort[];
   hotels: IHotelItem[];
   favorites: IHotelItem[];
@@ -24,9 +26,10 @@ const initialState: State = {
   location: "Москва",
   checkInDate: getNowDate(),
   countDays: 1,
+  sortByStars: [],
+  sortByPrice: [MIN, MAX],
   isLoading: false,
   error: "",
-  sortByStars: [],
   // sortType: [
   //   { title: "Рейтинг", type: "stars", desc: true },
   //   { title: "Цена", type: "priceAvg", desc: true },
@@ -52,11 +55,12 @@ const hotelsSlice = createSlice({
       state.countDays = action.payload.countDays;
     },
     setSortByStars: (state, action: PayloadAction<number>) => {
-      state.sortByStars = state.sortByStars.find(
-        (elem) => elem === action.payload,
-      )
+      state.sortByStars = state.sortByStars.find((elem) => elem === action.payload)
         ? state.sortByStars.filter((elem) => elem !== action.payload)
         : [...state.sortByStars, action.payload];
+    },
+    setSortByPrice: (state, action: PayloadAction<number[]>) => {
+      state.sortByPrice = action.payload;
     },
     // changeFavorites: (state, action: PayloadAction<IHotelItem>) => {
     //   state.hotels = state.hotels.map((elem) =>
@@ -92,13 +96,10 @@ const hotelsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchHotels.fulfilled,
-      (state, action: PayloadAction<IHotelItem[]>) => {
-        state.hotels = action.payload;
-        state.isLoading = false;
-      },
-    );
+    builder.addCase(fetchHotels.fulfilled, (state, action: PayloadAction<IHotelItem[]>) => {
+      state.hotels = action.payload;
+      state.isLoading = false;
+    });
     builder.addCase(fetchHotels.pending, (state) => {
       state.isLoading = true;
       state.error = "";
@@ -111,17 +112,16 @@ const hotelsSlice = createSlice({
 });
 
 export const locationSelector = (state: RootState) => state.hotels.location;
-export const checkInDateSelector = (state: RootState) =>
-  state.hotels.checkInDate;
+export const checkInDateSelector = (state: RootState) => state.hotels.checkInDate;
 export const countDaysSelector = (state: RootState) => state.hotels.countDays;
-export const sortByStarsSelector = (state: RootState) =>
-  state.hotels.sortByStars;
+export const sortByStarsSelector = (state: RootState) => state.hotels.sortByStars;
+export const sortByPriceSelector = (state: RootState) => state.hotels.sortByPrice;
 export const isLoadingSelector = (state: RootState) => state.hotels.isLoading;
 export const errorSelector = (state: RootState) => state.hotels.error;
 // export const sortTypeSelector = (state: RootState) => state.hotels.sortType;
 export const hotelsSelector = (state: RootState) => state.hotels.hotels;
 export const favoritesSelector = (state: RootState) => state.hotels.favorites;
 
-export const { setSearchForm, setSortByStars, setErrorNotification } =
+export const { setSearchForm, setSortByStars, setSortByPrice, setErrorNotification } =
   hotelsSlice.actions;
 export default hotelsSlice.reducer;

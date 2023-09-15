@@ -1,26 +1,34 @@
-import { useState } from "react";
-
 import Slider from "react-slider";
+
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+
+import { setSortByPrice, sortByPriceSelector } from "@redux/slices/Hotels/hotelsSlice";
+
+import { MAX, MIN } from "@constans/sortPriceValues";
 
 import "./SortHotelsPrice.scss";
 
-const MIN = 100;
-const MAX = 12000;
 
 const SortHotelsPrice = () => {
-  const [values, setValues] = useState([MIN, MAX]);
+  const sortByPrice = useAppSelector(sortByPriceSelector);
+
+  const dispatch = useAppDispatch();
+
+  const handleChange = (nums: number[]) => {
+    dispatch(setSortByPrice(nums));
+  };
 
   return (
     <div className="block">
-      <h3>Цена</h3>
+      <h3>Цена за 1 ночь</h3>
       <div>
-        от {values[0]} - до {values[1]}
+        от {sortByPrice[0]} - до {sortByPrice[1]}
       </div>
 
       <Slider
         className="slider"
-        onChange={setValues}
-        value={values}
+        onAfterChange={handleChange}
+        value={sortByPrice}
         min={MIN}
         max={MAX}
       />
