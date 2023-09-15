@@ -4,7 +4,7 @@ import { useAppDispatch } from "@redux/hooks";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/useTheme";
-import { FavoriteRoute, HotelsRoute } from "@constans/routesConst";
+import { FAVORITEROUTE, HOTELSROUTE } from "@constans/routesConst";
 
 import UiHeart from "@ui/UiHeart";
 
@@ -25,12 +25,12 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div>
-        <Link className={styles.header__title} to={HotelsRoute}>
+        <Link className={styles.header__title} to={HOTELSROUTE}>
           Simple Hotel Check
         </Link>
       </div>
       <div className={styles.header__buttons}>
-        <Link to={FavoriteRoute} className={styles.header__link}>
+        <Link to={FAVORITEROUTE} className={styles.header__link}>
           <UiHeart isActive={true} onClick={() => console.log(1)} />
         </Link>
         <button className={styles.header__icon} onClick={isTheme.changeIsDark}>
