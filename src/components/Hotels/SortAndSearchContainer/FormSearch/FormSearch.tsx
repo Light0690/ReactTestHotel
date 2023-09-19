@@ -40,7 +40,7 @@ export const FormSearch = () => {
       location: Yup.string().required("*поле обязательно"),
       checkInDate: Yup.string().required("*поле обязательно"),
       countDays: Yup.number()
-      .min(1,'*минимальное значение - 1')
+        .min(1, "*минимальное значение - 1")
         .typeError("*поле должно содержать только цифры")
         .required("*поле обязательно"),
     }),
