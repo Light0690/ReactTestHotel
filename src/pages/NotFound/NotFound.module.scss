@@ -17,3 +17,14 @@
     height: 180px;
   }
 }
+
+@media (max-width: 470px) {
+  .wrapper {
+    &__box {
+      width: 350px;
+    }
+    &__title {
+      font-size: 12px;
+    }
+  }
+}
