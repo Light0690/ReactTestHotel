@@ -14,12 +14,14 @@ import { FaHouse } from "react-icons/fa6";
 import { BsCircleFill } from "react-icons/bs";
 
 import styles from "./HotelGroup.module.scss";
+import { useResize } from "@hooks/useResize";
 
 interface Props {
   hotels: IHotelItem[];
 }
 
 const HotelGroup = ({ hotels }: Props) => {
+  const { width } = useResize();
   const isLoading = useAppSelector(isLoadingSelector);
   const favorites = useAppSelector(favoritesSelector);
 
@@ -27,10 +29,12 @@ const HotelGroup = ({ hotels }: Props) => {
     hotels.map(
       ({ _id, hotelName, checkInDate, days, priceAvg, stars, isFavorite }) => (
         <div className={styles.wrapper__item} key={_id}>
-          <div className={styles.wrapper__icon}>
-            <BsCircleFill className={styles.wrapper__circle} />
-            <FaHouse className={styles.wrapper__house} />
-          </div>
+          {width > 425 && (
+            <div className={styles.wrapper__icon}>
+              <BsCircleFill className={styles.wrapper__circle} />
+              <FaHouse className={styles.wrapper__house} />
+            </div>
+          )}
           <HotelItem
             _id={_id}
             hotelName={hotelName}
@@ -41,7 +45,7 @@ const HotelGroup = ({ hotels }: Props) => {
             isFavorite={isFavorite}
           />
         </div>
-      ),
+      )
     )
   ) : (
     <h2 className={styles.empty}>Нет подходящих отелей</h2>

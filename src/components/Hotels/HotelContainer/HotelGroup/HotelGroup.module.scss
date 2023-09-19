@@ -60,3 +60,11 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .wrapper {
+    &__title {
+      font-size: 16px;
+    }
+  }
+}

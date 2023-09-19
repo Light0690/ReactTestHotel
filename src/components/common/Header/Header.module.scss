@@ -68,3 +68,11 @@
     padding: 10px;
   }
 }
+
+@media (max-width: 425px) {
+  .header {
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
