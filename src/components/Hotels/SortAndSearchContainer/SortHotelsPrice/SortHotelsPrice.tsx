@@ -18,8 +18,13 @@ const SortHotelsPrice = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleChange = (nums: number[]) => {
+  const handleSliderChange = (nums: number[]) => {
     dispatch(setSortByPrice(nums));
+  };
+
+  const handleInputChange = (nums: number[]) => {
+    setSortValues(nums);
+    handleSliderChange(nums);
   };
 
   return (
@@ -31,7 +36,7 @@ const SortHotelsPrice = () => {
           type="number"
           value={sortValues[0]}
           onChange={(e) =>
-            handleChange([Number(e.target.value), sortByPrice[1]])
+            handleInputChange([Number(e.target.value), sortByPrice[1]])
           }
         />
         <input
@@ -39,14 +44,14 @@ const SortHotelsPrice = () => {
           type="number"
           value={sortValues[1]}
           onChange={(e) =>
-            handleChange([sortByPrice[0], Number(e.target.value)])
+            handleInputChange([sortByPrice[0], Number(e.target.value)])
           }
         />
       </div>
 
       <Slider
         className="slider"
-        onAfterChange={handleChange}
+        onAfterChange={handleSliderChange}
         onChange={setSortValues}
         value={sortValues}
         min={MIN}
