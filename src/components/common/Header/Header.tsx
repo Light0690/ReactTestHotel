@@ -31,7 +31,7 @@ const Header = () => {
       </div>
       <div className={styles.header__buttons}>
         <Link to={FAVORITEROUTE} className={styles.header__link}>
-          <UiHeart isActive={true} onClick={() => console.log(1)} />
+          <UiHeart isActive={true} onClick={() => console.log()} />
         </Link>
         <button className={styles.header__icon} onClick={isTheme.changeIsDark}>
           {isTheme.isDark ? <BsMoonFill /> : <BsFillSunFill />}
