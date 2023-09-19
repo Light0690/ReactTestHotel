@@ -45,7 +45,7 @@ const HotelGroup = ({ hotels }: Props) => {
             isFavorite={isFavorite}
           />
         </div>
-      )
+      ),
     )
   ) : (
     <h2 className={styles.empty}>Нет подходящих отелей</h2>
