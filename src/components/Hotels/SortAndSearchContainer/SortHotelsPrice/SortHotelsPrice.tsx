@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Slider from "react-slider";
 import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
@@ -13,6 +14,7 @@ import "./SortHotelsPrice.scss";
 
 const SortHotelsPrice = () => {
   const sortByPrice = useAppSelector(sortByPriceSelector);
+  const [sortValues, setSortValues] = useState(sortByPrice);
 
   const dispatch = useAppDispatch();
 
@@ -27,7 +29,7 @@ const SortHotelsPrice = () => {
         <input
           className={cn("slider__value", "slider__left")}
           type="number"
-          value={sortByPrice[0]}
+          value={sortValues[0]}
           onChange={(e) =>
             handleChange([Number(e.target.value), sortByPrice[1]])
           }
@@ -35,7 +37,7 @@ const SortHotelsPrice = () => {
         <input
           className={cn("slider__value", "slider__right")}
           type="number"
-          value={sortByPrice[1]}
+          value={sortValues[1]}
           onChange={(e) =>
             handleChange([sortByPrice[0], Number(e.target.value)])
           }
@@ -45,7 +47,8 @@ const SortHotelsPrice = () => {
       <Slider
         className="slider"
         onAfterChange={handleChange}
-        value={sortByPrice}
+        onChange={setSortValues}
+        value={sortValues}
         min={MIN}
         max={MAX}
       />
