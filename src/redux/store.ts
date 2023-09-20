@@ -20,7 +20,7 @@ store.subscribe(() => {
 
   setLocalStorage(AUTH, String(auth));
   setLocalStorage(USER, JSON.stringify(user));
- setLocalStorage(FAVORITES, JSON.stringify(favorites));
+  setLocalStorage(FAVORITES, JSON.stringify(favorites));
 });
 
 export type RootState = ReturnType<typeof store.getState>;

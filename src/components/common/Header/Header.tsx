@@ -16,11 +16,9 @@ import { BsMoonFill } from "react-icons/bs";
 
 import styles from "./Header.module.scss";
 
-
 const Header = () => {
-  const favorites = useAppSelector(favoritesSelector)
+  const favorites = useAppSelector(favoritesSelector);
   const isTheme = useTheme();
-
 
   const dispath = useAppDispatch();
 

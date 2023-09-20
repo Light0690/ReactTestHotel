@@ -32,23 +32,17 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchAuth.fulfilled,
-      (state, action) => {
-        state.isAuth = true;
-        state.user = action.payload;
-      }
-    );
+    builder.addCase(fetchAuth.fulfilled, (state, action) => {
+      state.isAuth = true;
+      state.user = action.payload;
+    });
     builder.addCase(fetchAuth.pending, (state) => {
       state.error = "";
     });
-    builder.addCase(
-      fetchRegistr.fulfilled,
-      (state, action) => {
-        state.isAuth = true;
-        state.user = action.payload;
-      }
-    );
+    builder.addCase(fetchRegistr.fulfilled, (state, action) => {
+      state.isAuth = true;
+      state.user = action.payload;
+    });
     builder.addCase(fetchRegistr.pending, (state) => {
       state.error = "";
     });

@@ -23,7 +23,7 @@ const Login = () => {
   const LoginLinkTSX = (
     <p onClick={() => setIsLoginForm((prev) => !prev)}>Регистрация</p>
   );
-  
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.blur}>

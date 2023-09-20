@@ -40,7 +40,7 @@ const Favorite = () => {
           })}
         </div>
         <div className={styles.wrapper__group}>
-          <HotelGroup hotels={favorites} empty="Не одного отеля не добавлено"/>
+          <HotelGroup hotels={favorites} empty="Не одного отеля не добавлено" />
         </div>
       </div>
     </div>

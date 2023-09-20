@@ -43,7 +43,7 @@ const HotelGroup = ({ hotels, empty }: Props) => {
             isFavorite={isFavorite}
           />
         </div>
-      )
+      ),
     )
   ) : (
     <h2 className={styles.empty}>{empty}</h2>
