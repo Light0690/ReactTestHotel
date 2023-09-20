@@ -1,9 +1,8 @@
 import { useAppSelector } from "@redux/hooks";
 
-import {
-  favoritesSelector,
-  isLoadingSelector,
-} from "@redux/slices/Hotels/hotelsSlice";
+import { isLoadingSelector } from "@redux/slices/Hotels/hotelsSlice";
+
+import { useResize } from "@hooks/useResize";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -14,16 +13,15 @@ import { FaHouse } from "react-icons/fa6";
 import { BsCircleFill } from "react-icons/bs";
 
 import styles from "./HotelGroup.module.scss";
-import { useResize } from "@hooks/useResize";
 
 interface Props {
   hotels: IHotelItem[];
+  empty: string;
 }
 
-const HotelGroup = ({ hotels }: Props) => {
+const HotelGroup = ({ hotels, empty }: Props) => {
   const { width } = useResize();
   const isLoading = useAppSelector(isLoadingSelector);
-  const favorites = useAppSelector(favoritesSelector);
 
   const hotelsTSX = hotels.length ? (
     hotels.map(
@@ -45,10 +43,10 @@ const HotelGroup = ({ hotels }: Props) => {
             isFavorite={isFavorite}
           />
         </div>
-      ),
+      )
     )
   ) : (
-    <h2 className={styles.empty}>Нет подходящих отелей</h2>
+    <h2 className={styles.empty}>{empty}</h2>
   );
   const skeletonsTSX = [...new Array(4)].map((_, id) => (
     <div key={id}>
@@ -58,9 +56,6 @@ const HotelGroup = ({ hotels }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.wrapper__title}>
-        Добавлено в избранное : <b>{favorites.length}</b> отеля
-      </div>
       <div className={styles.wrapper__group}>
         {isLoading ? skeletonsTSX : hotelsTSX}
       </div>

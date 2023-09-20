@@ -1,8 +1,10 @@
 .button {
   display: flex;
-  padding: 2px 6px;
   align-items: center;
+  justify-content: center;
   gap: 4px;
+  width: 100%;
+  padding: 6px;
   border-radius: 5px;
   border: 1px solid #41522e;
   background: #fff;
@@ -10,11 +12,9 @@
 
   &__title {
     color: #41522e;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
-    letter-spacing: -0.408px;
   }
   &__icon {
     display: flex;

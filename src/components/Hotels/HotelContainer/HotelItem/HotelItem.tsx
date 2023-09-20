@@ -1,10 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-// import { useAppDispatch } from "@redux/hooks";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
 import { addMonthToDate } from "@helpers/date/date";
 
-// import { changeFavorites } from "@redux/slices/Hotels/hotelsSlice";
+import {
+  changeFavorites,
+  favoritesSelector,
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import { IHotelItem } from "@Interfaces/IHotelItem";
 
@@ -23,13 +26,25 @@ const HotelItem = ({
   stars,
   isFavorite,
 }: IHotelItem) => {
-  const navigation = useNavigate();
+  const favorites = useAppSelector(favoritesSelector);
 
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  // const onClick = () => {
-  //   dispatch(changeFavorites({ _id, checkInDate, days, hotelName, priceAvg, stars, isFavorite }));
-  // };
+  const addToFavorite = () => {
+    dispatch(
+      changeFavorites({
+        _id,
+        hotelName,
+        checkInDate,
+        days,
+        priceAvg,
+        stars,
+        isFavorite,
+      })
+    );
+  };
+
+  const isFavoriteItem = favorites.some((elem) => elem._id === _id);
 
   const daysTSX = (): string => {
     if (days === 1) return `${days} день`;
@@ -37,15 +52,11 @@ const HotelItem = ({
     else return `${days} дней`;
   };
 
-  const goToHotelById = () => {
-    navigation(`/${_id}`);
-  };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.flex}>
         <h2 className={styles.wrapper__title}>{hotelName}</h2>
-        <UiHeart onClick={() => console.log(1)} isActive={isFavorite} />
+        <UiHeart onClick={addToFavorite} isActive={isFavoriteItem} />
       </div>
       <div className={styles.flex}>
         <div className={styles.wrapper__date}>
@@ -55,9 +66,9 @@ const HotelItem = ({
       </div>
       <div className={styles.flex}>
         <div className={styles.icons}>{<UiStars stars={stars} />}</div>
-        <div>
-          <UiButton title={"забронировать"} onClick={goToHotelById} />
-        </div>
+        <Link to={`/${_id}`}>
+          <UiButton title={"забронировать"} onClick={console.log} />
+        </Link>
       </div>
       <hr className={styles.hr} />
     </div>

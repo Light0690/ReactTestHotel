@@ -65,7 +65,7 @@ const Hotels = () => {
           />
         ) : (
           <div className={cn("block", styles.wrapper__group)}>
-            <HotelGroup hotels={hotels} />
+            <HotelGroup hotels={hotels} empty="Нет подходящих отелей" />
           </div>
         )}
       </div>

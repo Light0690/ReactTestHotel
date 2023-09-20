@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-import { useAppDispatch } from "@redux/hooks";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+
+import { favoritesSelector } from "@redux/slices/Hotels/hotelsSlice";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/useTheme";
@@ -14,8 +16,12 @@ import { BsMoonFill } from "react-icons/bs";
 
 import styles from "./Header.module.scss";
 
+
 const Header = () => {
+  const favorites = useAppSelector(favoritesSelector)
   const isTheme = useTheme();
+
+
   const dispath = useAppDispatch();
 
   const exit = () => {
@@ -32,6 +38,7 @@ const Header = () => {
       <div className={styles.header__buttons}>
         <Link to={FAVORITEROUTE} className={styles.header__link}>
           <UiHeart isActive={true} onClick={() => console.log()} />
+          <div className={styles.header__count}>{favorites.length}</div>
         </Link>
         <button className={styles.header__icon} onClick={isTheme.changeIsDark}>
           {isTheme.isDark ? <BsMoonFill /> : <BsFillSunFill />}

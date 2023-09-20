@@ -19,10 +19,25 @@
     gap: 20px;
   }
 
+  &__count{
+    position: relative;
+    top: -8px;
+    left: -6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 10px;
+    text-align: center;
+    color: var(--bg-color-default);
+    background-color: var(--text-color-default);
+    box-shadow: 0 0 3px var(--text-color-default);
+  }
+
   &__link,
   &__icon {
     display: flex;
     align-items: center;
+    text-decoration: none;
   }
 
   &__icon {
