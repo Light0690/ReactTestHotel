@@ -40,7 +40,7 @@ const HotelItem = ({
         priceAvg,
         stars,
         isFavorite,
-      }),
+      })
     );
   };
 
@@ -66,8 +66,8 @@ const HotelItem = ({
       </div>
       <div className={styles.flex}>
         <div className={styles.icons}>{<UiStars stars={stars} />}</div>
-        <Link to={`/${_id}`}>
-          <UiButton title={"забронировать"} onClick={console.log} />
+        <Link to={`/${_id}/${checkInDate}/${days}`}>
+          <UiButton title={"забронировать"} onClick={() => console.log()} />
         </Link>
       </div>
       <hr className={styles.hr} />

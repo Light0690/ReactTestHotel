@@ -13,7 +13,7 @@ import {
   sortByPriceSelector,
   sortByStarsSelector,
 } from "@redux/slices/Hotels/hotelsSlice";
-import { fetchHotels } from "@redux/async/Hotels/fetchHotels";
+import { fetchAllHotels } from "@redux/async/Hotels/fetchHotels";
 
 import SortAndSearchContainer from "@components/Hotels/SortAndSearchContainer";
 import HotelContainer from "@components/Hotels/HotelContainer";
@@ -39,7 +39,7 @@ const Hotels = () => {
 
   useEffect(() => {
     dispatch(
-      fetchHotels({
+      fetchAllHotels({
         location,
         checkInDate,
         countDays,
