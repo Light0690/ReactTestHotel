@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 600px;
+  height: 200px;
+  padding-left: 10px;
+
+  &__img {
+    width: 200px;
+    height: 180px;
+    border-radius: var(--border-radius-min);
+    box-shadow: var(--box-shadow-main);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 380px;
+  }
+}
+
+@media (max-width:870px) {
+    .wrapper{
+        width: 500px;
+    }
+}
