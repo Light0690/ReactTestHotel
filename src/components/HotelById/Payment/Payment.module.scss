@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  min-width: 250px;
+  height: 200px;
+
+  &__flex {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__price {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  &__promo {
+    font-size: 14px;
+  }
+
+  &__hr {
+    height: 0;
+    border: none;
+    border-top: 1px solid gray;
+  }
+}
