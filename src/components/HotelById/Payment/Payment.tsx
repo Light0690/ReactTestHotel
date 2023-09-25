@@ -19,13 +19,16 @@ const Payment = ({ price }: Props) => {
         <h4>Стоимость номера</h4>
         <span className={styles.wrapper__price}>{price} ₽</span>
       </div>
-      <div className={styles.wrapper__flex}>
+      <div className={cn(styles.wrapper__flex, styles.wrapper__promo)}>
         <input
+          id="promo"
           type="checkbox"
           checked={isChecked}
           onChange={() => setIsChecked((prev) => !prev)}
         />
-        <span className={styles.wrapper__promo}>У меня есть промокод</span>
+        <label htmlFor="promo">
+          У меня есть промокод
+        </label>
       </div>
       {isChecked && (
         <input
