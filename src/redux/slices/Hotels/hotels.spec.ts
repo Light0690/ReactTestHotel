@@ -1,4 +1,5 @@
 import { getNowDate } from "@helpers/date/date";
+import { MAX, MIN } from "@constans/sortPriceValues";
 import reducer, {
   State,
   // changeFavorites,
@@ -7,22 +8,24 @@ import reducer, {
   // sortFavorites,
 } from "./hotelsSlice";
 
+
 describe("hotelsSlice", () => {
   const state: State = {
     location: "Москва",
     checkInDate: getNowDate(),
     countDays: 1,
+    sortByStars: [],
+    sortByPrice: [MIN,MAX],
     isLoading: false,
     error: "",
 
-    // sortType: [
-    //   { title: "Рейтинг", type: "stars", desc: true },
-    //   { title: "Цена", type: "priceAvg", desc: true },
-    // ],
+    sortType: [
+      { title: "Рейтинг", type: "stars", desc: true },
+      { title: "Цена", type: "priceAvg", desc: true },
+    ],
     hotels: [],
+    hotelById : null,
     favorites: [],
-    sortByStars: [],
-    sortByPrice: [],
   };
 
   test("должно вернуть initial state", () => {
