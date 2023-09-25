@@ -10,7 +10,6 @@ import UiCheckBox from "@ui/UiCheckBox";
 
 import styles from "./SortHotelsStars.module.scss";
 
-
 const SortHotelsStars = () => {
   const sortByStars = useAppSelector(sortByStarsSelector);
   const dispatch = useAppDispatch();

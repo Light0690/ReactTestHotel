@@ -40,7 +40,7 @@ const HotelItem = ({
         priceAvg,
         stars,
         isFavorite,
-      })
+      }),
     );
   };
 

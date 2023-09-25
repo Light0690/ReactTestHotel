@@ -12,7 +12,7 @@ const UiFormInput = ({ type, onChange, value, sizeInput = "large" }: Props) => {
     <div className={styles.container}>
       <input
         type={type}
-        className={cn(styles.container__input,styles[sizeInput])}
+        className={cn(styles.container__input, styles[sizeInput])}
         value={value}
         onChange={onChange}
       />

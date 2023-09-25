@@ -8,14 +8,13 @@ import reducer, {
   // sortFavorites,
 } from "./hotelsSlice";
 
-
 describe("hotelsSlice", () => {
   const state: State = {
     location: "Москва",
     checkInDate: getNowDate(),
     countDays: 1,
     sortByStars: [],
-    sortByPrice: [MIN,MAX],
+    sortByPrice: [MIN, MAX],
     isLoading: false,
     error: "",
 
@@ -24,7 +23,7 @@ describe("hotelsSlice", () => {
       { title: "Цена", type: "priceAvg", desc: true },
     ],
     hotels: [],
-    hotelById : null,
+    hotelById: null,
     favorites: [],
   };
 

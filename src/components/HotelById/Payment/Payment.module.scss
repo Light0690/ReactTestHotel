@@ -1,8 +1,9 @@
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  gap: 20px;
   min-width: 250px;
-  height: 200px;
+  min-height: 200px;
   font-size: 14px;
 
   &__flex {

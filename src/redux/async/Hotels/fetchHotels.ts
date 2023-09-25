@@ -4,10 +4,10 @@ import { hotels } from "@api/hotels";
 
 export const fetchAllHotels = createAsyncThunk(
   "hotels/fetchAllHotels",
-  hotels.getHotels
+  hotels.getHotels,
 );
 
 export const fetchHotelById = createAsyncThunk(
   "hotels/fetchHotelById",
-  hotels.getHotelById
+  hotels.getHotelById,
 );

@@ -36,11 +36,11 @@ export const hotels = {
       sortByPrice,
       sortByStars,
     }: getHotelsParams,
-    { dispatch, rejectWithValue }: IReduxParams
+    { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/${location}&${checkInDate}&${countDays}&${sortByPrice}/${sortByStars}`
+        `hotels/${location}&${checkInDate}&${countDays}&${sortByPrice}/${sortByStars}`,
       );
 
       return response.data;
@@ -54,11 +54,11 @@ export const hotels = {
   },
   getHotelById: async (
     { id, checkInDate, countDays }: getHotelByIdParams,
-    { dispatch, rejectWithValue }: IReduxParams
+    { dispatch, rejectWithValue }: IReduxParams,
   ) => {
     try {
       const response = await instance.get<IHotelItem[]>(
-        `hotels/byId/${id}&${checkInDate}&${countDays}`
+        `hotels/byId/${id}&${checkInDate}&${countDays}`,
       );
 
       return response.data;
