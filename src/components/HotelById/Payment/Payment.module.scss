@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
-  gap: 20px;
+  justify-content: space-around;
+  gap: 16px;
   width: 250px;
   min-height: 200px;
   font-size: 14px;
@@ -27,8 +28,9 @@
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 890px) {
   .wrapper {
+    width: 220px;
     font-size: 12px;
   }
 }
