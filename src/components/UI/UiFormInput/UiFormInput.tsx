@@ -32,6 +32,7 @@ const UiFormInput = ({
         {title}
       </label>
       <input
+        id={name}
         name={name}
         type={type}
         className={styles.container__input}
