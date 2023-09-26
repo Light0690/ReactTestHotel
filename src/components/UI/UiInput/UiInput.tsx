@@ -4,14 +4,31 @@ import cn from "classnames";
 import styles from "./UiInput.module.scss";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  text?: string;
   sizeInput?: "small" | "large";
 }
 
-const UiFormInput = ({ type, onChange, value, sizeInput = "large" }: Props) => {
+const UiInput = ({
+  name,
+  type,
+  onChange,
+  value,
+  placeholder,
+  text,
+  sizeInput = "large",
+}: Props) => {
   return (
     <div className={styles.container}>
+      {text && (
+        <label htmlFor={name} className={styles.container__label}>
+          {text}
+        </label>
+      )}
       <input
+        id={name}
+        name={name}
         type={type}
+        placeholder={placeholder}
         className={cn(styles.container__input, styles[sizeInput])}
         value={value}
         onChange={onChange}
@@ -20,4 +37,4 @@ const UiFormInput = ({ type, onChange, value, sizeInput = "large" }: Props) => {
   );
 };
 
-export default UiFormInput;
+export default UiInput;
