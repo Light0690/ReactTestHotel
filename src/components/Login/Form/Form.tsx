@@ -7,8 +7,8 @@ import cn from "classnames";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { authSelector } from "@redux/slices/Auth/authSlice";
 
-import UiFormButton from "@components/UI/UiFormButton";
-import UiFormInput from "@components/UI/UiFormInput";
+import UiFormButton from "@ui/UiFormButton";
+import UiFormInput from "@ui/UiFormInput";
 
 import styles from "./Form.module.scss";
 
