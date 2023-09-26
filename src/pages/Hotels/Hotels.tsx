@@ -36,7 +36,7 @@ const Hotels = () => {
   const dispatch = useAppDispatch();
 
   const { isScreenMd, isScreenXl } = useResize();
-
+  
   useEffect(() => {
     dispatch(
       fetchAllHotels({

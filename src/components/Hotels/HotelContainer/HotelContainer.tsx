@@ -31,7 +31,7 @@ const HotelContainer = ({ location, checkInDate, hotels }: Props) => {
       <div className={styles.wrapper__carousel}>
         <Carousel />
       </div>
-      <HotelGroup hotels={hotels} />
+      <HotelGroup hotels={hotels} empty="Нет подходящих отелей" />
     </div>
   );
 };

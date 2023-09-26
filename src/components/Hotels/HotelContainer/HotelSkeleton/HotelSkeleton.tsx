@@ -4,7 +4,7 @@ import { useResize } from "@hooks/useResize";
 
 const HotelSkeleton = () => {
   const { width, isScreenLg } = useResize();
-  const size = isScreenLg ? 740 : width * 0.8;
+  const size = isScreenLg ? 720 : width * 0.77;
 
   return (
     <ContentLoader
