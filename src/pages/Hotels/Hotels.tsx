@@ -20,7 +20,6 @@ import HotelContainer from "@components/Hotels/HotelContainer";
 import HotelGroup from "@components/Hotels/HotelContainer/HotelGroup";
 
 import PopupMenu from "@ux/PopupMenu";
-import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Hotels.module.scss";
 
@@ -45,7 +44,7 @@ const Hotels = () => {
         countDays,
         sortByStars,
         sortByPrice,
-      }),
+      })
     );
   }, [location, checkInDate, countDays, sortByStars, sortByPrice, dispatch]);
 
@@ -69,7 +68,6 @@ const Hotels = () => {
           </div>
         )}
       </div>
-      <FetchWithError error={error} />
     </div>
   );
 };
