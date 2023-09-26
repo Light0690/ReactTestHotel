@@ -47,6 +47,7 @@
     "formik": "^2.4.3",
     "framer-motion": "^10.16.4",
     "jest-environment-jsdom": "^29.6.4",
+    "mask-js": "^2.1.0",
     "minoru": "^0.1.29",
     "prettier": "^3.0.3",
     "react-content-loader": "^6.2.1",
