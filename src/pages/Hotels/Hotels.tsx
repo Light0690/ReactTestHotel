@@ -44,7 +44,7 @@ const Hotels = () => {
         countDays,
         sortByStars,
         sortByPrice,
-      })
+      }),
     );
   }, [location, checkInDate, countDays, sortByStars, sortByPrice, dispatch]);
 

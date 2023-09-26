@@ -9,7 +9,6 @@ import FetchWithError from "@ux/FetchWithError";
 
 import styles from "./Layout.module.scss";
 
-
 interface Props {
   children: ReactNode;
 }
