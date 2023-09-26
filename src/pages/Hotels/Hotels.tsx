@@ -7,7 +7,6 @@ import { useResize } from "@hooks/useResize";
 import {
   checkInDateSelector,
   countDaysSelector,
-  errorSelector,
   hotelsSelector,
   locationSelector,
   sortByPriceSelector,
@@ -30,7 +29,6 @@ const Hotels = () => {
   const sortByStars = useAppSelector(sortByStarsSelector);
   const sortByPrice = useAppSelector(sortByPriceSelector);
   const hotels = useAppSelector(hotelsSelector);
-  const error = useAppSelector(errorSelector);
 
   const dispatch = useAppDispatch();
 
