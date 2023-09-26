@@ -7,7 +7,7 @@ const meta = {
 
 export default meta;
 
-export const small = {
+export const Small = {
   args: {
     type: "text",
     onChange: () => console.log(1),
@@ -16,7 +16,7 @@ export const small = {
   },
 } satisfies Meta<typeof UiInput>;
 
-export const large = {
+export const Large = {
   args: {
     type: "text",
     onChange: () => console.log(1),

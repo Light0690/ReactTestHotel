@@ -7,7 +7,7 @@ const meta = {
 
 export default meta;
 
-export const checked = {
+export const Checked = {
   args: {
     id: "promo",
     checked: true,
@@ -15,7 +15,7 @@ export const checked = {
     label: "У меня есть промокод",
   },
 } satisfies Meta<typeof UiCheckBox>;
-export const unChecked = {
+export const UnChecked = {
   args: {
     id: "promo",
     checked: false,
