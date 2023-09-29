@@ -4,22 +4,24 @@ import cn from "classnames";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 
-import { setSortByPrice, sortByPriceSelector } from "@redux/slices/Hotels/hotelsSlice";
+import {
+  setSortByPrice,
+  sortByPriceSelector,
+} from "@redux/slices/Hotels/hotelsSlice";
 
 import { MAX, MIN } from "@constans/sortPriceValues";
 
 import "./SortHotelsPrice.scss";
 
-
 const SortHotelsPrice = () => {
-  const sortByPrice = useAppSelector(sortByPriceSelector)
+  const sortByPrice = useAppSelector(sortByPriceSelector);
   const [sortValues, setSortValues] = useState(sortByPrice);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setSortValues(sortByPrice)
-  },[sortByPrice])
+    setSortValues(sortByPrice);
+  }, [sortByPrice]);
 
   const handleSliderChange = (nums: number[]) => {
     dispatch(setSortByPrice(nums));

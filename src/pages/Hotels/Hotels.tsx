@@ -72,7 +72,7 @@ const Hotels = () => {
           countDays,
           sortByStars,
           sortByPrice,
-        })
+        }),
       );
     }
   }, [

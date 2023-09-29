@@ -65,7 +65,7 @@ const hotelsSlice = createSlice({
         location: string;
         checkInDate: string;
         countDays: number;
-      }>
+      }>,
     ) => {
       state.location = action.payload.location;
       state.checkInDate = action.payload.checkInDate;
@@ -73,7 +73,7 @@ const hotelsSlice = createSlice({
     },
     setSortByStars: (state, action: PayloadAction<number>) => {
       state.sortByStars = state.sortByStars.find(
-        (elem) => elem === action.payload
+        (elem) => elem === action.payload,
       )
         ? state.sortByStars.filter((elem) => elem !== action.payload)
         : [...state.sortByStars, action.payload];
@@ -83,14 +83,14 @@ const hotelsSlice = createSlice({
     },
     changeFavorites: (state, action: PayloadAction<IHotelItem>) => {
       state.favorites = state.favorites.find(
-        (elem) => elem._id === action.payload._id
+        (elem) => elem._id === action.payload._id,
       )
         ? state.favorites.filter((elem) => elem._id !== action.payload._id)
         : [...state.favorites, action.payload];
     },
     sortFavorites: (
       state,
-      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>
+      action: PayloadAction<{ type: "stars" | "priceAvg"; desc: boolean }>,
     ) => {
       state.favorites.sort((a, b) => {
         return action.payload.desc
@@ -98,7 +98,7 @@ const hotelsSlice = createSlice({
           : a[action.payload.type] - b[action.payload.type];
       });
       state.sortType.map((elem) =>
-        elem.type === action.payload.type ? (elem.desc = !elem.desc) : ""
+        elem.type === action.payload.type ? (elem.desc = !elem.desc) : "",
       );
     },
     setErrorNotification: (state, action: PayloadAction<string>) => {
@@ -111,7 +111,7 @@ const hotelsSlice = createSlice({
       (state, action: PayloadAction<IHotelItem[]>) => {
         state.hotels = action.payload;
         state.isLoading = false;
-      }
+      },
     );
     builder.addCase(fetchAllHotels.pending, (state) => {
       state.isLoading = true;
@@ -126,7 +126,7 @@ const hotelsSlice = createSlice({
       (state, action: PayloadAction<IHotelItem>) => {
         state.hotelById = action.payload;
         state.isLoading = false;
-      }
+      },
     );
     builder.addCase(fetchHotelById.pending, (state) => {
       state.isLoading = true;
