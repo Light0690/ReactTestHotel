@@ -2,7 +2,7 @@
 
 ## Ссылки
 
-- `Project` https://light0690.github.io/ReactTestHotelFront/#/
+- `Project` https://light0690.github.io/ReactTestHotelFront/#/hotels
 - `Repository` https://github.com/Light0690/ReactTestHotelFront
 
 ## Технологии
