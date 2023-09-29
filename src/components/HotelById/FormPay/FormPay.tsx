@@ -14,9 +14,7 @@ import UiInput from "@ui/UiInput";
 
 import styles from "./FormPay.module.scss";
 
-interface Props {}
-
-export const FormPay = ({}: Props) => {
+export const FormPay = () => {
   const { email } = useAppSelector(userSelector);
   const bankCard = useAppSelector(bankCardSelector);
 

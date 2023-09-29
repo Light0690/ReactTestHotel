@@ -83,6 +83,7 @@ const Hotels = () => {
     sortByPrice,
     isSearch,
     dispatch,
+  
   ]);
 
   return (

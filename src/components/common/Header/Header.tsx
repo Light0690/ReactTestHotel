@@ -29,7 +29,7 @@ const Header = () => {
 
   const MAINROUTE = useMemo(() => {
     return HOTELSROUTE.substring(0, 7);
-  }, [HOTELSROUTE]);
+  }, []);
 
   return (
     <header className={styles.header}>
