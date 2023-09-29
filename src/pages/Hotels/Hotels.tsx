@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import qs from "qs";
 import cn from "classnames";
@@ -35,6 +35,7 @@ const Hotels = () => {
   const sortByPrice = useAppSelector(sortByPriceSelector);
   const hotels = useAppSelector(hotelsSelector);
 
+  const [isSearch, setIsSearch] = useState(false);
   const { searchParams } = useParams();
 
   const navigate = useNavigate();
@@ -45,8 +46,8 @@ const Hotels = () => {
   useEffect(() => {
     if (searchParams) {
       const params = qs.parse(searchParams);
-console.log(params)
       dispatch(setSearchParams(params));
+      setIsSearch(true);
     }
   }, []);
 
@@ -63,16 +64,26 @@ console.log(params)
 
     navigate(ROUTE);
 
-    dispatch(
-      fetchAllHotels({
-        location,
-        checkInDate,
-        countDays,
-        sortByStars,
-        sortByPrice,
-      })
-    );
-  }, [location, checkInDate, countDays, sortByStars, sortByPrice, dispatch]);
+    if (isSearch) {
+      dispatch(
+        fetchAllHotels({
+          location,
+          checkInDate,
+          countDays,
+          sortByStars,
+          sortByPrice,
+        })
+      );
+    }
+  }, [
+    location,
+    checkInDate,
+    countDays,
+    sortByStars,
+    sortByPrice,
+    isSearch,
+    dispatch,
+  ]);
 
   return (
     <div className={styles.wrapper}>
