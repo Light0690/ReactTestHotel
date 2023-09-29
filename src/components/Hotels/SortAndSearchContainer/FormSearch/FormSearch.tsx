@@ -19,7 +19,7 @@ interface FormValues {
   countDays: number;
 }
 
-export const FormSearch = () => {
+const FormSearch = () => {
   const location = useAppSelector(locationSelector);
   const checkInDate = useAppSelector(checkInDateSelector);
   const countDays = useAppSelector(countDaysSelector);
@@ -36,6 +36,7 @@ export const FormSearch = () => {
       checkInDate,
       countDays,
     },
+    enableReinitialize: true,
     validationSchema: Yup.object().shape({
       location: Yup.string().required("*поле обязательно"),
       checkInDate: Yup.string().required("*поле обязательно"),
