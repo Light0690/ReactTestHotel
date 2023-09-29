@@ -50,6 +50,7 @@
     "mask-js": "^2.1.0",
     "minoru": "^0.1.29",
     "prettier": "^3.0.3",
+    "qs": "^6.11.2",
     "react-content-loader": "^6.2.1",
     "react-icons": "^4.10.1",
     "react-slider": "^2.0.6",
