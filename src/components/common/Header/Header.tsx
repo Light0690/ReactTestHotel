@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
@@ -6,7 +7,7 @@ import { favoritesSelector } from "@redux/slices/Hotels/hotelsSlice";
 
 import { setAuth } from "@redux/slices/Auth/authSlice";
 import { useTheme } from "@context/useTheme";
-import { FAVORITEROUTE, HOTELSROUTE } from "@constans/routesConst";
+import { FAVORITESROUTE, HOTELSROUTE } from "@constans/routesConst";
 
 import UiHeart from "@ui/UiHeart";
 
@@ -26,15 +27,19 @@ const Header = () => {
     dispath(setAuth(false));
   };
 
+  const MAINROUTE = useMemo(() => {
+    return HOTELSROUTE.substring(0, 7);
+  }, [HOTELSROUTE]);
+
   return (
     <header className={styles.header}>
       <div>
-        <Link className={styles.header__title} to={HOTELSROUTE}>
+        <Link className={styles.header__title} to={MAINROUTE}>
           Simple Hotel Check
         </Link>
       </div>
       <div className={styles.header__buttons}>
-        <Link to={FAVORITEROUTE} className={styles.header__link}>
+        <Link to={FAVORITESROUTE} className={styles.header__link}>
           <UiHeart isActive={true} onClick={() => console.log()} />
           <div className={styles.header__count}>{favorites.length}</div>
         </Link>

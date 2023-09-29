@@ -3,7 +3,7 @@ import { lazy } from "react";
 import {
   HOTELSROUTE,
   HOTELBYIDROUTE,
-  FAVORITEROUTE,
+  FAVORITESROUTE,
   NOTFOUNDROUTE,
 } from "@constans/routesConst";
 
@@ -15,6 +15,6 @@ const NotFound = lazy(() => import("@pages/NotFound"));
 export const routes = [
   { path: HOTELSROUTE, element: Hotels },
   { path: HOTELBYIDROUTE, element: HotelById },
-  { path: FAVORITEROUTE, element: Favorite },
+  { path: FAVORITESROUTE, element: Favorite },
   { path: NOTFOUNDROUTE, element: NotFound },
 ];

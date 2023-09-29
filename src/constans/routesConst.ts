@@ -1,5 +1,5 @@
-export const HOTELSROUTE = "/";
+export const HOTELSROUTE = "/hotels/:searchParams?";
 export const HOTELBYIDROUTE = "/:id/:checkInDate/:countDays";
 export const LOGINROUTE = "/login";
-export const FAVORITEROUTE = "/favorite";
+export const FAVORITESROUTE = "/favorites";
 export const NOTFOUNDROUTE = "/*";
