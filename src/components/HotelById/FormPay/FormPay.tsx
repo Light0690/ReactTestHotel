@@ -40,7 +40,7 @@ export const FormPay = ({}: Props) => {
         sizeInput="small"
         type="email"
         name="email"
-        value={email}
+        value={email || ''}
         onChange={(e) => onChangeEmail(e)}
         placeholder="test@mail.ru"
       />
