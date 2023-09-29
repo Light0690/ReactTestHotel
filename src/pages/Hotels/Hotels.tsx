@@ -63,8 +63,10 @@ const Hotels = () => {
     const ROUTE = HOTELSROUTE.replace(":searchParams?", queryString);
 
     navigate(ROUTE);
+  }, [location, checkInDate, countDays, sortByStars, sortByPrice, navigate]);
 
-    if (isSearch) {
+  useEffect(() => {
+    if (!searchParams || isSearch) {
       dispatch(
         fetchAllHotels({
           location,
@@ -72,8 +74,9 @@ const Hotels = () => {
           countDays,
           sortByStars,
           sortByPrice,
-        }),
+        })
       );
+      setIsSearch(true);
     }
   }, [
     location,
@@ -83,7 +86,6 @@ const Hotels = () => {
     sortByPrice,
     isSearch,
     dispatch,
-  
   ]);
 
   return (
